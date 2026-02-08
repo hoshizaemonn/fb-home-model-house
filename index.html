@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>特別価格物件情報 - 大幅価格改定の物件をセレクトしました！ | FB HOME</title>
+    <title>完成見学会 | FB HOME</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -19,40 +19,6 @@
             color: #2c2c2c;
             line-height: 1.6;
             background-color: #faf9f6;
-        }
-
-        /* ========== ヘッダー（メニューボタン） ========== */
-        .header-menu {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .menu-button {
-            background: rgba(255, 255, 255, 0.92);
-            border: none;
-            border-radius: 16px;
-            padding: 18px 22px;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .menu-button:hover {
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-
-        .menu-button span {
-            display: block;
-            width: 28px;
-            height: 2.5px;
-            background-color: #1a3a5c;
-            margin: 6px 0;
-            border-radius: 2px;
-            transition: all 0.3s ease;
         }
 
         /* ========== ヒーローセクション ========== */
@@ -165,7 +131,7 @@
             letter-spacing: 1.5px;
         }
 
-        /* メインタイトル */
+        /* メインタイトル（袋文字） */
         .hero-main-title {
             color: #f0c040;
             font-size: 3.2rem;
@@ -174,6 +140,8 @@
             line-height: 1.35;
             letter-spacing: 2px;
         }
+
+        /* hero-outlined-text removed - using default hero-main-title style */
 
         /* サブタイトル */
         .hero-subtitle {
@@ -814,26 +782,6 @@
 
         .feature-item:hover .feature-image img {
             transform: scale(1.03);
-        }
-
-        /* 地図セクション用 */
-        .feature-map {
-            background: linear-gradient(135deg, #1a3a5c 0%, #2e5a7c 100%);
-            padding: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .map-illustration {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            text-align: center;
         }
 
         /* ========== 追従ボタン（固定ボタン） ========== */
@@ -1502,25 +1450,7 @@
             color: #4da6c9;
         }
 
-        .footer-website-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.1rem;
-            margin-bottom: 60px;
-            transition: all 0.3s ease;
-        }
-
-        .footer-website-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(240, 192, 64, 0.4);
-        }
+        /* footer-website-link removed */
 
         .footer-company-info {
             display: flex;
@@ -1613,6 +1543,7 @@
             }
 
             .hero-main-title { font-size: 2.3rem; }
+            /* hero-outlined-text responsive removed */
             .hero-subtitle { font-size: 1.05rem; }
 
             .cta-container { flex-direction: column; }
@@ -1642,15 +1573,6 @@
     </style>
 </head>
 <body>
-    <!-- メニューボタン -->
-    <div class="header-menu">
-        <button class="menu-button" aria-label="メニュー">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
     <!-- ヒーローセクション -->
     <section class="hero-section">
         <!-- 背景画像グリッド（4×3） -->
@@ -1674,7 +1596,6 @@
             <h1>
                 FB HOME
                 <span class="logo-sub">CALIFORNIA STYLE LIVING</span>
-                <span class="logo-sub" style="margin-top: 2px; letter-spacing: 4px;">CALIFORNIA &amp; WAON STYLE</span>
             </h1>
         </div>
 
@@ -1683,13 +1604,12 @@
             <div class="priority-badge">先着順！</div>
 
             <h2 class="hero-main-title">
-                モデルハウス<br>
-                特別販売
+                完成見学会
             </h2>
 
             <p class="hero-subtitle">
-                Amazonギフトカードプレゼント<br>
-                キャンペーン同時開催中！
+                来店予約特典<br>
+                Amazonギフトカードプレゼント
             </p>
 
         </div>
@@ -1705,7 +1625,7 @@
                 </h2>
             </div>
             <p class="brand-description">
-                「FB HOME」はCALIFORNIA STYLEとWAON STYLEの2つのラインナップで、光と風を感じる住まいを提案する分譲住宅ブランドです。<br><br>
+                FB HOMEはCALIFORNIA STYLEとWAON STYLEの2つのラインナップで、光と風を感じる住まいを提案する分譲住宅ブランドです。<br><br>
                 <strong style="color:#1a3a5c;">CALIFORNIA STYLE</strong> ― アメリカ西海岸発祥のCALIFORNIA STYLEは、カバードポーチやラップサイディングが象徴的。毎日の暮らしが楽しくなるお家、ライフプランの変化にも対応できるお家です。<br><br>
                 <strong style="color:#5a3e1b;">WAON</strong> ― 家族みんなが気持ちよく過ごすこと、一人ひとりが自由に自分時間を楽しむこと。その双方を両立するために生まれた住まいです。快適な家事ラク動線と大容量収納で、フレキシブルに暮らしに応えます。<br><br>
                 注文住宅で培ってきた技術やノウハウを活かした住まいづくりと、そこに住む人がいつまでも安心して快適に暮らせる街づくり。厳選した先進の機能を導入した豊かなデザイン性の高機能住宅を、コスト効率の高い戸建て分譲で福岡エリアに提供しています。
@@ -1737,12 +1657,12 @@
                 </div>
 
                 <!-- タイトル -->
-                <h3 class="special-offer-title">モデルハウス特別販売</h3>
+                <h3 class="special-offer-title">完成見学会</h3>
 
                 <!-- サブタイトル -->
                 <p class="special-offer-subtitle">
-                    展示の家具・インテリア装備の物件を<br>
-                    セレクトしました！
+                    完成した住まいを実際にご覧いただける<br>
+                    見学会を開催中！
                 </p>
             </div>
 
@@ -1919,23 +1839,15 @@
             <div class="feature-content">
                 <h3 class="feature-content-title">デザイン × 性能 ×<br>メンテナンス</h3>
                 <p class="feature-content-text">
-                    FB HOMEが大切にする3つのコンセプト。お客様の100人100色の夢を叶えるデザイン力、地震や火災に強いツーバイフォー構造とZEH対応の高い住宅性能、そしてお引渡し後も安心の充実したメンテナンスサポート。この3つが一体となって、永く愛せる住まいを実現します。
+                    大切にする3つのコンセプト。お客様の100人100色の夢を叶えるデザイン力、地震や火災に強いツーバイフォー構造とZEH対応の高い住宅性能、そしてお引渡し後も安心の充実したメンテナンスサポート。この3つが一体となって、永く愛せる住まいを実現します。
                 </p>
             </div>
         </div>
 
-        <!-- 特徴4: 通勤しやすく、住みやすい環境づくり -->
+        <!-- 特徴4: 通勤しやすく、住みやすい環境づくり（右側に写真配置） -->
         <div class="feature-item">
-            <div class="feature-map">
-                <div class="map-illustration">
-                    <div style="text-align: center;">
-                        <p style="font-size: 1.2rem; margin-bottom: 20px;">🏠 福岡エリア ⇄ 🏙️ 博多・天神</p>
-                        <p style="font-size: 1rem; line-height: 1.8;">
-                            JR鹿児島本線で福間から博多へ約35分<br>
-                            西鉄天神大牟田線で筑紫野から天神へ約25分
-                        </p>
-                    </div>
-                </div>
+            <div class="feature-image">
+                <img src="img/waon-avance.jpg" alt="通勤しやすい住環境">
             </div>
             <div class="feature-content">
                 <h3 class="feature-content-title">通勤しやすく、<br>住みやすい環境づくり</h3>
@@ -1971,7 +1883,7 @@
                 <div class="reliability-intro-text">
                     <h3 class="reliability-intro-title">全棟耐震等級3。見えないところまで、誠意を持って丁寧に。</h3>
                     <p class="reliability-intro-description">
-                        FB HOMEはパナソニックのテクノストラクチャー工法を採用。1棟ごとに388項目もの構造計算を実施し、全棟で最高等級の耐震等級3を実現しています。木と鉄の複合梁「テクノビーム」が、地震や台風などの大きな力にも高い耐力を発揮します。
+                        パナソニックのテクノストラクチャー工法を採用。1棟ごとに388項目もの構造計算を実施し、全棟で最高等級の耐震等級3を実現しています。木と鉄の複合梁「テクノビーム」が、地震や台風などの大きな力にも高い耐力を発揮します。
                     </p>
 
                     <!-- プロセス図 -->
@@ -1993,7 +1905,7 @@
                     <div class="reliability-card-content">
                         <h3 class="reliability-card-title">パナソニック テクノストラクチャー工法と<br>ZEH対応住宅。</h3>
                         <p class="reliability-card-text">
-                            FB HOMEが採用するテクノストラクチャー工法は、木と鉄の複合梁「テクノビーム」により、通常の木造住宅を超える強度と精度を実現。全棟で構造計算書を発行し、耐震等級3（最高等級）を標準装備しています。さらにZEH（ゼッチ＝ネット・ゼロ・エネルギー・ハウス）対応で、太陽光発電やEVコンセントなど環境性能の高い住宅を提供しています。
+                            テクノストラクチャー工法は、木と鉄の複合梁「テクノビーム」により、通常の木造住宅を超える強度と精度を実現。全棟で構造計算書を発行し、耐震等級3（最高等級）を標準装備しています。さらにZEH（ゼッチ＝ネット・ゼロ・エネルギー・ハウス）対応で、太陽光発電やEVコンセントなど環境性能の高い住宅を提供しています。
                         </p>
                         <span class="reliability-card-label">全棟耐震等級3 &amp; ZEH対応</span>
                     </div>
@@ -2021,7 +1933,7 @@
                     <div class="reliability-card-content">
                         <h3 class="reliability-card-title">お引き渡し後も安心の<br>定期アフターサービス体制</h3>
                         <p class="reliability-card-text">
-                            FB HOMEではお引き渡し後、3ヶ月・1年・2年・5年・10年の定期点検を原則無償で実施。日常のお困りごとやご相談にも迅速に対応いたします。住宅設備機器の延長保証サービスにより、メーカー保証終了後も24時間365日の修理受付、期間中の修理費100%カバーなど、7つの安心サポートをご用意しています。
+                            お引き渡し後、3ヶ月・1年・2年・5年・10年の定期点検を原則無償で実施。日常のお困りごとやご相談にも迅速に対応いたします。住宅設備機器の延長保証サービスにより、メーカー保証終了後も24時間365日の修理受付、期間中の修理費100%カバーなど、7つの安心サポートをご用意しています。
                         </p>
                     </div>
                 </div>
@@ -2041,7 +1953,7 @@
                     全棟耐震等級3の安心構造と<br>
                     充実のアフターサポート。
                 </p>
-                <p class="trust-note">株式会社福遼建設 ／ テクノストラクチャー工法採用</p>
+                <p class="trust-note">福岡ビルド株式会社 ／ https://f-build.co.jp/</p>
             </div>
         </div>
     </section>
@@ -2051,9 +1963,9 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">SPECIAL OFFER</div>
-                <h2 class="section-title">モデルハウス特別販売</h2>
+                <h2 class="section-title">完成見学会</h2>
                 <p class="section-description">
-                    展示の家具・インテリア装備の物件をセレクトしました！
+                    完成した住まいを実際にご覧いただけます
                 </p>
             </div>
 
@@ -2066,7 +1978,7 @@
                     </div>
                     <div class="property-content">
                         <h3 class="property-name">
-                            FB HOME <span style="font-size:0.75em; color:#4da6c9; font-weight:600;">CALIFORNIA STYLE</span><br>
+                            <span style="font-size:0.75em; color:#4da6c9; font-weight:600;">CALIFORNIA STYLE</span><br>
                             カリフォルニアヴィレッジ福間ビーチ
                         </h3>
                         <p class="property-specs">
@@ -2088,7 +2000,7 @@
                     </div>
                     <div class="property-content">
                         <h3 class="property-name">
-                            FB HOME <span style="font-size:0.75em; color:#4da6c9; font-weight:600;">CALIFORNIA STYLE</span><br>
+                            <span style="font-size:0.75em; color:#4da6c9; font-weight:600;">CALIFORNIA STYLE</span><br>
                             UMINAKAモデルハウス
                         </h3>
                         <p class="property-specs">
@@ -2110,7 +2022,7 @@
                     </div>
                     <div class="property-content">
                         <h3 class="property-name" style="color: #5a3e1b;">
-                            FB HOME <span style="font-size:0.8em; color:#8b6b3d;">WAON</span><br>
+                            <span style="font-size:0.8em; color:#8b6b3d;">WAON</span><br>
                             酒殿駅東分譲モデルハウス
                         </h3>
                         <p class="property-specs">
@@ -2134,8 +2046,8 @@
             <div class="contact-phone">
                 <div class="phone-icon">📞</div>
                 <div class="phone-content" style="text-align: center;">
-                    <div class="phone-label">フリーダイヤル</div>
-                    <div class="phone-number">0120-932-130</div>
+                    <div class="phone-label">お電話でのお問い合わせ</div>
+                    <div class="phone-number">092-710-1180</div>
                     <div class="phone-hours">営業時間 9:00〜18:00</div>
                 </div>
             </div>
@@ -2158,9 +2070,9 @@
                         <label for="property">物件名*</label>
                         <select id="property" required>
                             <option value="">物件を選択してください</option>
-                            <option value="カリフォルニアヴィレッジ福間ビーチ">FB HOME カリフォルニアヴィレッジ福間ビーチ</option>
-                            <option value="UMINAKAモデルハウス">FB HOME UMINAKAモデルハウス</option>
-                            <option value="酒殿駅東分譲モデルハウス">FB HOME WAON 酒殿駅東分譲モデルハウス</option>
+                            <option value="カリフォルニアヴィレッジ福間ビーチ">カリフォルニアヴィレッジ福間ビーチ</option>
+                            <option value="UMINAKAモデルハウス">UMINAKAモデルハウス</option>
+                            <option value="酒殿駅東分譲モデルハウス">WAON 酒殿駅東分譲モデルハウス</option>
                         </select>
                     </div>
 
@@ -2173,19 +2085,19 @@
                     <!-- メールアドレス -->
                     <div class="form-group">
                         <label for="email">メールアドレス*</label>
-                        <input type="email" id="email" placeholder="例）example@fbhome.jp" required>
+                        <input type="email" id="email" placeholder="例）example@email.com" required>
                     </div>
 
                     <!-- 電話番号 -->
                     <div class="form-group">
                         <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" placeholder="例）0120592821">
+                        <input type="tel" id="phone" placeholder="例）09012345678">
                     </div>
 
                     <!-- 住所 -->
                     <div class="form-group">
                         <label for="address">住所</label>
-                        <input type="text" id="address" placeholder="例）福岡市東区松島4-10-26">
+                        <input type="text" id="address" placeholder="例）福岡県那珂川市今光1丁目56番地">
                     </div>
 
                     <!-- 詳しいご相談内容 -->
@@ -2223,7 +2135,7 @@
 
     <!-- 追従ボタン（固定ボタン） -->
     <div class="sticky-cta">
-        <div class="sticky-campaign-badge">キャンペーン実施中</div>
+        <div class="sticky-campaign-badge">完成見学会 開催中</div>
         <div class="sticky-buttons">
             <a href="#properties" class="sticky-button">
                 <span class="icon">📢</span>
@@ -2246,30 +2158,20 @@
                 <span class="footer-sub">CALIFORNIA STYLE LIVING</span>
             </div>
 
-            <a href="#" class="footer-website-link">
-                FB HOME ウェブサイト
-                <span>→</span>
-            </a>
-
             <div class="footer-company-info">
                 <div class="company-details">
-                    <div class="company-logo">株式会社福遼建設</div>
+                    <div class="company-logo">福岡ビルド株式会社</div>
                     <p>
-                        本社／〒813-0062 福岡市東区松島4丁目10番26号<br>
-                        建設業許可／福岡県知事許可（般-4）第101549号<br>
-                        宅地建物取引業免許／福岡県知事免許（4）第16179号<br>
-                        二級建築士事務所／福岡県知事登録 第2-10635号
+                        本社／福岡県那珂川市今光1丁目56番地<br>
+                        TEL: 092-710-1180 / FAX: 092-804-0140<br>
+                        建設業許可／福岡県知事許可（特-3）第73084号<br>
+                        宅地建物取引業免許／福岡県知事（3）第16710号
                     </p>
-                </div>
-
-                <div class="company-details" style="text-align: right;">
-                    <div class="company-logo">FB HOME</div>
-                    <p style="margin-top: 8px;">フリーダイヤル 0120-932-130</p>
                 </div>
             </div>
 
             <p class="footer-copyright">
-                Copyright © FB HOME CORPORATION All Rights Reserved.
+                Copyright &copy; FB HOME All Rights Reserved.
             </p>
         </div>
     </footer>
@@ -2287,11 +2189,6 @@
                     });
                 }
             });
-        });
-
-        // メニューボタン
-        document.querySelector('.menu-button').addEventListener('click', function() {
-            alert('メニューを開きます');
         });
 
         // スクロールアニメーション
