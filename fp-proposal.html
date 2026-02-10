@@ -1570,8 +1570,9 @@
 
         /* ========== 【提案】光熱費比較セクション ========== */
         .cost-section {
-            background: linear-gradient(180deg, #f5f9fb 0%, #fff 100%);
+            background: linear-gradient(160deg, #0f2d4a 0%, #1a3a5c 40%, #2e5a7c 100%);
             padding: 100px 20px;
+            position: relative;
         }
 
         .cost-section .section-header {
@@ -1605,10 +1606,10 @@
         }
 
         .comparison-card.general {
-            background: #fff;
-            color: #333;
-            border: 2px solid #e0e0e0;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .comparison-card h3 {
@@ -1638,7 +1639,7 @@
         }
 
         .comparison-card.general .temp strong {
-            color: #999;
+            color: rgba(255,255,255,0.5);
         }
 
         .comparison-card .power {
@@ -1653,7 +1654,7 @@
         }
 
         .comparison-card.general .power {
-            background: #f5f5f5;
+            background: rgba(255,255,255,0.06);
         }
 
         .comparison-card .power strong {
@@ -1678,6 +1679,7 @@
         .comparison-note {
             max-width: 900px;
             margin: 30px auto 0;
+            color: rgba(255,255,255,0.45);
             text-align: center;
             font-size: 0.78rem;
             color: #999;
@@ -1884,13 +1886,11 @@
                 </div>
 
                 <a href="#properties" class="cta-button">
-                    <span class="icon">📢</span>
                     物件一覧を見る
                     <span class="arrow">→</span>
                 </a>
 
                 <a href="#contact" class="cta-button">
-                    <span class="icon">🏠</span>
                     今すぐ無料相談
                     <span class="arrow">→</span>
                 </a>
@@ -1940,9 +1940,8 @@
         <!-- CTAボタン -->
         <div class="gallery-cta-wrap">
             <a href="#contact" class="gallery-cta-btn">
-                <span class="cta-icon">🏠</span>
                 今すぐお問い合わせ
-                <span class="cta-arrow">▼</span>
+                <span class="cta-arrow">→</span>
             </a>
             <a href="#" class="gallery-monthly-link">▼ 月々の支払いや入居時期を今すぐ確認！</a>
         </div>
@@ -1993,9 +1992,8 @@
         <!-- CTAボタン -->
         <div class="gallery-cta-wrap">
             <a href="#contact" class="gallery-cta-btn">
-                <span class="cta-icon">🏠</span>
                 今すぐお問い合わせ
-                <span class="cta-arrow">▼</span>
+                <span class="cta-arrow">→</span>
             </a>
             <a href="#" class="gallery-monthly-link">▼ 月々の支払いや入居時期を今すぐ確認！</a>
         </div>
@@ -2004,9 +2002,9 @@
     <!-- 光熱費シミュレーションセクション -->
     <section class="cost-section">
         <div class="section-header">
-            <div class="section-label" style="color: #1a3a5c;">ENERGY SAVING</div>
-            <h2 class="section-title" style="color: #1a3a5c;">光熱費シミュレーション</h2>
-            <p class="section-description" style="color: #555;">UA値0.16の断熱性能が、毎月の光熱費にどう影響するか</p>
+            <div class="section-label" style="color: #f0c040;">ENERGY SAVING</div>
+            <h2 class="section-title" style="color: #fff;">光熱費シミュレーション</h2>
+            <p class="section-description" style="color: rgba(255,255,255,0.7);">UA値0.16の断熱性能が、毎月の光熱費にどう影響するか</p>
         </div>
         <div class="comparison-wrapper">
             <div class="comparison-card fp">
@@ -2022,15 +2020,15 @@
                 </div>
             </div>
             <div class="comparison-card general">
-                <h3 style="color: #999;">一般的な住宅（UA値0.87）</h3>
+                <h3 style="color: rgba(255,255,255,0.4);">一般的な住宅（UA値0.87）</h3>
                 <div class="temp">冬の室温 <strong>14</strong>℃</div>
                 <div class="power">エアコン + ストーブ + こたつ…</div>
                 <p>
                     一般的な断熱性能の住宅では、暖房器具を複数台使用しても部屋ごとの温度差が大きく、廊下やトイレは冷え込みがち。光熱費もかさみます。
                 </p>
-                <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 12px;">
-                    <div style="font-size: 0.85rem; color: #999;">年間光熱費の目安</div>
-                    <div style="font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: #999;">約30万円</div>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.06); border-radius: 12px;">
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">年間光熱費の目安</div>
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: rgba(255,255,255,0.4);">約30万円</div>
                 </div>
             </div>
         </div>
@@ -2040,11 +2038,9 @@
         </p>
 
         <!-- CTAボタン -->
-        <div class="gallery-cta-wrap" style="margin-top: 40px;">
-            <a href="#contact" class="gallery-cta-btn">
-                <span class="cta-icon">🏠</span>
-                今すぐ無料相談
-                <span class="cta-arrow">→</span>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="#contact" style="display: inline-block; background: linear-gradient(135deg, #f0c040 0%, #e6a817 100%); color: #1a3a5c; font-size: 1.2rem; font-weight: 800; padding: 22px 60px; border-radius: 60px; text-decoration: none; letter-spacing: 2px; box-shadow: 0 8px 30px rgba(240,192,64,0.4); transition: all 0.3s ease;">
+                今すぐ無料相談 →
             </a>
         </div>
     </section>
@@ -2333,16 +2329,12 @@
                 <p class="trust-note">福岡ビルド株式会社 ／ https://f-build.co.jp/</p>
 
                 <!-- CTAボタン -->
-                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 30px; max-width: 400px;">
-                    <a href="#properties" class="cta-button" style="text-decoration: none;">
-                        <span class="icon">📢</span>
-                        物件一覧を見る
-                        <span class="arrow">→</span>
+                <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 40px; align-items: flex-start;">
+                    <a href="#properties" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #f0c040 0%, #e6a817 100%); color: #1a3a5c; font-size: 1.15rem; font-weight: 800; padding: 20px 45px; border-radius: 60px; text-decoration: none; letter-spacing: 1.5px; box-shadow: 0 8px 30px rgba(240,192,64,0.35); transition: all 0.3s ease;">
+                        完成見学会の物件を見る →
                     </a>
-                    <a href="#contact" class="cta-button" style="text-decoration: none;">
-                        <span class="icon">🏠</span>
-                        今すぐ無料相談
-                        <span class="arrow">→</span>
+                    <a href="#contact" style="display: inline-flex; align-items: center; gap: 12px; background: transparent; color: #fff; font-size: 1.05rem; font-weight: 700; padding: 18px 45px; border-radius: 60px; text-decoration: none; letter-spacing: 1.5px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;">
+                        お問い合わせ・資料請求 →
                     </a>
                 </div>
             </div>
