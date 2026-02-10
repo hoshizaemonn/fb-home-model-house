@@ -1068,11 +1068,9 @@
         .trust-content {
             position: relative;
             z-index: 10;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            gap: 80px;
-            align-items: center;
+            text-align: center;
         }
 
         .trust-text {
@@ -1081,33 +1079,112 @@
 
         .trust-label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #f0c040;
             letter-spacing: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         .trust-title {
-            font-size: 3rem;
+            font-size: 2.4rem;
             font-weight: 900;
             color: white;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             line-height: 1.4;
         }
 
         .trust-description {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.95);
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.85);
             line-height: 2;
-            font-weight: 500;
+            font-weight: 400;
+            max-width: 650px;
+            margin: 0 auto 35px;
         }
 
         .trust-note {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
             margin-top: 20px;
+        }
+
+        /* 相談ステップ */
+        .consultation-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .consultation-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            border: 2px solid rgba(255,255,255,0.35);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.06);
+        }
+
+        .step-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: rgba(255,255,255,0.75);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .step-label {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        .step-arrow {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: -20px;
+        }
+
+        .trust-cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f0c040 0%, #e6a817 100%);
+            color: #1a3a5c;
+            font-size: 1.1rem;
+            font-weight: 800;
+            padding: 22px 55px;
+            border-radius: 4px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            box-shadow: 0 6px 25px rgba(240,192,64,0.35);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .trust-cta-btn::after {
+            content: '──';
+            margin-left: 15px;
+            font-weight: 400;
+            letter-spacing: -2px;
+        }
+
+        .trust-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 35px rgba(240,192,64,0.5);
         }
 
         /* ========== 物件カードグリッド ========== */
@@ -1731,6 +1808,11 @@
 
             .reliability-card:nth-child(even) { flex-direction: column; }
             .reliability-content { padding: 40px 20px; }
+
+            .consultation-steps { gap: 10px; }
+            .step-icon { width: 55px; height: 55px; }
+            .step-icon svg { width: 24px; height: 24px; }
+            .trust-cta-btn { font-size: 0.95rem; padding: 18px 35px; }
             .reliability-card { padding: 35px 25px; }
 
             .process-diagram { flex-wrap: wrap; }
@@ -2314,29 +2396,48 @@
         </div>
     </section>
 
-    <!-- TRUST AND RELIANCEセクション【提案：FP情報追加】 -->
+    <!-- お問い合わせ・ご相談セクション -->
     <section class="trust-section">
         <div class="trust-content">
             <div class="trust-text">
-                <div class="trust-label">TRUST AND RELIANCE</div>
-                <h2 class="trust-title">信用と信頼</h2>
+                <div class="trust-label">CONSULTATION</div>
+                <h2 class="trust-title">住まいのご相談</h2>
+
                 <p class="trust-description">
-                    福岡の暮らしを豊かにする<br>
-                    CALIFORNIA STYLE＆WAON STYLE。<br>
-                    全棟耐震等級3の安心構造と<br>
-                    UA値0.16・C値0.1の圧倒的性能。<br>
+                    お電話やオンラインでの住まいづくりのご相談を承っております。<br>
+                    性能のこと、デザインのこと、土地や費用のこと。<br>
+                    経験豊富なスタッフが、お客様のご要望に合わせてご提案いたします。<br>
+                    もちろんご相談は無料です。
                 </p>
-                <p class="trust-note">福岡ビルド株式会社 ／ https://f-build.co.jp/</p>
+
+                <!-- ステップ -->
+                <div class="consultation-steps">
+                    <div class="consultation-step">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <span class="step-label">1. お問い合わせ</span>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="consultation-step">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </div>
+                        <span class="step-label">2. 日時を調整</span>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="consultation-step">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <span class="step-label">3. ご相談・見学</span>
+                    </div>
+                </div>
 
                 <!-- CTAボタン -->
-                <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 40px; align-items: flex-start;">
-                    <a href="#properties" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #f0c040 0%, #e6a817 100%); color: #1a3a5c; font-size: 1.15rem; font-weight: 800; padding: 20px 45px; border-radius: 60px; text-decoration: none; letter-spacing: 1.5px; box-shadow: 0 8px 30px rgba(240,192,64,0.35); transition: all 0.3s ease;">
-                        完成見学会の物件を見る →
-                    </a>
-                    <a href="#contact" style="display: inline-flex; align-items: center; gap: 12px; background: transparent; color: #fff; font-size: 1.05rem; font-weight: 700; padding: 18px 45px; border-radius: 60px; text-decoration: none; letter-spacing: 1.5px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;">
-                        お問い合わせ・資料請求 →
-                    </a>
-                </div>
+                <a href="#contact" class="trust-cta-btn">お問い合わせ・ご相談予約</a>
+
+                <p class="trust-note">福岡ビルド株式会社 ／ https://f-build.co.jp/</p>
             </div>
         </div>
     </section>
