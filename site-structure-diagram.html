@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福岡ビルド サイト構成図・ワイヤー案</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #1a3a5c;
+            --navy-dark: #0f2d4a;
+            --gold: #f0c040;
+            --gold-dark: #d4a017;
+            --bg: #f7f8fa;
+            --card-bg: #fff;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --border: #e8ecf0;
+            --green: #27ae60;
+            --red: #e74c3c;
+            --blue: #3498db;
+            --purple: #8e44ad;
+            --orange: #e67e22;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ===== HEADER ===== */
+        .doc-header {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #2e5a7c 100%);
+            color: #fff;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .doc-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        .doc-header p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .doc-header .date {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* ===== NAV ===== */
+        .doc-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .doc-nav a {
+            display: inline-block;
+            padding: 8px 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .doc-nav a:hover { background: var(--navy); color: #fff; }
+
+        /* ===== SECTIONS ===== */
+        .doc-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-head .label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .section-head h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .section-head p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ===== SITEMAP ===== */
+        .sitemap-tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+        .sitemap-node {
+            background: var(--navy);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            position: relative;
+            min-width: 200px;
+        }
+        .sitemap-node.gold { background: var(--gold); color: var(--navy); }
+        .sitemap-node small { display: block; font-weight: 400; font-size: 0.75rem; opacity: 0.8; margin-top: 4px; }
+
+        .sitemap-connector {
+            width: 2px;
+            height: 30px;
+            background: var(--border);
+            margin: 0 auto;
+        }
+        .sitemap-branch {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+        .sitemap-branch::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: var(--border);
+        }
+        .sitemap-child {
+            background: #fff;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            min-width: 150px;
+            position: relative;
+        }
+        .sitemap-child::before {
+            content: '';
+            position: absolute;
+            top: -17px;
+            left: 50%;
+            width: 2px;
+            height: 15px;
+            background: var(--border);
+        }
+        .sitemap-child.california { border-color: var(--blue); color: var(--blue); }
+        .sitemap-child.nanoh { border-color: var(--orange); color: var(--orange); }
+        .sitemap-child.brooklyn { border-color: var(--text); color: var(--text); }
+        .sitemap-child.garage { border-color: var(--purple); color: var(--purple); }
+        .sitemap-child.performance { border-color: var(--green); color: var(--green); }
+        .sitemap-child.active { border-color: var(--gold); background: #fffde8; }
+        .sitemap-child small { display: block; font-weight: 400; font-size: 0.72rem; color: var(--text-light); margin-top: 3px; }
+
+        /* ===== WIREFRAME BLOCKS ===== */
+        .wireframe {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wire-block {
+            border: 2px solid var(--border);
+            border-radius: 0;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .wire-block + .wire-block {
+            border-top: none;
+        }
+        .wire-block:first-child { border-radius: 12px 12px 0 0; }
+        .wire-block:last-child { border-radius: 0 0 12px 12px; }
+
+        .wire-block-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            background: #f9fafb;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+        }
+        .wire-block-head .wire-tag {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 4px;
+            color: #fff;
+            min-width: 45px;
+            text-align: center;
+        }
+        .wire-block-head .wire-tag.fv { background: var(--red); }
+        .wire-block-head .wire-tag.section { background: var(--navy); }
+        .wire-block-head .wire-tag.cta { background: var(--gold); color: var(--navy); }
+        .wire-block-head .wire-tag.header { background: #555; }
+        .wire-block-head .wire-tag.footer { background: #555; }
+        .wire-block-head .wire-tag.form { background: var(--green); }
+
+        .wire-block-head h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            flex: 1;
+        }
+        .wire-block-head .wire-note {
+            font-size: 0.72rem;
+            color: var(--text-light);
+            background: #f0f0f0;
+            padding: 2px 10px;
+            border-radius: 10px;
+        }
+
+        .wire-block-body {
+            padding: 20px;
+        }
+        .wire-block-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        .wire-block-body li {
+            font-size: 0.82rem;
+            padding: 5px 0;
+            padding-left: 18px;
+            position: relative;
+            color: var(--text);
+        }
+        .wire-block-body li::before {
+            content: '・';
+            position: absolute;
+            left: 0;
+            color: var(--gold-dark);
+            font-weight: 700;
+        }
+        .wire-block-body .copy-example {
+            background: #f5f7fa;
+            border-left: 3px solid var(--gold);
+            padding: 10px 16px;
+            margin: 10px 0;
+            font-size: 0.85rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .wire-block-body .copy-example strong {
+            color: var(--navy);
+        }
+        .wire-block-body .elements {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .wire-block-body .el-box {
+            border: 1.5px dashed var(--border);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+            background: #fafbfc;
+        }
+        .wire-block-body .el-box.btn-primary {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+            font-weight: 800;
+        }
+        .wire-block-body .el-box.btn-secondary {
+            background: transparent;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+        }
+        .wire-block-body .el-box.photo {
+            background: linear-gradient(135deg, #dde4ec 0%, #c8d6e0 100%);
+            color: #7f8c8d;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wire-block-body .badge-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .wire-block-body .badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            background: #eaf2f8;
+            color: var(--navy);
+        }
+
+        /* ===== MAPPING TABLE ===== */
+        .mapping-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .mapping-table th {
+            background: var(--navy);
+            color: #fff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+        .mapping-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .mapping-table tr:nth-child(even) td { background: #f9fafb; }
+        .mapping-table .status {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 10px;
+        }
+        .mapping-table .status.done { background: #d5f5e3; color: var(--green); }
+        .mapping-table .status.partial { background: #fef9e7; color: var(--orange); }
+        .mapping-table .status.todo { background: #fadbd8; color: var(--red); }
+        .mapping-table .status.na { background: #eee; color: #999; }
+
+        /* ===== TASTE TEMPLATE CARDS ===== */
+        .taste-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .taste-card {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            background: #fff;
+        }
+        .taste-card-header {
+            padding: 20px;
+            color: #fff;
+            font-weight: 700;
+        }
+        .taste-card-header.california { background: linear-gradient(135deg, #2980b9, #3498db); }
+        .taste-card-header.nanoh { background: linear-gradient(135deg, #d35400, #e67e22); }
+        .taste-card-header.brooklyn { background: linear-gradient(135deg, #2c3e50, #34495e); }
+        .taste-card-header.garage { background: linear-gradient(135deg, #6c3483, #8e44ad); }
+        .taste-card-header h3 { font-size: 1rem; margin-bottom: 4px; }
+        .taste-card-header p { font-size: 0.75rem; opacity: 0.8; font-weight: 400; }
+
+        .taste-card-body {
+            padding: 20px;
+        }
+        .taste-card-body h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            margin-top: 14px;
+        }
+        .taste-card-body h4:first-child { margin-top: 0; }
+        .taste-card-body p, .taste-card-body li {
+            font-size: 0.78rem;
+            color: var(--text);
+        }
+        .taste-card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        .taste-card-body li {
+            padding: 3px 0;
+            padding-left: 14px;
+            position: relative;
+        }
+        .taste-card-body li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--gold-dark);
+            font-size: 0.7rem;
+        }
+
+        /* ===== FLOW DIAGRAM ===== */
+        .flow-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .flow-box {
+            background: #fff;
+            border: 2px solid var(--navy);
+            border-radius: 10px;
+            padding: 14px 22px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--navy);
+            min-width: 140px;
+        }
+        .flow-box.highlight {
+            background: var(--navy);
+            color: #fff;
+        }
+        .flow-box small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            margin-top: 4px;
+            opacity: 0.7;
+        }
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: var(--gold-dark);
+            font-weight: 700;
+        }
+
+        /* =====追従CTA SPEC ===== */
+        .sticky-cta-spec {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .sticky-cta-spec .spec-btn {
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-align: center;
+            min-width: 160px;
+        }
+        .sticky-cta-spec .spec-btn.primary { background: var(--gold); color: var(--navy); }
+        .sticky-cta-spec .spec-btn.secondary { background: transparent; border: 2px solid rgba(255,255,255,0.4); color: #fff; }
+        .sticky-cta-spec .spec-btn.tertiary { background: #25d366; color: #fff; }
+        .sticky-cta-spec .spec-label {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.7rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* ===== DIVIDER ===== */
+        .doc-divider {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: none;
+            border-top: 2px solid var(--border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .doc-header { padding: 40px 20px; }
+            .doc-header h1 { font-size: 1.3rem; }
+            .doc-section { padding: 40px 16px; }
+            .sitemap-branch { flex-direction: column; align-items: center; }
+            .sitemap-branch::before { display: none; }
+            .wire-block-body .elements { flex-direction: column; }
+            .flow-row { flex-direction: column; }
+            .flow-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="doc-header">
+    <div class="date">2026.02 制作資料</div>
+    <h1>福岡ビルド サイト構成図・ワイヤー案</h1>
+    <p>FP性能 × 海外テイスト住宅で差別化するための<br>TOPページ・テイスト別LPの情報設計と構成提案</p>
+</header>
+
+<!-- ===== NAV ===== -->
+<nav class="doc-nav">
+    <a href="#sitemap">サイト全体構成</a>
+    <a href="#flow">広告→CV導線</a>
+    <a href="#top-wire">TOPワイヤー案</a>
+    <a href="#lp-wire">テイスト別LP構成</a>
+    <a href="#mapping">現LP対応表</a>
+    <a href="#taste-template">テイスト差し替え</a>
+    <a href="#cta-spec">追従CTA仕様</a>
+</nav>
+
+
+<!-- ========================================== -->
+<!-- SECTION 1: サイト全体構成 -->
+<!-- ========================================== -->
+<section id="sitemap" class="doc-section">
+    <div class="section-head">
+        <div class="label">SITE STRUCTURE</div>
+        <h2>サイト全体構成（サイトマップ）</h2>
+        <p>TOPページを起点に、テイスト別LP・FP性能ページ・イベント・問い合わせへ展開</p>
+    </div>
+
+    <div class="sitemap-tree">
+        <div class="sitemap-node gold">
+            TOP ページ
+            <small>3つの理由＋テイスト導線＋事例</small>
+        </div>
+        <div class="sitemap-connector"></div>
+        <div class="sitemap-branch">
+            <div class="sitemap-child california">
+                California LP
+                <small>西海岸スタイル</small>
+            </div>
+            <div class="sitemap-child nanoh">
+                南欧 LP
+                <small>塗り壁・アーチ・瓦</small>
+            </div>
+            <div class="sitemap-child brooklyn">
+                Brooklyn LP
+                <small>黒×木×アイアン</small>
+            </div>
+            <div class="sitemap-child garage">
+                Garage LP
+                <small>趣味が主役</small>
+            </div>
+            <div class="sitemap-child performance">
+                FP性能ページ
+                <small>断熱・気密・耐震・品質</small>
+            </div>
+        </div>
+        <div class="sitemap-connector"></div>
+        <div class="sitemap-branch">
+            <div class="sitemap-child">
+                施工事例
+                <small>テイスト別フィルタ</small>
+            </div>
+            <div class="sitemap-child">
+                見学・イベント
+                <small>体感型イベント</small>
+            </div>
+            <div class="sitemap-child">
+                価格・資金計画
+                <small>目安と増減要因</small>
+            </div>
+            <div class="sitemap-child active">
+                お問い合わせ / 予約
+                <small>最短フォーム</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="doc-divider">
+
+<!-- ========================================== -->
+<!-- SECTION 2: 広告→CV導線 -->
+<!-- ========================================== -->
+<section id="flow" class="doc-section">
+    <div class="section-head">
+        <div class="label">USER FLOW</div>
+        <h2>広告 → CV（成約）導線</h2>
+        <p>Instagram / Google広告からLPへ、LPから来場予約・資料請求へ</p>
+    </div>
+
+    <div class="flow-row">
+        <div class="flow-box">
+            Instagram<br>リール / フィード
+            <small>認知・興味</small>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">
+            Google広告
+            <small>検索・ディスプレイ</small>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box highlight">
+            テイスト別LP
+            <small>California / 南欧 / etc.</small>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box" style="border-color: var(--gold); background: #fffde8;">
+            来場予約 / 資料請求
+            <small>CV（コンバージョン）</small>
+        </div>
+    </div>
+
+    <div class="flow-row" style="margin-top: 10px;">
+        <div class="flow-box">
+            自然検索 / SNS
+            <small>ブランド認知</small>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box highlight">
+            TOP ページ
+            <small>選ばれる理由・回遊</small>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">
+            テイスト別LP<br>or 性能ページ
+            <small>深掘り</small>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box" style="border-color: var(--gold); background: #fffde8;">
+            来場予約 / 資料請求
+            <small>CV（コンバージョン）</small>
+        </div>
+    </div>
+</section>
+
+<hr class="doc-divider">
+
+<!-- ========================================== -->
+<!-- SECTION 3: TOPページ ワイヤー案 -->
+<!-- ========================================== -->
+<section id="top-wire" class="doc-section">
+    <div class="section-head">
+        <div class="label">TOP PAGE WIREFRAME</div>
+        <h2>TOPページ ワイヤー案</h2>
+        <p>ヘッダーからフッターまでの全セクション構成</p>
+    </div>
+
+    <div class="wireframe">
+        <!-- HEADER -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag header">HEADER</span>
+                <h3>ヘッダー（追従・固定）</h3>
+                <span class="wire-note">常時表示</span>
+            </div>
+            <div class="wire-block-body">
+                <ul>
+                    <li>ロゴ / グローバルナビ（施工事例・テイスト住宅・FP性能・見学/イベント・価格・会社概要）</li>
+                    <li>右側：固定CTA【来場予約】（主）＋【資料請求】（副）</li>
+                    <li>ヘッダー下小文字：電話 / LINE / 営業時間</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FV -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag fv">FV</span>
+                <h3>ファーストビュー（最重要）</h3>
+                <span class="wire-note">世界観 → すぐ予約</span>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>メインコピー案:</strong><br>
+                    「海外の"空気感"を、FP性能で標準に。」
+                </div>
+                <div class="copy-example">
+                    <strong>サブコピー案:</strong><br>
+                    「カリフォルニア・南欧・ブルックリン・ガレージハウス。<br>デザインは尖らせて、性能はブレない家づくり。」
+                </div>
+                <div class="elements">
+                    <div class="el-box btn-primary">来場予約（最短60秒）</div>
+                    <div class="el-box btn-secondary">テイストカタログを取り寄せる</div>
+                </div>
+                <div class="badge-row">
+                    <span class="badge">FPの家 加盟</span>
+                    <span class="badge">施工エリア：福岡・佐賀中心</span>
+                    <span class="badge">相談無料 / 土地探しから対応</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- セクションA -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">A</span>
+                <h3>テイスト導線（4カード）</h3>
+                <span class="wire-note">好みで自己選別</span>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「"好き"で選べる、テイスト別ラインナップ」
+                </div>
+                <div class="elements">
+                    <div class="el-box photo">California<br><small>西海岸の開放感。デッキと光が主役。</small></div>
+                    <div class="el-box photo">南欧<br><small>塗り壁と瓦、柔らかい曲線と温もり。</small></div>
+                    <div class="el-box photo">Brooklyn<br><small>素材感×無骨。黒・木・アイアン。</small></div>
+                    <div class="el-box photo">Garage<br><small>趣味が主役。ガレージから間取りを組む。</small></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- セクションB -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">B</span>
+                <h3>選ばれる理由（3本柱）</h3>
+                <span class="wire-note">差別化を短く断言</span>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「福岡ビルドが"海外テイスト×性能"で選ばれる理由」
+                </div>
+                <ul>
+                    <li><strong>FP性能を"標準"に</strong> ─ 断熱・気密・耐震・施工品質を、見えないところから揃える。</li>
+                    <li><strong>海外テイストの再現力</strong> ─ 窓割り、素材、照明、外構まで"らしさ"を設計で作る。</li>
+                    <li><strong>予算設計が明快</strong> ─ 仕様と優先順位を整理し、ムダな上振れを防ぐ。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- セクションC -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">C</span>
+                <h3>施工事例（テイスト別タブ/フィルタ）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="badge-row">
+                    <span class="badge">California</span>
+                    <span class="badge">南欧</span>
+                    <span class="badge">Brooklyn</span>
+                    <span class="badge">Garage</span>
+                    <span class="badge">平屋</span>
+                    <span class="badge">2階建</span>
+                </div>
+                <ul>
+                    <li>事例カード：写真＋延床＋家族構成＋推しポイント一言</li>
+                    <li>CTA：【施工事例をもっと見る】</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- セクションD -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">D</span>
+                <h3>FP性能（仕組みと検査で信頼）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「性能は、見える化して約束する」
+                </div>
+                <div class="elements">
+                    <div class="el-box">断熱<br><small>一年中、温度差を小さく</small></div>
+                    <div class="el-box">気密<br><small>すき間を減らし計画換気</small></div>
+                    <div class="el-box">耐震<br><small>構造計画と金物・壁量</small></div>
+                    <div class="el-box">品質<br><small>工程検査・記録・第三者</small></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- セクションE -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">E</span>
+                <h3>見学・イベント</h3>
+                <span class="wire-note">CV直結</span>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「まずは"体感"から」
+                </div>
+                <div class="elements">
+                    <div class="el-box">モデルハウス</div>
+                    <div class="el-box">完成見学会</div>
+                    <div class="el-box">オンライン相談</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- セクションF -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">F</span>
+                <h3>価格・資金計画（不安潰し）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「価格の考え方（目安と増減要因）」
+                </div>
+                <ul>
+                    <li>本体価格の目安：◯◯〜◯◯（参考）</li>
+                    <li>増減しやすい項目：外構・窓仕様・造作・ガレージ…</li>
+                    <li>CTA：【無料：概算見積もり相談】</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- セクションG -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">G</span>
+                <h3>家づくりの流れ</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="elements">
+                    <div class="el-box">相談</div>
+                    <div class="el-box">プラン</div>
+                    <div class="el-box">見積</div>
+                    <div class="el-box">契約</div>
+                    <div class="el-box">着工</div>
+                    <div class="el-box">引渡し</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- セクションH -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">H</span>
+                <h3>FAQ（10問）</h3>
+            </div>
+            <div class="wire-block-body">
+                <ul>
+                    <li>土地なしOK？ / 予算の決め方 / 住宅ローン / 施工エリア / 見積の見方</li>
+                    <li>仕様変更 / 保証 / 工期 / 断熱気密 / デザイン相談</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 最終CTA -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag cta">CTA</span>
+                <h3>最終CTA（帯）</h3>
+                <span class="wire-note">フッター直前</span>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「"好き"を、性能で裏付けた家づくりを。」
+                </div>
+                <div class="elements">
+                    <div class="el-box btn-primary">来場予約</div>
+                    <div class="el-box btn-secondary">資料請求</div>
+                    <div class="el-box" style="background: #25d366; color: #fff; border-color: #25d366;">LINEで相談</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="doc-divider">
+
+<!-- ========================================== -->
+<!-- SECTION 4: テイスト別LP（California版） -->
+<!-- ========================================== -->
+<section id="lp-wire" class="doc-section">
+    <div class="section-head">
+        <div class="label">TASTE LP WIREFRAME — CALIFORNIA</div>
+        <h2>テイスト別LP構成（California版）</h2>
+        <p>広告→LP→来場予約を想定した鉄板構成</p>
+    </div>
+
+    <div class="wireframe">
+        <!-- FV -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag fv">FV</span>
+                <h3>ファーストビュー</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>H1:</strong> 「福岡で建てる、California House。」<br>
+                    <strong>サブ:</strong> 「西海岸の開放感とラフな素材感を、FP性能で"標準"に。<br>デッキ、外構、窓の抜けまで含めて、暮らしの空気感を設計します。」
+                </div>
+                <div class="elements">
+                    <div class="el-box btn-primary">来場予約（最短60秒）</div>
+                    <div class="el-box btn-secondary">California事例・仕様資料をもらう</div>
+                </div>
+                <div class="badge-row">
+                    <span class="badge">FPの家 加盟</span>
+                    <span class="badge">施工エリア：福岡・佐賀</span>
+                    <span class="badge">相談無料</span>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-light); margin-top: 8px;">※強引な営業は行いません。検討段階でもお気軽に。</p>
+            </div>
+        </div>
+
+        <!-- 共感→解決 -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">01</span>
+                <h3>共感（悩み） → 解決（提案）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「"それっぽい"じゃなく、ちゃんとCalifornia。」
+                </div>
+                <ul>
+                    <li>写真では良いのに、建つと"普通の家"に見える</li>
+                    <li>素材や色を選んだのに、窓割りや外構で台無しになる</li>
+                    <li>デザイン重視にしたら、性能や住み心地が不安</li>
+                </ul>
+                <div class="copy-example" style="border-left-color: var(--green);">
+                    <strong>解決:</strong> 福岡ビルドは、テイストの再現とFP性能をセットで設計。<br>
+                    「見た目」だけでなく、光・風・温熱環境・動線まで含めて"西海岸の暮らし"をつくります。
+                </div>
+            </div>
+        </div>
+
+        <!-- 設計ルール -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">02</span>
+                <h3>Californiaの"設計ルール"（差別化の核）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「Californiaらしさは、ディテールで決まる」
+                </div>
+                <ul>
+                    <li><strong>窓割りと抜け:</strong> リビングから外へ視線が抜ける計画</li>
+                    <li><strong>素材のレイヤー:</strong> 木・塗り・金属のバランスで"ラフさ"を出す</li>
+                    <li><strong>外と中のつながり:</strong> デッキ／土間／玄関ポーチで居場所を増やす</li>
+                    <li><strong>照明計画:</strong> 昼と夜で表情が変わる間接・スポットの配置</li>
+                    <li><strong>外構込みの完成形:</strong> 建物単体で終わらせない（植栽・フェンス・駐車）</li>
+                </ul>
+                <div class="elements" style="margin-top: 12px;">
+                    <div class="el-box photo">外観写真</div>
+                    <div class="el-box photo">LDK写真</div>
+                    <div class="el-box photo">デッキ写真</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FP性能 -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">03</span>
+                <h3>FP性能（安心の裏付け）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「デザインは尖らせて、性能はブレない。」<br><br>
+                    Californiaテイストは開口や空間の伸びが魅力。だからこそ、断熱・気密・換気・耐震・施工品質を"標準"として整えることが重要。
+                </div>
+                <ul>
+                    <li><strong>断熱:</strong> UA値0.16で温度差を小さく、冷暖房効率を高める</li>
+                    <li><strong>気密:</strong> C値0.1。測定で確認し、数値で見える化</li>
+                    <li><strong>換気:</strong> 計画換気を活かし、空気の流れを設計</li>
+                    <li><strong>耐震:</strong> 388項目の構造計算、全棟耐震等級3</li>
+                    <li><strong>品質:</strong> 工程ごとの検査・記録で"見えない部分"も管理</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 施工事例 -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">04</span>
+                <h3>施工事例（3件）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="elements">
+                    <div class="el-box photo">事例1<br><small>Deck Livingの家</small></div>
+                    <div class="el-box photo">事例2<br><small>Ocean Viewの家</small></div>
+                    <div class="el-box photo">事例3<br><small>Surf Styleの家</small></div>
+                </div>
+                <ul>
+                    <li>各カード：写真＋延床＋家族構成＋予算帯（任意）＋一言</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 価格 -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">05</span>
+                <h3>価格の考え方</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「価格は"テイストの優先順位"で決まる」<br><br>
+                    Californiaは「窓」「外構」「素材感」で印象が大きく変わります。<br>
+                    最初に優先順位を整理し、"効くところに予算を集中"させます。
+                </div>
+                <div class="badge-row">
+                    <span class="badge">外構（植栽/フェンス/土間）</span>
+                    <span class="badge">窓仕様・サイズ</span>
+                    <span class="badge">造作（洗面/収納/TVボード）</span>
+                    <span class="badge">デッキ・庇</span>
+                    <span class="badge">ガレージ（有無）</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 来場・相談 -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag cta">CTA</span>
+                <h3>来場・相談導線（CVセクション）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>見出し:</strong> 「まずは、写真では伝わらない"空気感"を体感してください」
+                </div>
+                <div class="elements">
+                    <div class="el-box">完成見学会に行く<br><small>（日時表示）</small></div>
+                    <div class="el-box">モデルを見に行く<br><small>（場所表示）</small></div>
+                    <div class="el-box">オンラインで相談<br><small>（30分）</small></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- フォーム -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag form">FORM</span>
+                <h3>フォーム（最短項目）</h3>
+            </div>
+            <div class="wire-block-body">
+                <ul>
+                    <li>お名前</li>
+                    <li>電話 or メール</li>
+                    <li>希望（来場/オンライン/資料）</li>
+                    <li>希望日（第1〜第3）</li>
+                    <li>検討状況（建替/土地探し/土地あり）</li>
+                    <li>好きなテイスト（California固定＋任意で複数）</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag section">06</span>
+                <h3>FAQ（8問）</h3>
+            </div>
+            <div class="wire-block-body">
+                <ul>
+                    <li>まだ土地がありません。相談できますか？</li>
+                    <li>予算が決まっていません。概算から可能ですか？</li>
+                    <li>デザインの持ち込み（Pinterest等）は可能？</li>
+                    <li>FP性能は標準ですか？オプションですか？</li>
+                    <li>工期はどれくらい？</li>
+                    <li>施工エリアはどこまで？</li>
+                    <li>住宅ローン相談は可能？</li>
+                    <li>見積り後に断っても大丈夫？</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 最終CTA -->
+        <div class="wire-block">
+            <div class="wire-block-head">
+                <span class="wire-tag cta">CTA</span>
+                <h3>最終CTA（帯）</h3>
+            </div>
+            <div class="wire-block-body">
+                <div class="copy-example">
+                    <strong>「Californiaの"好き"を、性能で裏付ける家づくり。」</strong>
+                </div>
+                <div class="elements">
+                    <div class="el-box btn-primary">来場予約</div>
+                    <div class="el-box btn-secondary">資料請求</div>
+                    <div class="el-box" style="background: #25d366; color: #fff; border-color: #25d366;">LINE相談</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="doc-divider">
+
+<!-- ========================================== -->
+<!-- SECTION 5: 現在のLP対応表 -->
+<!-- ========================================== -->
+<section id="mapping" class="doc-section">
+    <div class="section-head">
+        <div class="label">CURRENT LP MAPPING</div>
+        <h2>現在のLP（fp-proposal.html）との対応表</h2>
+        <p>提案構成と現在のLPのどこが対応し、何が足りないかの一覧</p>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="mapping-table">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">提案セクション</th>
+                    <th style="width: 30%;">現在のLP 対応箇所</th>
+                    <th style="width: 10%;">状態</th>
+                    <th style="width: 30%;">備考・改善案</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>FV（ファーストビュー）</strong></td>
+                    <td>ヒーローセクション（完成見学会）</td>
+                    <td><span class="status partial">要改善</span></td>
+                    <td>「見学会」訴求→テイスト＋性能の世界観訴求に変更。信頼バッジ追加。</td>
+                </tr>
+                <tr>
+                    <td><strong>共感→解決（悩み→提案）</strong></td>
+                    <td>─</td>
+                    <td><span class="status todo">新規追加</span></td>
+                    <td>「"それっぽい"じゃなく、ちゃんとCalifornia。」のパート追加</td>
+                </tr>
+                <tr>
+                    <td><strong>テイスト導線（4カード）</strong></td>
+                    <td>California & WAON Style 紹介</td>
+                    <td><span class="status partial">要改善</span></td>
+                    <td>4テイスト（California/南欧/Brooklyn/Garage）への拡張が理想</td>
+                </tr>
+                <tr>
+                    <td><strong>選ばれる理由（3本柱）</strong></td>
+                    <td>FEATURES「お客様に選ばれる家づくり」</td>
+                    <td><span class="status partial">要改善</span></td>
+                    <td>「FP性能×海外テイスト×予算設計」の3軸に整理</td>
+                </tr>
+                <tr>
+                    <td><strong>設計ルール（テイスト差別化核）</strong></td>
+                    <td>California / WAON 各ギャラリー</td>
+                    <td><span class="status partial">要改善</span></td>
+                    <td>ディテール（窓割り/素材/照明/外構）の説明を深掘り</td>
+                </tr>
+                <tr>
+                    <td><strong>FP性能（数値裏付け）</strong></td>
+                    <td>品質と保証・サポート + 光熱費シミュレーション</td>
+                    <td><span class="status done">対応済み</span></td>
+                    <td>UA0.16/C0.1/50年保証/気密測定 → 充実。現状維持でOK</td>
+                </tr>
+                <tr>
+                    <td><strong>施工事例（テイスト別フィルタ）</strong></td>
+                    <td>─</td>
+                    <td><span class="status todo">新規追加</span></td>
+                    <td>テイスト別フィルタ付きギャラリーページの新設を検討</td>
+                </tr>
+                <tr>
+                    <td><strong>価格・資金計画</strong></td>
+                    <td>─</td>
+                    <td><span class="status todo">新規追加</span></td>
+                    <td>「目安と増減要因」で不安を先に潰すセクション追加</td>
+                </tr>
+                <tr>
+                    <td><strong>光熱費シミュレーション</strong></td>
+                    <td>ENERGY SAVING セクション</td>
+                    <td><span class="status done">対応済み</span></td>
+                    <td>一般住宅との比較、青系背景。現状維持でOK</td>
+                </tr>
+                <tr>
+                    <td><strong>見学・イベント</strong></td>
+                    <td>SPECIAL OFFER「完成見学会」</td>
+                    <td><span class="status done">対応済み</span></td>
+                    <td>物件3件掲載済み。「体感型」の文言追加を検討</td>
+                </tr>
+                <tr>
+                    <td><strong>家づくりの流れ</strong></td>
+                    <td>─</td>
+                    <td><span class="status todo">新規追加</span></td>
+                    <td>6ステップ（相談→プラン→見積→契約→着工→引渡し）追加</td>
+                </tr>
+                <tr>
+                    <td><strong>FAQ</strong></td>
+                    <td>─</td>
+                    <td><span class="status todo">新規追加</span></td>
+                    <td>よくある質問8〜10問のアコーディオン追加</td>
+                </tr>
+                <tr>
+                    <td><strong>来場・相談CTA</strong></td>
+                    <td>CONSULTATION「住まいのご相談」</td>
+                    <td><span class="status done">対応済み</span></td>
+                    <td>ステップ表示＋CTAボタン。ハウゼスタイル参考でリデザイン済み</td>
+                </tr>
+                <tr>
+                    <td><strong>お問い合わせフォーム</strong></td>
+                    <td>CONTACT フォーム</td>
+                    <td><span class="status done">対応済み</span></td>
+                    <td>物件選択・名前・メール・電話・住所・相談内容。現状維持でOK</td>
+                </tr>
+                <tr>
+                    <td><strong>追従CTA</strong></td>
+                    <td>フッター固定バー</td>
+                    <td><span class="status partial">要改善</span></td>
+                    <td>来場予約（主）＋資料請求＋LINE相談の3ボタンに拡張推奨</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<hr class="doc-divider">
+
+<!-- ========================================== -->
+<!-- SECTION 6: テイスト差し替えテンプレ -->
+<!-- ========================================== -->
+<section id="taste-template" class="doc-section">
+    <div class="section-head">
+        <div class="label">TASTE TEMPLATE</div>
+        <h2>テイスト別LP 差し替えテンプレ</h2>
+        <p>California版をベースに、以下の要素だけ差し替えることで統一感のあるLP群が量産可能</p>
+    </div>
+
+    <div class="taste-grid">
+        <!-- California -->
+        <div class="taste-card">
+            <div class="taste-card-header california">
+                <h3>CALIFORNIA</h3>
+                <p>西海岸スタイル</p>
+            </div>
+            <div class="taste-card-body">
+                <h4>FV見出し</h4>
+                <p>「福岡で建てる、California House。」</p>
+                <h4>設計ルール（差別化軸）</h4>
+                <ul>
+                    <li>窓割りと抜け（視線の開放）</li>
+                    <li>木・塗り・金属のバランス</li>
+                    <li>デッキ／土間／ポーチ</li>
+                    <li>照明計画（昼夜の表情）</li>
+                    <li>外構込みの完成形</li>
+                </ul>
+                <h4>写真優先</h4>
+                <p>外観（カバードポーチ）/ LDK / デッキ</p>
+                <h4>キーワード</h4>
+                <p>開放感・ラップサイディング・吹き抜け・無垢材・リゾート</p>
+            </div>
+        </div>
+
+        <!-- 南欧 -->
+        <div class="taste-card">
+            <div class="taste-card-header nanoh">
+                <h3>南欧スタイル</h3>
+                <p>塗り壁・アーチ・温もり</p>
+            </div>
+            <div class="taste-card-body">
+                <h4>FV見出し</h4>
+                <p>「福岡で建てる、南欧スタイルの家。」</p>
+                <h4>設計ルール（差別化軸）</h4>
+                <ul>
+                    <li>塗り壁の陰影と温かみ</li>
+                    <li>瓦・アーチ・アイアン装飾</li>
+                    <li>温かい色温度の照明</li>
+                    <li>窓まわり・軒の統一感</li>
+                    <li>外構（植栽）まで含めた世界観</li>
+                </ul>
+                <h4>写真優先</h4>
+                <p>外観の陰影 / 玄関アーチ / タイル・洗面</p>
+                <h4>キーワード</h4>
+                <p>温もり・プロヴァンス・テラコッタ・曲線・自然素材</p>
+            </div>
+        </div>
+
+        <!-- Brooklyn -->
+        <div class="taste-card">
+            <div class="taste-card-header brooklyn">
+                <h3>BROOKLYN</h3>
+                <p>素材感×無骨</p>
+            </div>
+            <div class="taste-card-body">
+                <h4>FV見出し</h4>
+                <p>「素材感でつくる、Brooklyn House。」</p>
+                <h4>設計ルール（差別化軸）</h4>
+                <ul>
+                    <li>黒×木×アイアンの組み合わせ</li>
+                    <li>レンガ調の壁面アクセント</li>
+                    <li>天井・床の素材コントラスト</li>
+                    <li>造作収納・土間・ワークスペース</li>
+                    <li>"使い勝手"と"無骨さ"の両立</li>
+                </ul>
+                <h4>写真優先</h4>
+                <p>キッチン / アイアン階段 / 黒サッシ / 素材アップ</p>
+                <h4>キーワード</h4>
+                <p>インダストリアル・ヴィンテージ・無骨・アイアン・モルタル</p>
+            </div>
+        </div>
+
+        <!-- Garage -->
+        <div class="taste-card">
+            <div class="taste-card-header garage">
+                <h3>GARAGE HOUSE</h3>
+                <p>趣味が主役の家</p>
+            </div>
+            <div class="taste-card-body">
+                <h4>FV見出し</h4>
+                <p>「趣味が主役の、Garage House。」</p>
+                <h4>設計ルール（差別化軸）</h4>
+                <ul>
+                    <li>ガレージ動線（玄関→ガレージ→収納→LDK）</li>
+                    <li>換気・防音・床仕上げ計画</li>
+                    <li>電源・将来拡張への配慮</li>
+                    <li>外観のボリュームと"見せ方"</li>
+                    <li>趣味空間×居住空間の両立設計</li>
+                </ul>
+                <h4>写真優先</h4>
+                <p>ガレージ内観 / 動線 / 収納 / 外観正面</p>
+                <h4>キーワード</h4>
+                <p>ビルトインガレージ・趣味・車・バイク・DIY・秘密基地</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="doc-divider">
+
+<!-- ========================================== -->
+<!-- SECTION 7: 追従CTA仕様 -->
+<!-- ========================================== -->
+<section id="cta-spec" class="doc-section">
+    <div class="section-head">
+        <div class="label">STICKY CTA SPEC</div>
+        <h2>追従CTA 文言・仕様</h2>
+        <p>TOP/LP共通で画面下部に常時表示するCTAバー</p>
+    </div>
+
+    <div class="sticky-cta-spec">
+        <p class="spec-label">画面下部に常時固定表示（スクロール追従）</p>
+        <div class="spec-btn primary">来場予約（最短60秒）</div>
+        <div class="spec-btn secondary">資料請求（事例＋仕様）</div>
+        <div class="spec-btn tertiary">LINEで相談</div>
+        <p class="spec-label">※しつこい営業なし / 検討段階でもお気軽に</p>
+    </div>
+
+    <div style="margin-top: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <h3 style="font-size: 1rem; margin-bottom: 16px; color: var(--navy);">実装仕様メモ</h3>
+        <ul style="font-size: 0.85rem;">
+            <li style="padding: 6px 0;"><strong>位置:</strong> 画面下部固定（position: fixed; bottom: 0;）</li>
+            <li style="padding: 6px 0;"><strong>表示タイミング:</strong> FVを過ぎたらフェードイン</li>
+            <li style="padding: 6px 0;"><strong>背景:</strong> 半透明ネイビー（rgba(15,45,74,0.95)）+ backdrop-filter: blur</li>
+            <li style="padding: 6px 0;"><strong>SP表示:</strong> 2ボタン横並び（来場予約 / LINE）、資料請求はテキストリンク化</li>
+            <li style="padding: 6px 0;"><strong>主CTA色:</strong> ゴールド（#f0c040）、副CTA: 白枠線、LINE: #25d366</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background: var(--navy-dark); color: rgba(255,255,255,0.5); padding: 30px; text-align: center; font-size: 0.75rem;">
+    <p>福岡ビルド サイト構成図・ワイヤー案 ─ 2026.02 制作資料</p>
+    <p style="margin-top: 4px;">FP性能 × 海外テイスト住宅で競合圧倒するサイト設計</p>
+</footer>
+
+</body>
+</html>
