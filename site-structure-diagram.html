@@ -121,77 +121,6 @@
             color: var(--text-light);
         }
 
-        /* ===== SITEMAP ===== */
-        .sitemap-tree {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0;
-        }
-        .sitemap-node {
-            background: var(--navy);
-            color: #fff;
-            padding: 16px 32px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-align: center;
-            position: relative;
-            min-width: 200px;
-        }
-        .sitemap-node.gold { background: var(--gold); color: var(--navy); }
-        .sitemap-node small { display: block; font-weight: 400; font-size: 0.75rem; opacity: 0.8; margin-top: 4px; }
-
-        .sitemap-connector {
-            width: 2px;
-            height: 30px;
-            background: var(--border);
-            margin: 0 auto;
-        }
-        .sitemap-branch {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
-        }
-        .sitemap-branch::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 15%;
-            right: 15%;
-            height: 2px;
-            background: var(--border);
-        }
-        .sitemap-child {
-            background: #fff;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            padding: 14px 20px;
-            text-align: center;
-            font-size: 0.85rem;
-            font-weight: 600;
-            min-width: 150px;
-            position: relative;
-        }
-        .sitemap-child::before {
-            content: '';
-            position: absolute;
-            top: -17px;
-            left: 50%;
-            width: 2px;
-            height: 15px;
-            background: var(--border);
-        }
-        .sitemap-child.california { border-color: var(--blue); color: var(--blue); }
-        .sitemap-child.nanoh { border-color: var(--orange); color: var(--orange); }
-        .sitemap-child.brooklyn { border-color: var(--text); color: var(--text); }
-        .sitemap-child.garage { border-color: var(--purple); color: var(--purple); }
-        .sitemap-child.performance { border-color: var(--green); color: var(--green); }
-        .sitemap-child.active { border-color: var(--gold); background: #fffde8; }
-        .sitemap-child small { display: block; font-weight: 400; font-size: 0.72rem; color: var(--text-light); margin-top: 3px; }
-
         /* ===== WIREFRAME BLOCKS ===== */
         .wireframe {
             display: flex;
@@ -426,43 +355,6 @@
             font-size: 0.7rem;
         }
 
-        /* ===== FLOW DIAGRAM ===== */
-        .flow-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin: 30px 0;
-        }
-        .flow-box {
-            background: #fff;
-            border: 2px solid var(--navy);
-            border-radius: 10px;
-            padding: 14px 22px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-align: center;
-            color: var(--navy);
-            min-width: 140px;
-        }
-        .flow-box.highlight {
-            background: var(--navy);
-            color: #fff;
-        }
-        .flow-box small {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 400;
-            margin-top: 4px;
-            opacity: 0.7;
-        }
-        .flow-arrow {
-            font-size: 1.5rem;
-            color: var(--gold-dark);
-            font-weight: 700;
-        }
-
         /* =====追従CTA SPEC ===== */
         .sticky-cta-spec {
             background: var(--navy);
@@ -506,11 +398,7 @@
             .doc-header { padding: 40px 20px; }
             .doc-header h1 { font-size: 1.3rem; }
             .doc-section { padding: 40px 16px; }
-            .sitemap-branch { flex-direction: column; align-items: center; }
-            .sitemap-branch::before { display: none; }
             .wire-block-body .elements { flex-direction: column; }
-            .flow-row { flex-direction: column; }
-            .flow-arrow { transform: rotate(90deg); }
         }
     </style>
 </head>
