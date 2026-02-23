@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>完成見学会 | FB HOME</title>
+    <title>FB HOME | 高性能デザイン住宅</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -1869,6 +1869,117 @@
 
             .footer-logo { font-size: 2rem; }
         }
+
+        /* ========== 非表示ユーティリティ ========== */
+        .hidden-for-now {
+            display: none !important;
+        }
+
+        /* ========== GARAGE STYLE タグ ========== */
+        .style-gallery-tag.garage {
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c3f 100%);
+            color: white;
+        }
+
+        .style-gallery-name.garage-name {
+            color: #2d5a27;
+        }
+
+        /* ========== セクション区切り強化 ========== */
+        .section-divider-gold {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
+            margin: 0;
+            border: none;
+        }
+
+        .works-section-label {
+            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
+
+        .works-section-label .section-label {
+            color: #1a3a5c;
+        }
+
+        .works-section-label .section-title {
+            color: #1a3a5c;
+        }
+
+        /* ========== Q&A セクション ========== */
+        .qa-section {
+            background: #f5f9fb;
+            padding: 100px 20px;
+        }
+
+        .qa-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .qa-item {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 35px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #4da6c9;
+        }
+
+        .qa-question {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a3a5c;
+            line-height: 1.6;
+        }
+
+        .qa-answer {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-size: 0.98rem;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        .qa-label {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+
+        .qa-label.q {
+            background: #1a3a5c;
+            color: #f0c040;
+        }
+
+        .qa-label.a {
+            background: #4da6c9;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .qa-item {
+                padding: 22px 20px;
+            }
+
+            .qa-question {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1894,23 +2005,34 @@
         <div class="hero-logo">
             <h1>
                 FB HOME
-                <span class="logo-sub">CALIFORNIA STYLE LIVING</span>
+                <span class="logo-sub">HIGH PERFORMANCE DESIGN HOUSE</span>
             </h1>
         </div>
 
         <!-- メインコンテンツ -->
         <div class="hero-content-wrapper">
-            <div class="priority-badge">先着順！</div>
+            <div class="priority-badge hidden-for-now">先着順！</div>
 
             <h2 class="hero-main-title">
-                完成見学会
+                理想の住まいを、<br>福岡から。
             </h2>
 
             <p class="hero-subtitle">
-                来店予約特典<br>
-                Amazonギフトカードプレゼント
+                高性能 × デザイン × 安心の家づくり<br>
+                3つのスタイルからあなたらしい暮らしを
             </p>
 
+            <!-- CTAボタン -->
+            <div class="cta-container">
+                <a href="#properties" class="cta-button">
+                    施工事例を見る
+                    <span class="arrow">→</span>
+                </a>
+                <a href="#contact" class="cta-button">
+                    今すぐ無料相談
+                    <span class="arrow">→</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1920,20 +2042,21 @@
             <div class="brand-logo">
                 <h2>
                     FB HOME
-                    <span class="brand-sub">CALIFORNIA &amp; WAON STYLE</span>
+                    <span class="brand-sub">CALIFORNIA / GARAGE / WAON STYLE</span>
                 </h2>
             </div>
             <p class="brand-description">
-                FB HOMEはCALIFORNIA STYLEとWAON STYLEの2つのラインナップで、光と風を感じる住まいを提案する分譲住宅ブランドです。<br><br>
+                FB HOMEはCALIFORNIA STYLE・GARAGE STYLE・WAON STYLEの3つのラインナップで、光と風を感じる住まいを提案する分譲住宅ブランドです。<br><br>
                 <strong style="color:#1a3a5c;">CALIFORNIA STYLE</strong> ― アメリカ西海岸発祥のCALIFORNIA STYLEは、カバードポーチやラップサイディングが象徴的。毎日の暮らしが楽しくなるお家、ライフプランの変化にも対応できるお家です。<br><br>
+                <strong style="color:#2d5a27;">GARAGE STYLE</strong> ― 車やバイク、アウトドアギアなど趣味を存分に楽しめるビルトインガレージを備えた住まい。CALIFORNIA STYLEのデザイン性はそのままに、ガレージライフという新しい暮らし方を提案します。<br><br>
                 <strong style="color:#5a3e1b;">WAON</strong> ― 家族みんなが気持ちよく過ごすこと、一人ひとりが自由に自分時間を楽しむこと。その双方を両立するために生まれた住まいです。快適な家事ラク動線と大容量収納で、フレキシブルに暮らしに応えます。<br><br>
                 注文住宅で培ってきた技術やノウハウを活かした住まいづくりと、そこに住む人がいつまでも安心して快適に暮らせる街づくり。厳選した先進の機能を導入した豊かなデザイン性の高機能住宅を、コスト効率の高い戸建て分譲で福岡エリアに提供しています。
             </p>
         </div>
     </section>
 
-    <!-- SPECIAL OFFERセクション -->
-    <section class="special-offer-section">
+    <!-- SPECIAL OFFERセクション（完成見学会関連のため一時非表示） -->
+    <section class="special-offer-section hidden-for-now">
         <!-- 波形デザイン -->
         <div class="wave-top">
             <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
@@ -1978,6 +2101,13 @@
                 </a>
             </div>
         </div>
+    </section>
+
+    <!-- ========== LINE UP ヘッダー ========== -->
+    <section style="background: #fff; padding: 80px 20px 0; text-align: center;">
+        <div class="section-label">LINE UP</div>
+        <h2 class="section-title">ラインナップ</h2>
+        <p class="section-description">FB HOMEが提案する3つのスタイル</p>
     </section>
 
     <!-- ========== CALIFORNIA STYLE ギャラリー ========== -->
@@ -2026,6 +2156,51 @@
                 <span class="cta-arrow">→</span>
             </a>
             <a href="#" class="gallery-monthly-link">▼ 月々の支払いや入居時期を今すぐ確認！</a>
+        </div>
+    </section>
+
+    <!-- ========== GARAGE STYLE ギャラリー ========== -->
+    <section class="style-gallery-section" style="padding-top: 40px;">
+        <hr class="gallery-divider">
+        <div style="height: 50px;"></div>
+
+        <div class="style-gallery-header">
+            <span class="style-gallery-tag garage">GARAGE STYLE</span>
+            <h2 class="style-gallery-name garage-name"><span class="name-en">GARAGE STYLE</span></h2>
+            <p class="style-gallery-detail">ガレージのある暮らし。趣味と生活が融合する住まい。</p>
+        </div>
+
+        <p class="style-gallery-description">
+            車やバイク、アウトドアギアなど、趣味を存分に楽しめるビルトインガレージを備えた住まい。リビングからガレージを眺められる間取りや、作業スペースとしても活用できる広々とした空間設計が特徴です。CALIFORNIA STYLEのデザイン性はそのままに、ガレージライフという新しい暮らし方を提案します。
+        </p>
+
+        <div class="style-gallery-tags">
+            <span class="spec-tag">ビルトインガレージ</span>
+            <span class="spec-tag">趣味スペース</span>
+            <span class="spec-tag">開放的な空間設計</span>
+            <span class="spec-tag">ZEH対応</span>
+            <span class="spec-tag">太陽光発電</span>
+        </div>
+
+        <!-- 写真ギャラリー -->
+        <div class="style-gallery-grid">
+            <div class="gallery-photo">
+                <img src="img/garage-style.jpg" alt="GARAGE STYLE 外観">
+            </div>
+            <div class="gallery-photo">
+                <img src="img/garage-style-02.jpg" alt="GARAGE STYLE 内観">
+            </div>
+            <div class="gallery-photo">
+                <img src="img/garage-style-03.jpg" alt="GARAGE STYLE ガレージ">
+            </div>
+        </div>
+
+        <!-- CTAボタン -->
+        <div class="gallery-cta-wrap">
+            <a href="#contact" class="gallery-cta-btn">
+                今すぐお問い合わせ
+                <span class="cta-arrow">→</span>
+            </a>
         </div>
     </section>
 
@@ -2212,28 +2387,23 @@
 
         <!-- コンテンツ -->
         <div class="reliability-content">
-            <!-- イントロ -->
-            <div class="reliability-intro">
-                <div class="reliability-intro-image">
-                    <img src="img/quality-01.png" alt="全棟耐震等級3の構造" loading="lazy">
-                </div>
-                <div class="reliability-intro-text">
-                    <h3 class="reliability-intro-title">全棟耐震等級3。見えないところまで、誠意を持って丁寧に。</h3>
-                    <p class="reliability-intro-description">
-                        FB HOMEは1棟ごとに388項目もの構造計算を実施し、全棟で最高等級の耐震等級3を実現しています。地震や台風などの大きな力にも高い耐力を発揮する、安心の住まいをお届けします。
-                    </p>
-
-                    <!-- プロセス図 -->
-                    <div class="process-diagram">
-                        <div class="process-step">土地選定・<br>地盤調査</div>
-                        <div class="process-step">構造計算<br>388項目</div>
-                        <div class="process-step">10段階<br>品質監査</div>
+            <!-- カード一覧 -->
+            <div class="reliability-cards">
+                <!-- カード0: 全棟耐震等級3（イントロ → カード形式に統一） -->
+                <div class="reliability-card">
+                    <div class="reliability-card-image">
+                        <img src="img/quality-01.png" alt="全棟耐震等級3の構造" loading="lazy">
+                    </div>
+                    <div class="reliability-card-content">
+                        <h3 class="reliability-card-title">全棟耐震等級3。<br>見えないところまで、誠意を持って丁寧に。</h3>
+                        <p class="reliability-card-text">
+                            FB HOMEは1棟ごとに388項目もの構造計算を実施し、全棟で最高等級の耐震等級3を実現しています。地震や台風などの大きな力にも高い耐力を発揮する、安心の住まいをお届けします。
+                        </p>
+                        <span class="reliability-card-label">全棟388項目の構造計算</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- カード1: 独自の耐震対応住宅 -->
-            <div class="reliability-cards">
+                <!-- カード1: 独自の耐震対応住宅 -->
                 <div class="reliability-card">
                     <div class="reliability-card-image">
                         <img src="img/quality-02.jpeg" alt="独自の耐震対応住宅とZEH対応" loading="lazy">
@@ -2263,45 +2433,45 @@
 
                 <!-- カード3: FPウレタン断熱パネル -->
                 <div class="reliability-card">
-                    <div class="reliability-card-image" style="background: linear-gradient(135deg, #1a3a5c 0%, #2e5a7c 100%); display: flex; align-items: center; justify-content: center; min-height: 300px;">
+                    <div class="reliability-card-image" style="background: #f0f6fa; display: flex; align-items: center; justify-content: center; min-height: 300px; border-radius: 16px;">
                         <!-- FPパネル断面構造図（PDF資料ベース） -->
                         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 380px;">
                             <!-- パネル断面 -->
-                            <rect x="60" y="40" width="280" height="200" rx="4" fill="#3a7ca5" stroke="#fff" stroke-width="2"/>
+                            <rect x="60" y="40" width="280" height="200" rx="4" fill="#3a7ca5" stroke="#1a3a5c" stroke-width="2"/>
                             <!-- 木枠（上下左右） -->
-                            <rect x="60" y="40" width="280" height="18" fill="#c4915e" stroke="#fff" stroke-width="1"/>
-                            <rect x="60" y="222" width="280" height="18" fill="#c4915e" stroke="#fff" stroke-width="1"/>
-                            <rect x="60" y="40" width="20" height="200" fill="#c4915e" stroke="#fff" stroke-width="1"/>
-                            <rect x="320" y="40" width="20" height="200" fill="#c4915e" stroke="#fff" stroke-width="1"/>
+                            <rect x="60" y="40" width="280" height="18" fill="#c4915e" stroke="#1a3a5c" stroke-width="1"/>
+                            <rect x="60" y="222" width="280" height="18" fill="#c4915e" stroke="#1a3a5c" stroke-width="1"/>
+                            <rect x="60" y="40" width="20" height="200" fill="#c4915e" stroke="#1a3a5c" stroke-width="1"/>
+                            <rect x="320" y="40" width="20" height="200" fill="#c4915e" stroke="#1a3a5c" stroke-width="1"/>
                             <!-- ウレタンフォーム中心部 -->
                             <rect x="80" y="58" width="240" height="164" rx="2" fill="#2980b9" opacity="0.6"/>
                             <!-- 独立気泡パターン -->
-                            <circle cx="120" cy="100" r="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="160" cy="85" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="200" cy="105" r="14" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="240" cy="90" r="11" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="280" cy="100" r="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="140" cy="140" r="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="180" cy="150" r="11" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="220" cy="135" r="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="260" cy="145" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="300" cy="140" r="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="110" cy="180" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="150" cy="190" r="14" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="190" cy="185" r="11" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="230" cy="175" r="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="270" cy="190" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                            <circle cx="120" cy="100" r="12" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="160" cy="85" r="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="200" cy="105" r="14" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="240" cy="90" r="11" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="280" cy="100" r="13" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="140" cy="140" r="13" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="180" cy="150" r="11" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="220" cy="135" r="12" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="260" cy="145" r="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="300" cy="140" r="12" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="110" cy="180" r="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="150" cy="190" r="14" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="190" cy="185" r="11" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="230" cy="175" r="13" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                            <circle cx="270" cy="190" r="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
                             <!-- 寸法線 -->
-                            <line x1="45" y1="58" x2="45" y2="222" stroke="#f0c040" stroke-width="2"/>
-                            <line x1="38" y1="58" x2="52" y2="58" stroke="#f0c040" stroke-width="2"/>
-                            <line x1="38" y1="222" x2="52" y2="222" stroke="#f0c040" stroke-width="2"/>
-                            <text x="42" y="148" fill="#f0c040" font-size="13" font-weight="bold" text-anchor="middle" transform="rotate(-90 42 148)">105mm</text>
+                            <line x1="45" y1="58" x2="45" y2="222" stroke="#1a3a5c" stroke-width="2"/>
+                            <line x1="38" y1="58" x2="52" y2="58" stroke="#1a3a5c" stroke-width="2"/>
+                            <line x1="38" y1="222" x2="52" y2="222" stroke="#1a3a5c" stroke-width="2"/>
+                            <text x="42" y="148" fill="#1a3a5c" font-size="13" font-weight="bold" text-anchor="middle" transform="rotate(-90 42 148)">105mm</text>
                             <!-- ラベル -->
-                            <text x="200" y="25" fill="#fff" font-size="14" font-weight="bold" text-anchor="middle">FPウレタン断熱パネル断面図</text>
-                            <text x="200" y="140" fill="rgba(255,255,255,0.8)" font-size="11" text-anchor="middle">硬質ウレタンフォーム</text>
-                            <text x="200" y="158" fill="rgba(255,255,255,0.6)" font-size="10" text-anchor="middle">（独立気泡構造）</text>
-                            <text x="200" y="260" fill="#f0c040" font-size="15" font-weight="bold" text-anchor="middle">熱伝導率 0.019 W/(m・K)</text>
-                            <text x="200" y="280" fill="rgba(255,255,255,0.6)" font-size="11" text-anchor="middle">グラスウールの約3倍の断熱性能</text>
+                            <text x="200" y="25" fill="#1a3a5c" font-size="14" font-weight="bold" text-anchor="middle">FPウレタン断熱パネル断面図</text>
+                            <text x="200" y="140" fill="rgba(255,255,255,0.9)" font-size="11" text-anchor="middle">硬質ウレタンフォーム</text>
+                            <text x="200" y="158" fill="rgba(255,255,255,0.7)" font-size="10" text-anchor="middle">（独立気泡構造）</text>
+                            <text x="200" y="260" fill="#1a3a5c" font-size="15" font-weight="bold" text-anchor="middle">熱伝導率 0.019 W/(m・K)</text>
+                            <text x="200" y="280" fill="#555" font-size="11" text-anchor="middle">グラスウールの約3倍の断熱性能</text>
                         </svg>
                     </div>
                     <div class="reliability-card-content" style="padding: 30px;">
@@ -2319,51 +2489,51 @@
 
                 <!-- カード4: 気密性能 -->
                 <div class="reliability-card">
-                    <div class="reliability-card-image" style="background: linear-gradient(135deg, #0f2d4a 0%, #1a3a5c 100%); display: flex; align-items: center; justify-content: center; min-height: 300px;">
+                    <div class="reliability-card-image" style="background: #f0f6fa; display: flex; align-items: center; justify-content: center; min-height: 300px; border-radius: 16px;">
                         <!-- 気密性能比較図（PDF資料ベース） -->
                         <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 380px;">
                             <!-- タイトル -->
-                            <text x="200" y="25" fill="#fff" font-size="14" font-weight="bold" text-anchor="middle">C値による室内環境の違い</text>
+                            <text x="200" y="25" fill="#1a3a5c" font-size="14" font-weight="bold" text-anchor="middle">C値による室内環境の違い</text>
                             <!-- FB HOME -->
-                            <rect x="20" y="45" width="110" height="200" rx="8" fill="rgba(240,192,64,0.15)" stroke="#f0c040" stroke-width="2"/>
-                            <text x="75" y="70" fill="#f0c040" font-size="11" font-weight="bold" text-anchor="middle">FB HOME</text>
-                            <text x="75" y="90" fill="#f0c040" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=0.1</text>
+                            <rect x="20" y="45" width="110" height="200" rx="8" fill="rgba(77,166,201,0.1)" stroke="#4da6c9" stroke-width="2"/>
+                            <text x="75" y="70" fill="#1a3a5c" font-size="11" font-weight="bold" text-anchor="middle">FB HOME</text>
+                            <text x="75" y="90" fill="#1a3a5c" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=0.1</text>
                             <!-- 家の中の温度（均一） -->
-                            <rect x="35" y="105" width="80" height="80" rx="4" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.5)" stroke-width="1"/>
+                            <rect x="35" y="105" width="80" height="80" rx="4" fill="rgba(231,76,60,0.1)" stroke="rgba(231,76,60,0.4)" stroke-width="1"/>
                             <text x="75" y="130" fill="#e74c3c" font-size="9" text-anchor="middle">リビング 24℃</text>
                             <text x="75" y="145" fill="#e74c3c" font-size="9" text-anchor="middle">寝室 23℃</text>
                             <text x="75" y="160" fill="#e74c3c" font-size="9" text-anchor="middle">廊下 23℃</text>
                             <text x="75" y="175" fill="#e74c3c" font-size="9" text-anchor="middle">脱衣所 23℃</text>
-                            <text x="75" y="200" fill="rgba(255,255,255,0.7)" font-size="9" text-anchor="middle">上下温度差</text>
-                            <text x="75" y="218" fill="#f0c040" font-size="16" font-weight="bold" text-anchor="middle">1℃以内</text>
+                            <text x="75" y="200" fill="#888" font-size="9" text-anchor="middle">上下温度差</text>
+                            <text x="75" y="218" fill="#1a3a5c" font-size="16" font-weight="bold" text-anchor="middle">1℃以内</text>
                             <text x="75" y="235" fill="#27ae60" font-size="10" font-weight="bold" text-anchor="middle">快適</text>
                             <!-- 断熱等級5 B -->
-                            <rect x="145" y="45" width="110" height="200" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <text x="200" y="70" fill="rgba(255,255,255,0.6)" font-size="11" font-weight="bold" text-anchor="middle">断熱等級5 B</text>
-                            <text x="200" y="90" fill="rgba(255,255,255,0.5)" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=1.2</text>
-                            <rect x="160" y="105" width="80" height="80" rx="4" fill="rgba(243,156,18,0.15)" stroke="rgba(243,156,18,0.3)" stroke-width="1"/>
-                            <text x="200" y="130" fill="rgba(243,156,18,0.8)" font-size="9" text-anchor="middle">リビング 21℃</text>
-                            <text x="200" y="145" fill="rgba(243,156,18,0.8)" font-size="9" text-anchor="middle">寝室 19℃</text>
-                            <text x="200" y="160" fill="rgba(243,156,18,0.8)" font-size="9" text-anchor="middle">廊下 17℃</text>
-                            <text x="200" y="175" fill="rgba(243,156,18,0.8)" font-size="9" text-anchor="middle">脱衣所 16℃</text>
-                            <text x="200" y="200" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle">上下温度差</text>
-                            <text x="200" y="218" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="bold" text-anchor="middle">3〜5℃</text>
+                            <rect x="145" y="45" width="110" height="200" rx="8" fill="rgba(0,0,0,0.03)" stroke="#ccc" stroke-width="1"/>
+                            <text x="200" y="70" fill="#888" font-size="11" font-weight="bold" text-anchor="middle">断熱等級5 B</text>
+                            <text x="200" y="90" fill="#999" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=1.2</text>
+                            <rect x="160" y="105" width="80" height="80" rx="4" fill="rgba(243,156,18,0.08)" stroke="rgba(243,156,18,0.3)" stroke-width="1"/>
+                            <text x="200" y="130" fill="#d4880f" font-size="9" text-anchor="middle">リビング 21℃</text>
+                            <text x="200" y="145" fill="#d4880f" font-size="9" text-anchor="middle">寝室 19℃</text>
+                            <text x="200" y="160" fill="#d4880f" font-size="9" text-anchor="middle">廊下 17℃</text>
+                            <text x="200" y="175" fill="#d4880f" font-size="9" text-anchor="middle">脱衣所 16℃</text>
+                            <text x="200" y="200" fill="#aaa" font-size="9" text-anchor="middle">上下温度差</text>
+                            <text x="200" y="218" fill="#999" font-size="16" font-weight="bold" text-anchor="middle">3〜5℃</text>
                             <text x="200" y="235" fill="#f39c12" font-size="10" font-weight="bold" text-anchor="middle">やや不快</text>
                             <!-- 断熱等級5 C -->
-                            <rect x="270" y="45" width="110" height="200" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                            <text x="325" y="70" fill="rgba(255,255,255,0.4)" font-size="11" font-weight="bold" text-anchor="middle">断熱等級5 C</text>
-                            <text x="325" y="90" fill="rgba(255,255,255,0.4)" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=1.6</text>
-                            <rect x="285" y="105" width="80" height="80" rx="4" fill="rgba(52,152,219,0.1)" stroke="rgba(52,152,219,0.2)" stroke-width="1"/>
-                            <text x="325" y="130" fill="rgba(52,152,219,0.7)" font-size="9" text-anchor="middle">リビング 19℃</text>
-                            <text x="325" y="145" fill="rgba(52,152,219,0.7)" font-size="9" text-anchor="middle">寝室 16℃</text>
-                            <text x="325" y="160" fill="rgba(52,152,219,0.7)" font-size="9" text-anchor="middle">廊下 14℃</text>
-                            <text x="325" y="175" fill="rgba(52,152,219,0.7)" font-size="9" text-anchor="middle">脱衣所 13℃</text>
-                            <text x="325" y="200" fill="rgba(255,255,255,0.4)" font-size="9" text-anchor="middle">上下温度差</text>
-                            <text x="325" y="218" fill="rgba(255,255,255,0.4)" font-size="16" font-weight="bold" text-anchor="middle">5℃以上</text>
+                            <rect x="270" y="45" width="110" height="200" rx="8" fill="rgba(0,0,0,0.02)" stroke="#ddd" stroke-width="1"/>
+                            <text x="325" y="70" fill="#aaa" font-size="11" font-weight="bold" text-anchor="middle">断熱等級5 C</text>
+                            <text x="325" y="90" fill="#bbb" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=1.6</text>
+                            <rect x="285" y="105" width="80" height="80" rx="4" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1"/>
+                            <text x="325" y="130" fill="#5b9bd5" font-size="9" text-anchor="middle">リビング 19℃</text>
+                            <text x="325" y="145" fill="#5b9bd5" font-size="9" text-anchor="middle">寝室 16℃</text>
+                            <text x="325" y="160" fill="#5b9bd5" font-size="9" text-anchor="middle">廊下 14℃</text>
+                            <text x="325" y="175" fill="#5b9bd5" font-size="9" text-anchor="middle">脱衣所 13℃</text>
+                            <text x="325" y="200" fill="#bbb" font-size="9" text-anchor="middle">上下温度差</text>
+                            <text x="325" y="218" fill="#bbb" font-size="16" font-weight="bold" text-anchor="middle">5℃以上</text>
                             <text x="325" y="235" fill="#e74c3c" font-size="10" font-weight="bold" text-anchor="middle">不快・危険</text>
                             <!-- 外気温表示 -->
-                            <text x="200" y="275" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle">外気温 0℃ / エアコン設定 21℃ の場合</text>
-                            <text x="200" y="292" fill="rgba(255,255,255,0.4)" font-size="9" text-anchor="middle">出典：FP技術指導員講習会資料</text>
+                            <text x="200" y="275" fill="#888" font-size="10" text-anchor="middle">外気温 0℃ / エアコン設定 21℃ の場合</text>
+                            <text x="200" y="292" fill="#aaa" font-size="9" text-anchor="middle">出典：FP技術指導員講習会資料</text>
                         </svg>
                     </div>
                     <div class="reliability-card-content" style="padding: 30px;">
@@ -2441,14 +2611,21 @@
         </div>
     </section>
 
-    <!-- 物件セクション -->
-    <section id="properties" class="property-section">
+    <!-- LINE UP と Works の区切り -->
+    <div class="section-divider-gold"></div>
+
+    <!-- 物件セクション（Works） -->
+    <section id="properties" class="property-section" style="background: linear-gradient(180deg, #fffbe6 0%, #fff9d6 100%);">
+        <!-- Worksラベル -->
+        <div style="text-align: center; margin-bottom: -60px;">
+            <span style="display: inline-block; background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%); color: #1a3a5c; padding: 8px 30px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; letter-spacing: 2px;">WORKS</span>
+        </div>
         <div class="container">
             <div class="section-header">
-                <div class="section-label">SPECIAL OFFER</div>
-                <h2 class="section-title">完成見学会</h2>
+                <div class="section-label">WORKS</div>
+                <h2 class="section-title">施工事例</h2>
                 <p class="section-description">
-                    完成した住まいを実際にご覧いただけます
+                    FB HOMEがお届けする住まいの実例をご紹介します
                 </p>
             </div>
 
@@ -2516,6 +2693,139 @@
                         <a href="#" class="property-link" style="background: linear-gradient(135deg, #8b6b3d 0%, #6b4c2a 100%);">
                             物件詳細を見る →
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A 10問10答セクション -->
+    <section class="qa-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Q&amp;A</div>
+                <h2 class="section-title">よくあるご質問</h2>
+                <p class="section-description">断熱・耐震・気密・省エネなど、FB HOMEの高性能住宅に関する疑問にお答えします。</p>
+            </div>
+
+            <div class="qa-list">
+                <!-- Q1: 断熱 -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>FPウレタン断熱パネルとは何ですか？一般的な断熱材とどう違いますか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>硬質ウレタンフォームを木枠に一体成型した断熱パネルです。熱伝導率0.019 W/(m・K)でグラスウールの約3倍の断熱性能を発揮します。独立気泡構造により水分や空気を通しにくく、経年劣化が極めて少ないため、築20年後も新築時とほぼ同等の性能を維持します。</span>
+                    </div>
+                </div>
+
+                <!-- Q2: 断熱性能 -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>UA値0.16とはどのくらいの断熱性能ですか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>断熱等級7（最高等級）に相当する圧倒的な断熱性能です。国の省エネ基準（UA値0.87）と比較すると約5倍の性能で、冬でもエアコン1台で家全体が快適な温度に保たれます。各部屋の温度差は2℃以内に収まり、ヒートショックのリスクも大幅に低減します。</span>
+                    </div>
+                </div>
+
+                <!-- Q3: 耐震 -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>耐震等級3とはどのような基準ですか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>建築基準法の1.5倍の耐震性能で、最高等級の基準です。消防署や警察署などの防災拠点と同等の耐震性を持ちます。FB HOMEでは全棟で388項目もの構造計算を実施し、構造計算書を発行しています。ツーバイフォー工法による面構造が、地震の力を建物全体で受け止めます。</span>
+                    </div>
+                </div>
+
+                <!-- Q4: 気密 -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>気密性能（C値）はどのくらいですか？全棟で測定しているのですか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>はい、全棟で気密測定を実施し、C値0.1という業界最高水準の数値を実現しています。「断熱は数値だけなら上げられるが、気密は測定しなければ証明できない」という考えのもと、1棟ごとに測定・証明しています。12年経過後もC値の変化はわずか0.2程度で、長期にわたって性能を維持します。</span>
+                    </div>
+                </div>
+
+                <!-- Q5: 省エネ（光熱費） -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>光熱費はどのくらい節約できますか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>UA値0.16の断熱性能により、年間光熱費の目安は約12万円です。一般的な住宅（UA値0.87）の約30万円と比較すると、年間約18万円の節約になります。エアコン1台で家全体が快適なため、複数の暖房器具を使う必要がなく、省エネと快適性を両立します。</span>
+                    </div>
+                </div>
+
+                <!-- Q6: ZEH -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>ZEH（ゼッチ）対応とは何ですか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>ZEH（ネット・ゼロ・エネルギー・ハウス）とは、高断熱・省エネ・創エネにより年間の一次エネルギー消費量を実質ゼロ以下にする住宅です。FB HOMEでは太陽光発電やEVコンセントなどを標準装備し、環境にも家計にも優しい住まいを実現しています。</span>
+                    </div>
+                </div>
+
+                <!-- Q7: 結露 -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>結露が心配ですが、対策はされていますか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>FPウレタン断熱パネルの高い気密・断熱性能により壁内結露を防ぎます。独立気泡構造で水蒸気の侵入を遮断するため、壁の中で結露が発生するリスクを極めて低く抑えます。この性能に裏打ちされた「無結露50年保証」を全棟にお付けしています。</span>
+                    </div>
+                </div>
+
+                <!-- Q8: 経年劣化 -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>断熱・気密性能は経年劣化しませんか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>FPウレタン断熱パネルは独立気泡構造のため、グラスウールなどの繊維系断熱材と異なり、湿気による性能低下がほとんどありません。工場での精密生産により品質が均一で、築20年後の物件でも新築時とほぼ同等の断熱性能を維持していることが確認されています。</span>
+                    </div>
+                </div>
+
+                <!-- Q9: 品質管理 -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>施工品質はどのように管理されていますか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>基礎から完成まで10段階の施工品質監査（GenKan-NS&reg;）を実施し、建築士による厳密な検査体制を整えています。さらに地盤品質保証20年、シロアリ10年保証（最大1,000万円補償）、住宅設備機器延長保証など、多層的な保証体制でお引き渡し後も安心をお届けします。</span>
+                    </div>
+                </div>
+
+                <!-- Q10: 省エネ設備 -->
+                <div class="qa-item">
+                    <div class="qa-question">
+                        <span class="qa-label q">Q</span>
+                        <span>標準装備の省エネ設備にはどのようなものがありますか？</span>
+                    </div>
+                    <div class="qa-answer">
+                        <span class="qa-label a">A</span>
+                        <span>太陽光発電システム、EVコンセント（電気自動車充電用）を標準装備しています。WAON STYLEではさらに温水式床暖房やエネファーム（家庭用燃料電池）も搭載。高断熱・高気密の躯体性能と合わせて、創エネ・省エネ・蓄エネを総合的に実現する住まいです。</span>
                     </div>
                 </div>
             </div>
@@ -2618,11 +2928,11 @@
 
     <!-- 追従ボタン（固定ボタン） -->
     <div class="sticky-cta">
-        <div class="sticky-campaign-badge">完成見学会 開催中</div>
+        <div class="sticky-campaign-badge hidden-for-now">完成見学会 開催中</div>
         <div class="sticky-buttons">
             <a href="#properties" class="sticky-button">
-                <span class="icon">📢</span>
-                物件一覧を見る
+                <span class="icon">🏠</span>
+                施工事例を見る
                 <span class="arrow">→</span>
             </a>
             <a href="#contact" class="sticky-button">

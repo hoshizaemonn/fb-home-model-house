@@ -612,6 +612,7 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
         }
@@ -619,51 +620,46 @@
         .gallery-cta-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: #5EADB8;
+            gap: 10px;
+            background: #62CDE0;
             color: #fff;
-            padding: 18px 36px;
-            border-radius: 2px;
-            font-size: 1.1rem;
-            font-weight: 800;
+            padding: 16px 16px 16px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(98, 205, 224, 0.3);
+            transition: all 0.35s ease;
             letter-spacing: 0.5px;
         }
 
         .gallery-cta-btn:hover {
+            background: #1E7FA0;
+            box-shadow: 0 6px 24px rgba(30, 127, 160, 0.45);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            background: #4D9BA8;
         }
 
         .gallery-cta-btn .cta-icon {
-            font-size: 1.3rem;
-        }
-
-        .gallery-cta-btn .cta-arrow {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-cta-btn:hover .cta-arrow {
-            transform: translateX(4px);
-        }
-
-        .gallery-monthly-link {
-            font-size: 0.9rem;
-            color: #2A4A55;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 5px;
-            transition: color 0.3s ease;
         }
 
-        .gallery-monthly-link:hover {
-            color: #8AABB5;
+        .gallery-cta-btn .cta-arrow-box {
+            background: #1E7FA0;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-left: 4px;
+            transition: background 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .gallery-cta-btn:hover .cta-arrow-box {
+            background: #62CDE0;
         }
 
         /* セクション区切りライン */
@@ -687,13 +683,18 @@
             .gallery-cta-btn {
                 width: 100%;
                 justify-content: center;
-                padding: 16px 30px;
+                padding: 18px 24px;
                 font-size: 1rem;
             }
 
             .gallery-cta-wrap {
                 flex-direction: column;
                 align-items: stretch;
+            }
+
+            .gallery-cta-btn .cta-arrow-box {
+                width: 34px;
+                height: 34px;
             }
         }
 
@@ -803,22 +804,22 @@
         /* ========== 追従ボタン（固定ボタン） ========== */
         .sticky-cta {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 24px;
+            right: 24px;
             z-index: 999;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             align-items: flex-end;
         }
 
         .sticky-campaign-badge {
             background: #5EADB8;
             color: #fff;
-            padding: 9px 22px;
-            border-radius: 2px;
+            padding: 8px 18px;
+            border-radius: 20px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
@@ -830,52 +831,68 @@
         .sticky-campaign-badge::after {
             content: '●';
             color: #ffffff;
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             animation: pulse 2s infinite;
         }
 
         .sticky-buttons {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 10px;
         }
 
         .sticky-button {
-            background: #5EADB8;
+            background: #62CDE0;
             color: #fff;
-            padding: 16px 28px;
+            padding: 18px 18px 18px 22px;
             border: none;
-            border-radius: 2px;
-            font-size: 1rem;
-            font-weight: 800;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 20px rgba(98, 205, 224, 0.35);
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
             letter-spacing: 0.5px;
             white-space: nowrap;
         }
 
         .sticky-button:hover {
+            background: #1E7FA0;
             transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-            background: #4D9BA8;
+            box-shadow: 0 8px 28px rgba(30, 127, 160, 0.45);
         }
 
-        .sticky-button .icon { font-size: 1.1rem; }
-        .sticky-button .arrow {
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
+        .sticky-button .icon {
+            display: flex;
+            align-items: center;
+            color: #fff;
         }
-        .sticky-button:hover .arrow { transform: translateX(5px); }
+
+        .sticky-button .arrow-box {
+            background: #1E7FA0;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-left: 4px;
+            transition: background 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .sticky-button:hover .arrow-box {
+            background: #62CDE0;
+        }
 
         /* ========== RELIABILITYセクション ========== */
         .reliability-section {
-            background: #FFFFFF;
+            background: #EDF5F7;
             padding: 0;
             position: relative;
         }
@@ -885,6 +902,7 @@
             width: 100%;
             height: 120px;
             overflow: hidden;
+            background: #FFFFFF;
         }
 
         .reliability-wave-top svg {
@@ -920,10 +938,9 @@
         }
 
         .reliability-content {
-            padding: 60px 80px;
+            padding: 60px 80px 100px;
             max-width: 1400px;
             margin: 0 auto;
-            background: #EDF5F7;
         }
 
         .reliability-intro {
@@ -1177,31 +1194,42 @@
         }
 
         .trust-cta-btn {
-            display: inline-block;
-            background: #FFFFFF;
-            color: #2A4A55;
-            font-size: 1.1rem;
-            font-weight: 800;
-            padding: 22px 55px;
-            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #62CDE0;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 16px 16px 24px;
+            border-radius: 8px;
             text-decoration: none;
-            letter-spacing: 2px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(98, 205, 224, 0.3);
+            transition: all 0.35s ease;
             position: relative;
         }
 
-        .trust-cta-btn::after {
-            content: '──';
-            margin-left: 15px;
-            font-weight: 400;
-            letter-spacing: -2px;
+        .trust-cta-btn .cta-arrow-box {
+            background: #1E7FA0;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.35s ease;
         }
 
         .trust-cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 35px rgba(0,0,0,0.3);
-            background: #E0F0F3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(30, 127, 160, 0.45);
+            background: #1E7FA0;
+        }
+
+        .trust-cta-btn:hover .cta-arrow-box {
+            background: #62CDE0;
         }
 
         /* ========== 物件カードグリッド ========== */
@@ -1454,35 +1482,44 @@
 
         .form-submit-button {
             width: 100%;
-            background: #5EADB8;
+            background: #62CDE0;
             color: #fff;
-            padding: 20px;
+            padding: 18px 18px 18px 24px;
             border: none;
-            border-radius: 2px;
-            font-size: 1.25rem;
-            font-weight: 900;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            transition: all 0.35s ease;
+            box-shadow: 0 6px 24px rgba(98, 205, 224, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            letter-spacing: 1px;
+            gap: 10px;
+            letter-spacing: 0.5px;
         }
 
         .form-submit-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-            background: #4D9BA8;
+            box-shadow: 0 8px 28px rgba(30, 127, 160, 0.45);
+            background: #1E7FA0;
         }
 
-        .form-submit-button .arrow {
-            font-size: 1.4rem;
-            transition: transform 0.3s ease;
+        .form-submit-button .cta-arrow-box {
+            background: #1E7FA0;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.35s ease;
         }
 
-        .form-submit-button:hover .arrow { transform: translateX(5px); }
+        .form-submit-button:hover .cta-arrow-box {
+            background: #62CDE0;
+        }
 
         .recaptcha-notice {
             text-align: center;
@@ -2215,10 +2252,11 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
             position: relative;
             z-index: 1;
+            max-width: 900px;
         }
 
         .lineup-card {
@@ -2474,7 +2512,8 @@
             }
             .lineup-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 30px;
+                max-width: 100%;
             }
             .success-grid {
                 grid-template-columns: 1fr;
@@ -2496,7 +2535,8 @@
             .feature-image { height: 350px; }
 
             .sticky-cta { bottom: 20px; right: 20px; }
-            .sticky-button { padding: 14px 22px; font-size: 0.9rem; }
+            .sticky-button { padding: 16px 16px 16px 20px; font-size: 0.9rem; }
+            .sticky-button .arrow-box { width: 36px; height: 36px; }
 
             .features-title { font-size: 2rem; }
             .feature-content-title { font-size: 1.5rem; }
@@ -2585,6 +2625,78 @@
 
         .style-gallery-name.garage-name {
             color: #2A4A55;
+        }
+
+        /* ========== スマホ用 下部固定CTAバー（WITHDOM風） ========== */
+        .mobile-fixed-cta {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            /* PC版追従ボタンをスマホで非表示 */
+            .sticky-cta {
+                display: none !important;
+            }
+
+            /* スマホ用固定バー表示 */
+            .mobile-fixed-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 999;
+                box-shadow: 0 -2px 16px rgba(0,0,0,0.15);
+            }
+
+            .mobile-fixed-cta a {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                padding: 14px 10px;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 0.82rem;
+                letter-spacing: 0.5px;
+                transition: opacity 0.2s ease;
+            }
+
+            .mobile-fixed-cta a:active {
+                opacity: 0.85;
+            }
+
+            .mobile-fixed-cta .mobile-cta-visit {
+                background: #62CDE0;
+                color: #fff;
+                transition: background 0.3s ease;
+            }
+
+            .mobile-fixed-cta .mobile-cta-visit:active {
+                background: #1E7FA0;
+            }
+
+            .mobile-fixed-cta .mobile-cta-document {
+                background: #2A4A55;
+                color: #fff;
+                transition: background 0.3s ease;
+            }
+
+            .mobile-fixed-cta .mobile-cta-document:active {
+                background: #1A3A44;
+            }
+
+            .mobile-fixed-cta a svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            /* フッターの下余白を確保（固定バーに隠れないように） */
+            body {
+                padding-bottom: 70px;
+            }
         }
     </style>
 </head>
@@ -2733,17 +2845,17 @@
                 <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/uminaka-03.jpg" alt="CALIFORNIA STYLE リビング">
             </div>
             <div class="gallery-photo">
-                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/cal-beach-ext5.jpg" alt="CALIFORNIA STYLE ダイニング">
+                <img src="img/IMG_0110.jpg" alt="CALIFORNIA STYLE 外観">
             </div>
         </div>
 
         <!-- CTAボタン -->
         <div class="gallery-cta-wrap">
             <a href="#contact" class="gallery-cta-btn">
+                <span class="cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
                 今すぐお問い合わせ
-                <span class="cta-arrow">→</span>
+                <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </a>
-            <a href="#" class="gallery-monthly-link">▼ 月々の支払いや入居時期を今すぐ確認！</a>
         </div>
     </section>
 
@@ -2786,8 +2898,9 @@
         <!-- CTAボタン -->
         <div class="gallery-cta-wrap">
             <a href="#contact" class="gallery-cta-btn">
+                <span class="cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
                 今すぐお問い合わせ
-                <span class="cta-arrow">→</span>
+                <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </a>
         </div>
     </section>
@@ -2908,8 +3021,11 @@
 
         <!-- CTAボタン -->
         <div style="text-align: center; margin-top: 50px;">
-            <a href="#contact" style="display: inline-block; background: linear-gradient(135deg, #f0c040, #e8a820); color: #1a3a5c; font-size: 1.2rem; font-weight: 800; padding: 22px 60px; border-radius: 50px; text-decoration: none; letter-spacing: 2px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); transition: all 0.3s ease;">
-                今すぐ無料相談 →
+            <div style="margin-bottom: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.6);">高性能住宅ならではの光熱費メリットをご確認ください</div>
+            <a href="#contact" class="gallery-cta-btn">
+                <span class="cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
+                今すぐお問い合わせ
+                <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </a>
         </div>
     </section>
@@ -3030,115 +3146,33 @@
                     </div>
                 </div>
 
-                <!-- カード3: FPウレタン断熱パネル -->
+                <!-- カード3: FPウレタンパネルの性能 -->
                 <div class="reliability-card">
-                    <div class="reliability-card-image" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; min-height: 300px; border-radius: 16px;">
-                        <!-- FPパネル断面構造図（PDF資料ベース） -->
-                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 380px;">
-                            <!-- パネル断面 -->
-                            <rect x="60" y="40" width="280" height="200" rx="4" fill="#3a7ca5" stroke="#fff" stroke-width="2"/>
-                            <!-- 木枠（上下左右） -->
-                            <rect x="60" y="40" width="280" height="18" fill="#c4915e" stroke="#fff" stroke-width="1"/>
-                            <rect x="60" y="222" width="280" height="18" fill="#c4915e" stroke="#fff" stroke-width="1"/>
-                            <rect x="60" y="40" width="20" height="200" fill="#c4915e" stroke="#fff" stroke-width="1"/>
-                            <rect x="320" y="40" width="20" height="200" fill="#c4915e" stroke="#fff" stroke-width="1"/>
-                            <!-- ウレタンフォーム中心部 -->
-                            <rect x="80" y="58" width="240" height="164" rx="2" fill="#2980b9" opacity="0.6"/>
-                            <!-- 独立気泡パターン -->
-                            <circle cx="120" cy="100" r="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="160" cy="85" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="200" cy="105" r="14" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="240" cy="90" r="11" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="280" cy="100" r="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="140" cy="140" r="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="180" cy="150" r="11" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="220" cy="135" r="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="260" cy="145" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="300" cy="140" r="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="110" cy="180" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="150" cy="190" r="14" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="190" cy="185" r="11" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="230" cy="175" r="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <circle cx="270" cy="190" r="10" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <!-- 寸法線 -->
-                            <line x1="45" y1="58" x2="45" y2="222" stroke="#1a1a1a" stroke-width="2"/>
-                            <line x1="38" y1="58" x2="52" y2="58" stroke="#1a1a1a" stroke-width="2"/>
-                            <line x1="38" y1="222" x2="52" y2="222" stroke="#1a1a1a" stroke-width="2"/>
-                            <text x="42" y="148" fill="#1a1a1a" font-size="13" font-weight="bold" text-anchor="middle" transform="rotate(-90 42 148)">105mm</text>
-                            <!-- ラベル -->
-                            <text x="200" y="25" fill="#1a1a1a" font-size="14" font-weight="bold" text-anchor="middle">FPウレタン断熱パネル断面図</text>
-                            <text x="200" y="140" fill="rgba(255,255,255,0.8)" font-size="11" text-anchor="middle">硬質ウレタンフォーム</text>
-                            <text x="200" y="158" fill="rgba(255,255,255,0.6)" font-size="10" text-anchor="middle">（独立気泡構造）</text>
-                            <text x="200" y="260" fill="#1a1a1a" font-size="15" font-weight="bold" text-anchor="middle">熱伝導率 0.019 W/(m・K)</text>
-                            <text x="200" y="280" fill="#555" font-size="11" text-anchor="middle">グラスウールの約3倍の断熱性能</text>
-                        </svg>
+                    <div class="reliability-card-image">
+                        <img src="img/insulation-house-arrows.png" alt="断熱性能 - FPウレタンパネルが熱を逃がさない" loading="lazy" style="object-fit: contain; background: #fff; padding: 20px;">
                     </div>
                     <div class="reliability-card-content" style="padding: 30px;">
-                        <h3 class="reliability-card-title">FPウレタン断熱パネルによる<br>圧倒的な断熱・気密性能</h3>
+                        <h3 class="reliability-card-title">20年経っても、<br>変わらない断熱性能。</h3>
                         <p class="reliability-card-text">
-                            硬質ウレタンフォームを木枠に一体成型した「FPウレタン断熱パネル」を採用。熱伝導率0.019 W/(m・K)はグラスウールの約3倍の断熱性能を実現します。独立気泡構造により水分や空気を通しにくく、経年劣化が極めて少ないのが特長。築20年後の物件でも新築時とほぼ同等の性能を維持します。工場での精密生産により現場施工のバラつきを排除し、全棟で安定した高気密・高断熱を実現します。
+                            硬質ウレタンフォームを木枠に一体成型した「FPウレタンパネル」を採用しています。熱伝導率0.019 W/(m・K)は、一般的なグラスウールの約3倍の性能。独立気泡構造で水分や空気を通しにくく、築20年を過ぎても新築時とほぼ変わらない性能を維持します。工場での精密生産によって施工のバラつきをなくし、全棟で安定した高い気密・高い性能を実現しています。
                         </p>
                         <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
                             <span class="reliability-card-label">熱伝導率 0.019 W/(m・K)</span>
                             <span class="reliability-card-label" style="background: #1a1a1a;">壁厚105mm標準</span>
-                            <span class="reliability-card-label" style="background: #c0392b;">断熱等級7対応</span>
+                            <span class="reliability-card-label" style="background: #c0392b;">等級7対応</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- カード4: 気密性能 -->
                 <div class="reliability-card">
-                    <div class="reliability-card-image" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; min-height: 300px; border-radius: 16px;">
-                        <!-- 気密性能比較図（PDF資料ベース） -->
-                        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 380px;">
-                            <!-- タイトル -->
-                            <text x="200" y="25" fill="#1a1a1a" font-size="14" font-weight="bold" text-anchor="middle">C値による室内環境の違い</text>
-                            <!-- FB HOME -->
-                            <rect x="20" y="45" width="110" height="200" rx="8" fill="rgba(77,166,201,0.1)" stroke="#4da6c9" stroke-width="2"/>
-                            <text x="75" y="70" fill="#1a1a1a" font-size="11" font-weight="bold" text-anchor="middle">FB HOME</text>
-                            <text x="75" y="90" fill="#1a1a1a" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=0.1</text>
-                            <!-- 家の中の温度（均一） -->
-                            <rect x="35" y="105" width="80" height="80" rx="4" fill="rgba(231,76,60,0.2)" stroke="rgba(231,76,60,0.5)" stroke-width="1"/>
-                            <text x="75" y="130" fill="#e74c3c" font-size="9" text-anchor="middle">リビング 24℃</text>
-                            <text x="75" y="145" fill="#e74c3c" font-size="9" text-anchor="middle">寝室 23℃</text>
-                            <text x="75" y="160" fill="#e74c3c" font-size="9" text-anchor="middle">廊下 23℃</text>
-                            <text x="75" y="175" fill="#e74c3c" font-size="9" text-anchor="middle">脱衣所 23℃</text>
-                            <text x="75" y="200" fill="#888" font-size="9" text-anchor="middle">上下温度差</text>
-                            <text x="75" y="218" fill="#1a1a1a" font-size="16" font-weight="bold" text-anchor="middle">1℃以内</text>
-                            <text x="75" y="235" fill="#27ae60" font-size="10" font-weight="bold" text-anchor="middle">快適</text>
-                            <!-- 断熱等級5 B -->
-                            <rect x="145" y="45" width="110" height="200" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                            <text x="200" y="70" fill="rgba(255,255,255,0.6)" font-size="11" font-weight="bold" text-anchor="middle">断熱等級5 B</text>
-                            <text x="200" y="90" fill="rgba(255,255,255,0.5)" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=1.2</text>
-                            <rect x="160" y="105" width="80" height="80" rx="4" fill="rgba(243,156,18,0.15)" stroke="rgba(243,156,18,0.3)" stroke-width="1"/>
-                            <text x="200" y="130" fill="rgba(243,156,18,0.8)" font-size="9" text-anchor="middle">リビング 21℃</text>
-                            <text x="200" y="145" fill="rgba(243,156,18,0.8)" font-size="9" text-anchor="middle">寝室 19℃</text>
-                            <text x="200" y="160" fill="rgba(243,156,18,0.8)" font-size="9" text-anchor="middle">廊下 17℃</text>
-                            <text x="200" y="175" fill="rgba(243,156,18,0.8)" font-size="9" text-anchor="middle">脱衣所 16℃</text>
-                            <text x="200" y="200" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle">上下温度差</text>
-                            <text x="200" y="218" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="bold" text-anchor="middle">3〜5℃</text>
-                            <text x="200" y="235" fill="#f39c12" font-size="10" font-weight="bold" text-anchor="middle">やや不快</text>
-                            <!-- 断熱等級5 C -->
-                            <rect x="270" y="45" width="110" height="200" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                            <text x="325" y="70" fill="rgba(255,255,255,0.4)" font-size="11" font-weight="bold" text-anchor="middle">断熱等級5 C</text>
-                            <text x="325" y="90" fill="rgba(255,255,255,0.4)" font-size="22" font-weight="900" text-anchor="middle" font-family="Montserrat">C=1.6</text>
-                            <rect x="285" y="105" width="80" height="80" rx="4" fill="rgba(52,152,219,0.1)" stroke="rgba(52,152,219,0.2)" stroke-width="1"/>
-                            <text x="325" y="130" fill="rgba(52,152,219,0.7)" font-size="9" text-anchor="middle">リビング 19℃</text>
-                            <text x="325" y="145" fill="rgba(52,152,219,0.7)" font-size="9" text-anchor="middle">寝室 16℃</text>
-                            <text x="325" y="160" fill="rgba(52,152,219,0.7)" font-size="9" text-anchor="middle">廊下 14℃</text>
-                            <text x="325" y="175" fill="rgba(52,152,219,0.7)" font-size="9" text-anchor="middle">脱衣所 13℃</text>
-                            <text x="325" y="200" fill="rgba(255,255,255,0.4)" font-size="9" text-anchor="middle">上下温度差</text>
-                            <text x="325" y="218" fill="rgba(255,255,255,0.4)" font-size="16" font-weight="bold" text-anchor="middle">5℃以上</text>
-                            <text x="325" y="235" fill="#e74c3c" font-size="10" font-weight="bold" text-anchor="middle">不快・危険</text>
-                            <!-- 外気温表示 -->
-                            <text x="200" y="275" fill="#888" font-size="10" text-anchor="middle">外気温 0℃ / エアコン設定 21℃ の場合</text>
-                            <text x="200" y="292" fill="#aaa" font-size="9" text-anchor="middle">出典：FP技術指導員講習会資料</text>
-                        </svg>
+                    <div class="reliability-card-image">
+                        <img src="img/fbhome-temperature-comfort.png" alt="FB HOMEは温度差が少なく快適" loading="lazy" style="object-fit: contain; background: #fff;">
                     </div>
                     <div class="reliability-card-content" style="padding: 30px;">
-                        <h3 class="reliability-card-title">全棟気密測定で<br>性能を数値で証明</h3>
+                        <h3 class="reliability-card-title">冬の朝、<br>廊下もお風呂も寒くない。</h3>
                         <p class="reliability-card-text">
-                            「断熱は数値だけなら誰でも上げられる。気密は測定しないと誰も証明できない」── FB HOMEでは全棟で気密測定を実施。C値0.1という業界最高水準の気密性能を数値で証明します。気密性能が高いことで、家中の上下温度差がほぼなくなり、床が冷たい・足元が寒いという悩みを解消。12年経過後もC値の変化はわずか0.2程度と、長期にわたって性能を維持します。
+                            FB HOMEでは全棟で気密測定を実施し、C値0.7以下を保証。業界トップクラスの気密性能により、リビングも廊下も脱衣所もほぼ同じ温度に保たれます。12年経過後もC値の変化はわずか0.2程度。長く住んでも、この快適さは変わりません。
                         </p>
                         <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
                             <span class="reliability-card-label">全棟気密測定実施</span>
@@ -3176,53 +3210,35 @@
         </div>
 
         <div class="lineup-grid">
-            <!-- UMINAKAモデルハウス -->
+            <!-- CALIFORNIA STYLE -->
             <div class="lineup-card">
                 <div class="lineup-card-image">
-                    <img src="img/lineup-uminaka.jpg" alt="UMINAKAモデルハウス" loading="lazy">
+                    <span class="lineup-card-badge">CALIFORNIA STYLE</span>
+                    <img src="img/lineup-california-beach.jpg" alt="CALIFORNIA STYLE" loading="lazy">
                 </div>
                 <div class="lineup-card-content">
-                    <h3 class="lineup-card-name">UMINAKA</h3>
-                    <div class="lineup-card-name-sub">UMINAKAモデルハウス</div>
+                    <h3 class="lineup-card-name">CALIFORNIA STYLE</h3>
                     <div class="lineup-card-tags">
                         <span>#カバードポーチ</span>
+                        <span>#ラップサイディング</span>
+                    </div>
+                    <div class="lineup-card-price">
+                        本体価格 <span class="price-num">2,480</span> 万円〜（税込）
+                    </div>
+                </div>
+            </div>
+
+            <!-- GARAGE STYLE -->
+            <div class="lineup-card">
+                <div class="lineup-card-image">
+                    <span class="lineup-card-badge">GARAGE STYLE</span>
+                    <img src="img/lineup-uminaka.jpg" alt="GARAGE STYLE" loading="lazy">
+                </div>
+                <div class="lineup-card-content">
+                    <h3 class="lineup-card-name">GARAGE STYLE</h3>
+                    <div class="lineup-card-tags">
+                        <span>#ビルトインガレージ</span>
                         <span>#吹き抜けリビング</span>
-                    </div>
-                    <div class="lineup-card-price">
-                        本体価格 <span class="price-num">2,480</span> 万円〜（税込）
-                    </div>
-                </div>
-            </div>
-
-            <!-- アバンセヴィラ筑前山隈 -->
-            <div class="lineup-card">
-                <div class="lineup-card-image">
-                    <img src="img/lineup-avance.jpg" alt="アバンセヴィラ筑前山隈" loading="lazy">
-                </div>
-                <div class="lineup-card-content">
-                    <h3 class="lineup-card-name">AVANCE VILLA</h3>
-                    <div class="lineup-card-name-sub">アバンセヴィラ筑前山隈</div>
-                    <div class="lineup-card-tags">
-                        <span>#ラップサイディング</span>
-                        <span>#高性能住宅</span>
-                    </div>
-                    <div class="lineup-card-price">
-                        本体価格 <span class="price-num">2,480</span> 万円〜（税込）
-                    </div>
-                </div>
-            </div>
-
-            <!-- カリフォルニアヴィレッジ福間ビーチモデル -->
-            <div class="lineup-card">
-                <div class="lineup-card-image">
-                    <img src="img/lineup-california-beach.jpg" alt="カリフォルニアヴィレッジ福間ビーチモデル" loading="lazy">
-                </div>
-                <div class="lineup-card-content">
-                    <h3 class="lineup-card-name">CALIFORNIA VILLAGE</h3>
-                    <div class="lineup-card-name-sub">カリフォルニアヴィレッジ福間ビーチモデル</div>
-                    <div class="lineup-card-tags">
-                        <span>#カバードポーチ</span>
-                        <span>#ラップサイディング</span>
                     </div>
                     <div class="lineup-card-price">
                         本体価格 <span class="price-num">2,480</span> 万円〜（税込）
@@ -3318,7 +3334,12 @@
                 </div>
 
                 <!-- CTAボタン -->
-                <a href="#contact" class="trust-cta-btn">お問い合わせ・ご相談予約</a>
+                <div style="margin-bottom: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.5);">強引な営業は一切いたしません。お気軽にどうぞ。</div>
+                <a href="#contact" class="trust-cta-btn">
+                    <span class="cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
+                    今すぐお問い合わせ
+                    <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+                </a>
 
                 <p class="trust-note">福岡ビルド株式会社 ／ https://f-build.co.jp/</p>
             </div>
@@ -3408,9 +3429,10 @@
 
                     <!-- 送信ボタン -->
                     <button type="submit" class="form-submit-button">
-                        内容の確認
-                        <span class="arrow">→</span>
+                        送信する
+                        <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
                     </button>
+                    <div style="text-align: center; margin-top: 8px; font-size: 0.75rem; color: #8AABB5;">※通常1営業日以内にご連絡いたします</div>
 
                     <!-- reCAPTCHA -->
                     <div class="recaptcha-notice">
@@ -3423,19 +3445,30 @@
 
     <!-- 追従ボタン（固定ボタン） -->
     <div class="sticky-cta">
-        <div class="sticky-campaign-badge hidden-for-now">完成見学会 開催中</div>
         <div class="sticky-buttons">
-            <a href="#properties" class="sticky-button">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></span>
-                施工事例を見る
-                <span class="arrow">→</span>
+            <a href="#contact" class="sticky-button">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16z"/></svg></span>
+                物件チラシを見る
+                <span class="arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
             </a>
             <a href="#contact" class="sticky-button">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
                 今すぐ無料相談
-                <span class="arrow">→</span>
+                <span class="arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
             </a>
         </div>
+    </div>
+
+    <!-- スマホ用 下部固定CTAバー（WITHDOM風） -->
+    <div class="mobile-fixed-cta">
+        <a href="#contact" class="mobile-cta-visit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            来場予約
+        </a>
+        <a href="#contact" class="mobile-cta-document">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            資料請求
+        </a>
     </div>
 
     <!-- フッター -->
