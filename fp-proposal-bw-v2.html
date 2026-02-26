@@ -97,27 +97,24 @@
             transform: scale(1.3);
         }
 
-        /* ロゴ（左上） */
-        .hero-logo {
+        /* ヘッダーバー */
+        .site-header {
             position: absolute;
-            top: 32px;
-            left: 36px;
-            z-index: 10;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 14px 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
-        .hero-logo img {
-            height: 70px;
+        .site-header img {
+            height: 56px;
             width: auto;
             display: block;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
-        }
-
-        .hero-logo-bg {
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(8px);
-            border-radius: 12px;
-            padding: 12px 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         /* メインコンテンツボックス */
@@ -1567,7 +1564,7 @@
             width: auto;
             display: block;
             margin: 0 auto;
-            filter: invert(1) brightness(1.1);
+            filter: invert(1);
         }
 
         .footer-logo .footer-sub {
@@ -2575,17 +2572,11 @@
         }
 
         @media (max-width: 768px) {
-            .hero-logo {
-                top: 16px;
-                left: 16px;
+            .site-header {
+                padding: 10px 20px;
             }
 
-            .hero-logo img { height: 48px; }
-
-            .hero-logo-bg {
-                padding: 8px 14px;
-                border-radius: 10px;
-            }
+            .site-header img { height: 40px; }
 
             .hero-content-wrapper {
                 padding: 40px 28px 45px;
@@ -2706,6 +2697,11 @@
 </head>
 <body>
     <!-- ヒーローセクション -->
+    <!-- ヘッダーバー -->
+    <header class="site-header">
+        <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/fb-home-logo.png" alt="FB HOME">
+    </header>
+
     <section class="hero-section">
         <!-- 背景スライダー（3枚） -->
         <div class="hero-slider">
@@ -2725,13 +2721,6 @@
             <span class="dot active" data-index="0"></span>
             <span class="dot" data-index="1"></span>
             <span class="dot" data-index="2"></span>
-        </div>
-
-        <!-- ロゴ -->
-        <div class="hero-logo">
-            <div class="hero-logo-bg">
-                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/fb-home-logo.png" alt="FB HOME">
-            </div>
         </div>
 
     </section>
