@@ -100,28 +100,24 @@
         /* ロゴ（左上） */
         .hero-logo {
             position: absolute;
-            top: 50px;
-            left: 50px;
+            top: 32px;
+            left: 36px;
             z-index: 10;
         }
 
-        .hero-logo h1 {
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: 4px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            line-height: 1.2;
+        .hero-logo img {
+            height: 70px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
         }
 
-        .hero-logo h1 .logo-sub {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 6px;
-            margin-top: 4px;
-            opacity: 0.9;
+        .hero-logo-bg {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         /* メインコンテンツボックス */
@@ -303,26 +299,25 @@
         }
 
         .brand-logo {
-            max-width: 300px;
+            max-width: 260px;
             margin: 0 auto 35px;
         }
 
-        .brand-logo h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #2A4A55;
-            letter-spacing: 3px;
-            line-height: 1.2;
+        .brand-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .brand-logo h2 .brand-sub {
+        .brand-logo .brand-sub {
             display: block;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 5px;
-            margin-top: 6px;
+            margin-top: 8px;
             color: #8AABB5;
+            text-align: center;
         }
 
         .brand-description {
@@ -1564,20 +1559,24 @@
         }
 
         .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
             margin-bottom: 30px;
-            letter-spacing: 4px;
-            line-height: 1.2;
+        }
+
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            filter: invert(1) brightness(1.1);
         }
 
         .footer-logo .footer-sub {
             display: block;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.7rem;
             font-weight: 500;
             letter-spacing: 5px;
-            margin-top: 6px;
+            margin-top: 8px;
             color: #7DBBC5;
         }
 
@@ -2577,11 +2576,16 @@
 
         @media (max-width: 768px) {
             .hero-logo {
-                top: 25px;
-                left: 25px;
+                top: 16px;
+                left: 16px;
             }
 
-            .hero-logo h1 { font-size: 1.5rem; }
+            .hero-logo img { height: 48px; }
+
+            .hero-logo-bg {
+                padding: 8px 14px;
+                border-radius: 10px;
+            }
 
             .hero-content-wrapper {
                 padding: 40px 28px 45px;
@@ -2609,7 +2613,7 @@
                 gap: 30px;
             }
 
-            .footer-logo { font-size: 2rem; }
+            .footer-logo img { height: 72px; }
         }
 
         /* ========== 非表示ユーティリティ ========== */
@@ -2725,10 +2729,9 @@
 
         <!-- ロゴ -->
         <div class="hero-logo">
-            <h1>
-                FB HOME
-                <span class="logo-sub">CALIFORNIA STYLE LIVING</span>
-            </h1>
+            <div class="hero-logo-bg">
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/fb-home-logo.png" alt="FB HOME">
+            </div>
         </div>
 
     </section>
@@ -2737,10 +2740,8 @@
     <section class="brand-section">
         <div class="container">
             <div class="brand-logo">
-                <h2>
-                    FB HOME
-                    <span class="brand-sub">CALIFORNIA / GARAGE STYLE</span>
-                </h2>
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/fb-home-logo.png" alt="FB HOME">
+                <span class="brand-sub">CALIFORNIA / GARAGE STYLE</span>
             </div>
             <p class="brand-description">
                 FB HOMEはCALIFORNIA STYLE・GARAGE STYLEのラインナップで、光と風を感じる住まいを提案する分譲住宅ブランドです。<br><br>
@@ -3475,7 +3476,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                FB HOME
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/fb-home-logo.png" alt="FB HOME">
                 <span class="footer-sub">CALIFORNIA STYLE LIVING</span>
             </div>
 
