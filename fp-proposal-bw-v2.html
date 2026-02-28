@@ -1059,26 +1059,6 @@
             position: relative;
             overflow: hidden;
         }
-        .line-present-inner::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
-        }
-        .line-present-inner::after {
-            content: '';
-            position: absolute;
-            bottom: -30px;
-            left: -30px;
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.06);
-            border-radius: 50%;
-        }
         .line-present-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
@@ -2857,6 +2837,14 @@
 
             .contact-container { grid-template-columns: 1fr; }
             .contact-form-wrapper { padding: 30px 20px; }
+            .phone-number {
+                font-size: 1.6rem;
+                white-space: nowrap;
+            }
+            .contact-phone {
+                padding: 25px 20px;
+                gap: 15px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -3403,7 +3391,7 @@
         <!-- ヘッダー -->
         <div class="reliability-header">
             <div class="reliability-label">RELIABILITY</div>
-            <h2 class="reliability-title">品質と<br class="sp-br">保証とサポート</h2>
+            <h2 class="reliability-title">品質と<br class="sp-br">保証・サービス</h2>
         </div>
 
         <!-- コンテンツ -->
