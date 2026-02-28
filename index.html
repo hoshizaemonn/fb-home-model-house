@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>完成見学会 | FB HOME</title>
+    <title>FB HOME | 高性能デザイン住宅</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -14,11 +14,18 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            color: #2c2c2c;
+            color: #2C4A55;
             line-height: 1.6;
-            background-color: #faf9f6;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
         }
 
         /* ========== ヒーローセクション ========== */
@@ -31,77 +38,235 @@
             overflow: hidden;
         }
 
-        /* 背景画像グリッド - 4列×3行 */
-        .background-grid {
+        /* 背景スライダー */
+        .hero-slider {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 0;
             z-index: 0;
         }
 
-        .grid-item {
-            background-size: cover;
-            background-position: center;
-            position: relative;
+        .hero-slider .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
         }
 
-        /* カリフォルニア＆WAON STYLEの画像を配置 */
-        .grid-item:nth-child(1)  { background-image: url('img/cal-beach-ext1.jpg'); }
-        .grid-item:nth-child(2)  { background-image: url('img/uminaka-01.jpg'); }
-        .grid-item:nth-child(3)  { background-image: url('img/cal-beach-ext2.jpg'); }
-        .grid-item:nth-child(4)  { background-image: url('img/waon-f-ext.jpg'); }
-        .grid-item:nth-child(5)  { background-image: url('img/uminaka-02.jpg'); }
-        .grid-item:nth-child(6)  { background-image: url('img/cal-beach-ext3.jpg'); }
-        .grid-item:nth-child(7)  { background-image: url('img/cal-beach-int1.jpg'); }
-        .grid-item:nth-child(8)  { background-image: url('img/waon-f-02.jpg'); }
-        .grid-item:nth-child(9)  { background-image: url('img/cal-beach-ext4.jpg'); }
-        .grid-item:nth-child(10) { background-image: url('img/waon-sakedono-01.jpg'); }
-        .grid-item:nth-child(11) { background-image: url('img/cal-beach-int2.jpg'); }
-        .grid-item:nth-child(12) { background-image: url('img/waon-f-03.jpg'); }
+        .hero-slider .slide.active {
+            opacity: 1;
+        }
 
-        .background-grid::after {
+        .hero-slider .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-slider::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(26, 58, 92, 0.25) 0%, rgba(180, 140, 80, 0.15) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.08) 100%);
             z-index: 1;
         }
 
-        /* ロゴ（左上） */
-        .hero-logo {
+        /* スライダーインジケーター */
+        .slider-indicators {
             position: absolute;
-            top: 50px;
-            left: 50px;
-            z-index: 10;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+            display: flex;
+            gap: 12px;
         }
 
-        .hero-logo h1 {
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: 4px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            line-height: 1.2;
+        .slider-indicators .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .hero-logo h1 .logo-sub {
+        .slider-indicators .dot.active {
+            background: #FFFFFF;
+            transform: scale(1.3);
+        }
+
+        /* ヘッダーバー */
+        .site-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            padding: 14px 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .site-header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -5%;
+            right: -5%;
+            height: 160px;
+            background:
+                radial-gradient(ellipse 80% 60% at 10% 40%, rgba(255,255,255,0.7) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 50% 30%, rgba(255,255,255,0.5) 0%, transparent 65%),
+                radial-gradient(ellipse 70% 55% at 85% 35%, rgba(255,255,255,0.6) 0%, transparent 70%),
+                radial-gradient(ellipse 90% 40% at 30% 50%, rgba(255,255,255,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 45% at 70% 55%, rgba(255,255,255,0.3) 0%, transparent 65%);
+            filter: blur(8px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .site-header img {
+            height: 48px;
+            width: auto;
             display: block;
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 6px;
-            margin-top: 4px;
-            opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
+
+        /* ナビゲーション */
+        .site-nav {
+            display: flex;
+            gap: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .site-nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* ハンバーガーメニュー（PC非表示） */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 25;
+            position: relative;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #1a1a1a;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+        .mobile-menu-overlay.active { display: block; }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100vh;
+            background: #fff;
+            z-index: 999;
+            padding: 80px 30px 40px;
+            box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+            transition: right 0.35s ease;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #2C4A55;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 16px 0;
+            color: #2C4A55;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: color 0.2s ease;
+        }
+        .mobile-menu a:hover { color: #5EADB8; }
+        .mobile-menu-line {
+            display: flex !important;
+            align-items: center;
+            gap: 10px;
+            margin-top: 16px;
+            padding: 16px 20px !important;
+            background: #06C755 !important;
+            color: #fff !important;
+            border-radius: 10px;
+            border-bottom: none !important;
+            font-family: 'Noto Sans JP', sans-serif !important;
+            font-size: 0.9rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0 !important;
+            justify-content: center;
+        }
+        .mobile-menu-line:hover { background: #04a648 !important; color: #fff !important; }
+        .mobile-menu-line svg { fill: #fff; flex-shrink: 0; }
 
         /* メインコンテンツボックス */
         .hero-content-wrapper {
@@ -109,11 +274,12 @@
             z-index: 10;
             max-width: 600px;
             padding: 55px 60px 60px;
-            background: rgba(26, 58, 92, 0.88);
-            backdrop-filter: blur(12px);
-            border-radius: 30px;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(16px);
+            border-radius: 4px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
             margin: 0 20px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         /* 先着順バッジ */
@@ -121,19 +287,19 @@
             position: absolute;
             top: -18px;
             left: 45px;
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
+            background: #FFFFFF;
+            color: #2A4A55;
             padding: 10px 30px;
-            border-radius: 22px;
+            border-radius: 2px;
             font-weight: 900;
             font-size: 1.2rem;
-            box-shadow: 0 6px 20px rgba(240, 192, 64, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             letter-spacing: 1.5px;
         }
 
-        /* メインタイトル（袋文字） */
+        /* メインタイトル */
         .hero-main-title {
-            color: #f0c040;
+            color: #ffffff;
             font-size: 3.2rem;
             font-weight: 900;
             margin-bottom: 22px;
@@ -166,13 +332,13 @@
             position: absolute;
             top: -55px;
             right: 5px;
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
+            background: #FFFFFF;
+            color: #2A4A55;
             padding: 9px 22px;
-            border-radius: 18px;
+            border-radius: 2px;
             font-weight: 700;
             font-size: 0.88rem;
-            box-shadow: 0 4px 14px rgba(240, 192, 64, 0.4);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -182,7 +348,7 @@
         .campaign-badge::before,
         .campaign-badge::after {
             content: '●';
-            color: #4da6c9;
+            color: #2A4A55;
             font-size: 0.7rem;
             animation: pulse 2s infinite;
         }
@@ -196,8 +362,8 @@
         .cta-button {
             flex: 1;
             min-width: 220px;
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
+            background: #FFFFFF;
+            color: #2A4A55;
             padding: 20px 30px;
             border: none;
             border-radius: 50px;
@@ -216,8 +382,8 @@
 
         .cta-button:hover {
             transform: translateY(-4px);
-            box-shadow: 0 14px 36px rgba(240, 192, 64, 0.45);
-            background: linear-gradient(135deg, #f5d060 0%, #f0c040 100%);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
+            background: #E0F0F3;
         }
 
         .cta-button .arrow {
@@ -252,7 +418,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
-            color: #4da6c9;
+            color: #8AABB5;
             letter-spacing: 5px;
             margin-bottom: 12px;
             text-transform: uppercase;
@@ -261,13 +427,13 @@
         .section-title {
             font-size: 2.4rem;
             font-weight: 900;
-            color: #1a3a5c;
+            color: #2A4A55;
             margin-bottom: 25px;
         }
 
         .section-description {
             font-size: 1.05rem;
-            color: #555;
+            color: #5A7A85;
             line-height: 1.95;
             max-width: 800px;
             margin: 0 auto;
@@ -275,32 +441,31 @@
 
         /* ========== ブランド紹介セクション ========== */
         .brand-section {
-            background: linear-gradient(180deg, #faf9f6 0%, #fff 100%);
+            background: #FFFFFF;
             text-align: center;
             padding: 90px 20px;
         }
 
         .brand-logo {
-            max-width: 300px;
+            max-width: 260px;
             margin: 0 auto 35px;
         }
 
-        .brand-logo h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #1a3a5c;
-            letter-spacing: 3px;
-            line-height: 1.2;
+        .brand-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .brand-logo h2 .brand-sub {
+        .brand-logo .brand-sub {
             display: block;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 5px;
-            margin-top: 6px;
-            color: #4da6c9;
+            margin-top: 8px;
+            color: #8AABB5;
+            text-align: center;
         }
 
         .brand-description {
@@ -308,7 +473,7 @@
             margin: 0 auto;
             font-size: 1.05rem;
             line-height: 2;
-            color: #444;
+            color: #4A6A75;
         }
 
         /* ========== SPECIAL OFFERセクション ========== */
@@ -319,7 +484,7 @@
             align-items: center;
             padding: 120px 20px;
             overflow: hidden;
-            background-image: url('img/cal-beach-ext2.jpg');
+            background-image: url('https://hoshizaemonn.github.io/fb-home-model-house/img/cal-beach-ext2.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -332,7 +497,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(26, 58, 92, 0.6) 0%, rgba(77, 166, 201, 0.35) 100%);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1;
         }
 
@@ -353,7 +518,7 @@
             left: 0;
             width: 100%;
             height: 260px;
-            fill: #faf9f6;
+            fill: #FFFFFFfff;
             opacity: 0.95;
         }
 
@@ -381,7 +546,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem;
             font-weight: 800;
-            color: #f0c040;
+            color: #ffffff;
             letter-spacing: 4px;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
         }
@@ -391,12 +556,12 @@
             position: relative;
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #4da6c9 0%, #2e86ab 100%);
+            background: #5EADB8;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(77, 166, 201, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             clip-path: polygon(
                 50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
                 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
@@ -414,14 +579,14 @@
 
         .discount-arrow {
             font-size: 1.4rem;
-            color: #f0c040;
+            color: #ffffff;
             font-weight: 900;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         .discount-percent {
             font-size: 1.8rem;
-            color: #f0c040;
+            color: #ffffff;
             font-weight: 900;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
@@ -447,7 +612,7 @@
         /* ========== スタイルギャラリーセクション ========== */
         .style-gallery-section {
             padding: 100px 20px 60px;
-            background: #fff;
+            background: #FFFFFF;
         }
 
         .style-gallery-section + .style-gallery-section {
@@ -461,8 +626,8 @@
 
         .style-gallery-tag {
             display: inline-block;
-            background: #e8e8e8;
-            color: #333;
+            background: #D0E8ED;
+            color: #3A5A65;
             padding: 6px 20px;
             border-radius: 4px;
             font-size: 0.85rem;
@@ -471,26 +636,19 @@
         }
 
         .style-gallery-tag.california {
-            background: linear-gradient(135deg, #1a3a5c 0%, #2e5a7c 100%);
+            background: #5EADB8;
             color: white;
         }
 
-        .style-gallery-tag.waon {
-            background: linear-gradient(135deg, #6b4c2a 0%, #8b6b3d 100%);
-            color: white;
-        }
 
         .style-gallery-name {
             font-size: 2rem;
             font-weight: 900;
-            color: #1a3a5c;
+            color: #2A4A55;
             margin-bottom: 6px;
             line-height: 1.4;
         }
 
-        .style-gallery-name.waon-name {
-            color: #5a3e1b;
-        }
 
         .style-gallery-name .name-en {
             font-family: 'Montserrat', sans-serif;
@@ -501,20 +659,20 @@
         .style-gallery-spec {
             font-size: 0.95rem;
             font-weight: 700;
-            color: #333;
+            color: #3A5A65;
             margin-bottom: 5px;
         }
 
         .style-gallery-detail {
             font-size: 0.92rem;
-            color: #666;
+            color: #6A8A95;
             line-height: 1.7;
             margin-bottom: 8px;
         }
 
         .style-gallery-description {
             font-size: 1rem;
-            color: #444;
+            color: #4A6A75;
             line-height: 1.9;
             margin-bottom: 20px;
             max-width: 1200px;
@@ -534,9 +692,9 @@
 
         .spec-tag {
             display: inline-block;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            color: #333;
+            background: #EDF5F7;
+            border: 1px solid #C8DFE5;
+            color: #3A5A65;
             padding: 6px 16px;
             border-radius: 4px;
             font-size: 0.82rem;
@@ -544,8 +702,8 @@
         }
 
         .style-gallery-equipment {
-            background: #f9f7f3;
-            border: 1px solid #e8e4da;
+            background: #EFF6F8;
+            border: 1px solid #C8DFE5;
             border-radius: 10px;
             padding: 16px 22px;
             margin-bottom: 25px;
@@ -553,11 +711,11 @@
             margin-left: auto;
             margin-right: auto;
             font-size: 0.9rem;
-            color: #555;
+            color: #5A7A85;
         }
 
         .style-gallery-equipment strong {
-            color: #333;
+            color: #3A5A65;
         }
 
         /* 写真グリッド */
@@ -597,6 +755,7 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
         }
@@ -604,50 +763,46 @@
         .gallery-cta-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
-            padding: 18px 36px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 800;
+            gap: 10px;
+            background: #62CDE0;
+            color: #fff;
+            padding: 16px 16px 16px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(240, 192, 64, 0.35);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(98, 205, 224, 0.3);
+            transition: all 0.35s ease;
             letter-spacing: 0.5px;
         }
 
         .gallery-cta-btn:hover {
+            background: #1E7FA0;
+            box-shadow: 0 6px 24px rgba(30, 127, 160, 0.45);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(240, 192, 64, 0.5);
         }
 
         .gallery-cta-btn .cta-icon {
-            font-size: 1.3rem;
-        }
-
-        .gallery-cta-btn .cta-arrow {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-cta-btn:hover .cta-arrow {
-            transform: translateX(4px);
-        }
-
-        .gallery-monthly-link {
-            font-size: 0.9rem;
-            color: #1a3a5c;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 5px;
-            transition: color 0.3s ease;
         }
 
-        .gallery-monthly-link:hover {
-            color: #4da6c9;
+        .gallery-cta-btn .cta-arrow-box {
+            background: #1E7FA0;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-left: 4px;
+            transition: background 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .gallery-cta-btn:hover .cta-arrow-box {
+            background: #62CDE0;
         }
 
         /* セクション区切りライン */
@@ -655,7 +810,7 @@
             max-width: 1200px;
             margin: 0 auto;
             border: none;
-            border-top: 1px solid #e8e8e8;
+            border-top: 1px solid #D0E8ED;
         }
 
         @media (max-width: 768px) {
@@ -671,7 +826,7 @@
             .gallery-cta-btn {
                 width: 100%;
                 justify-content: center;
-                padding: 16px 30px;
+                padding: 18px 24px;
                 font-size: 1rem;
             }
 
@@ -679,11 +834,16 @@
                 flex-direction: column;
                 align-items: stretch;
             }
+
+            .gallery-cta-btn .cta-arrow-box {
+                width: 34px;
+                height: 34px;
+            }
         }
 
         /* ========== FEATURESセクション ========== */
         .features-section {
-            background: #fff;
+            background: #FFFFFF;
             padding: 0;
             position: relative;
         }
@@ -693,7 +853,7 @@
             width: 100%;
             height: 120px;
             overflow: hidden;
-            background: #faf9f6;
+            background: #FFFFFFfff;
         }
 
         .features-wave-top svg {
@@ -702,7 +862,7 @@
             left: 0;
             width: 100%;
             height: 120px;
-            fill: #fff;
+            fill: #FFFFFF;
         }
 
         .features-header {
@@ -714,7 +874,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
-            color: #4da6c9;
+            color: #8AABB5;
             letter-spacing: 5px;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -723,7 +883,7 @@
         .features-title {
             font-size: 2.5rem;
             font-weight: 900;
-            color: #1a3a5c;
+            color: #2A4A55;
             line-height: 1.5;
         }
 
@@ -742,20 +902,20 @@
         .feature-content {
             flex: 1;
             padding: 80px;
-            background: #fff;
+            background: #FFFFFF;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .feature-item:nth-child(even) .feature-content {
-            background: #faf9f6;
+            background: #FFFFFFfff;
         }
 
         .feature-content-title {
             font-size: 1.9rem;
             font-weight: 900;
-            color: #1a3a5c;
+            color: #2A4A55;
             margin-bottom: 30px;
             line-height: 1.6;
         }
@@ -763,7 +923,7 @@
         .feature-content-text {
             font-size: 1.05rem;
             line-height: 2;
-            color: #555;
+            color: #5A7A85;
         }
 
         .feature-image {
@@ -787,23 +947,23 @@
         /* ========== 追従ボタン（固定ボタン） ========== */
         .sticky-cta {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 24px;
+            right: 24px;
             z-index: 999;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             align-items: flex-end;
         }
 
         .sticky-campaign-badge {
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
-            padding: 9px 22px;
+            background: #5EADB8;
+            color: #fff;
+            padding: 8px 18px;
             border-radius: 20px;
             font-weight: 700;
-            font-size: 0.85rem;
-            box-shadow: 0 4px 14px rgba(240, 192, 64, 0.4);
+            font-size: 0.78rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -813,53 +973,200 @@
         .sticky-campaign-badge::before,
         .sticky-campaign-badge::after {
             content: '●';
-            color: #4da6c9;
-            font-size: 0.65rem;
+            color: #ffffff;
+            font-size: 0.55rem;
             animation: pulse 2s infinite;
         }
 
         .sticky-buttons {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 10px;
         }
 
         .sticky-button {
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
-            padding: 16px 28px;
+            background: #62CDE0;
+            color: #fff;
+            padding: 18px 18px 18px 22px;
             border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 800;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 20px rgba(98, 205, 224, 0.35);
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
             letter-spacing: 0.5px;
             white-space: nowrap;
         }
 
         .sticky-button:hover {
+            background: #1E7FA0;
             transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(240, 192, 64, 0.45);
-            background: linear-gradient(135deg, #f5d060 0%, #f0c040 100%);
+            box-shadow: 0 8px 28px rgba(30, 127, 160, 0.45);
         }
 
-        .sticky-button .icon { font-size: 1.1rem; }
-        .sticky-button .arrow {
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
+        .sticky-button .icon {
+            display: flex;
+            align-items: center;
+            color: #fff;
         }
-        .sticky-button:hover .arrow { transform: translateX(5px); }
+
+        .sticky-button .arrow-box {
+            background: #1E7FA0;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-left: 4px;
+            transition: background 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .sticky-button:hover .arrow-box {
+            background: #62CDE0;
+        }
+
+        /* LINE追従ボタン（PC） */
+        .sticky-line-btn {
+            background: #06C755 !important;
+            box-shadow: 0 4px 20px rgba(6, 199, 85, 0.35) !important;
+        }
+        .sticky-line-btn:hover {
+            background: #05a648 !important;
+            box-shadow: 0 8px 28px rgba(5, 166, 72, 0.45) !important;
+        }
+        .sticky-line-btn .arrow-box {
+            background: #049e40 !important;
+        }
+        .sticky-line-btn:hover .arrow-box {
+            background: #06C755 !important;
+        }
+
+        /* LINE施工実例集プレゼントCTA */
+        .line-present-cta {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .line-present-inner {
+            background: linear-gradient(135deg, #06C755 0%, #04a648 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .line-present-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .line-present-title {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 900;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .line-present-title .highlight-text {
+            background: rgba(255,255,255,0.2);
+            padding: 2px 12px;
+            border-radius: 6px;
+        }
+        .line-present-desc {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.92rem;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .line-present-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #06C755;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 1;
+        }
+        .line-present-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .line-present-btn .cta-arrow-box {
+            background: #06C755;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-left: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .line-present-inner {
+                padding: 36px 24px;
+                border-radius: 16px;
+            }
+            .line-present-title {
+                font-size: 1.3rem;
+            }
+            .line-present-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 24px;
+                font-size: 0.95rem;
+            }
+            /* スマホ用LINE固定ボタン */
+            .mobile-cta-line {
+                background: #06C755 !important;
+                color: #fff !important;
+                transition: background 0.3s ease;
+            }
+            .mobile-cta-line:active {
+                background: #04a648 !important;
+            }
+            .features-wave-top,
+            .reliability-wave-top {
+                display: none;
+            }
+            .reliability-title {
+                font-size: 1.8rem;
+            }
+        }
 
         /* ========== RELIABILITYセクション ========== */
         .reliability-section {
-            background: #fff;
+            background: #EDF5F7;
             padding: 0;
             position: relative;
         }
@@ -869,6 +1176,7 @@
             width: 100%;
             height: 120px;
             overflow: hidden;
+            background: #FFFFFF;
         }
 
         .reliability-wave-top svg {
@@ -877,20 +1185,20 @@
             left: 0;
             width: 100%;
             height: 120px;
-            fill: #f5f9fb;
+            fill: #EDF5F7;
         }
 
         .reliability-header {
             text-align: center;
             padding: 80px 20px 60px;
-            background: #f5f9fb;
+            background: #EDF5F7;
         }
 
         .reliability-label {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
-            color: #4da6c9;
+            color: #8AABB5;
             letter-spacing: 5px;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -899,15 +1207,17 @@
         .reliability-title {
             font-size: 2.5rem;
             font-weight: 900;
-            color: #1a3a5c;
+            color: #2A4A55;
             line-height: 1.4;
+        }
+        .reliability-title .sp-br {
+            display: none;
         }
 
         .reliability-content {
-            padding: 60px 80px;
+            padding: 60px 80px 100px;
             max-width: 1400px;
             margin: 0 auto;
-            background: #f5f9fb;
         }
 
         .reliability-intro {
@@ -935,7 +1245,7 @@
         .reliability-intro-title {
             font-size: 1.8rem;
             font-weight: 900;
-            color: #1a3a5c;
+            color: #2A4A55;
             margin-bottom: 25px;
             line-height: 1.5;
         }
@@ -943,7 +1253,7 @@
         .reliability-intro-description {
             font-size: 1.05rem;
             line-height: 2;
-            color: #555;
+            color: #5A7A85;
             margin-bottom: 30px;
         }
 
@@ -956,7 +1266,7 @@
 
         .process-step {
             flex: 1;
-            background: linear-gradient(135deg, #4da6c9 0%, #2e86ab 100%);
+            background: #5EADB8;
             color: white;
             padding: 15px;
             text-align: center;
@@ -1018,7 +1328,7 @@
         .reliability-card-title {
             font-size: 1.7rem;
             font-weight: 900;
-            color: #1a3a5c;
+            color: #2A4A55;
             margin-bottom: 25px;
             line-height: 1.5;
         }
@@ -1026,12 +1336,12 @@
         .reliability-card-text {
             font-size: 1.02rem;
             line-height: 2;
-            color: #555;
+            color: #5A7A85;
         }
 
         .reliability-card-label {
             display: inline-block;
-            background: linear-gradient(135deg, #4da6c9 0%, #2e86ab 100%);
+            background: #5EADB8;
             color: white;
             padding: 10px 25px;
             border-radius: 50px;
@@ -1048,7 +1358,7 @@
             align-items: center;
             padding: 100px 20px;
             overflow: hidden;
-            background-image: url('img/cal-beach-int1.jpg');
+            background-image: url('https://hoshizaemonn.github.io/fb-home-model-house/img/cal-beach-int1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1061,18 +1371,16 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(26, 58, 92, 0.82) 0%, rgba(77, 166, 201, 0.55) 100%);
+            background: rgba(0, 0, 0, 0.7);
             z-index: 1;
         }
 
         .trust-content {
             position: relative;
             z-index: 10;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            gap: 80px;
-            align-items: center;
+            text-align: center;
         }
 
         .trust-text {
@@ -1081,38 +1389,129 @@
 
         .trust-label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            color: #f0c040;
+            color: #ffffff;
             letter-spacing: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         .trust-title {
-            font-size: 3rem;
+            font-size: 2.4rem;
             font-weight: 900;
             color: white;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             line-height: 1.4;
         }
 
         .trust-description {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.95);
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.85);
             line-height: 2;
-            font-weight: 500;
+            font-weight: 400;
+            max-width: 650px;
+            margin: 0 auto 35px;
         }
 
         .trust-note {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
             margin-top: 20px;
+        }
+
+        /* 相談ステップ */
+        .consultation-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .consultation-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            border: 2px solid rgba(255,255,255,0.35);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.06);
+        }
+
+        .step-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: rgba(255,255,255,0.75);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .step-label {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        .step-arrow {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: -20px;
+        }
+
+        .trust-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #62CDE0;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 16px 16px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(98, 205, 224, 0.3);
+            transition: all 0.35s ease;
+            position: relative;
+        }
+
+        .trust-cta-btn .cta-arrow-box {
+            background: #1E7FA0;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.35s ease;
+        }
+
+        .trust-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(30, 127, 160, 0.45);
+            background: #1E7FA0;
+        }
+
+        .trust-cta-btn:hover .cta-arrow-box {
+            background: #62CDE0;
         }
 
         /* ========== 物件カードグリッド ========== */
         .property-section {
-            background: #faf9f6;
+            background: #FFFFFFfff;
             padding: 100px 20px;
         }
 
@@ -1159,8 +1558,8 @@
             position: absolute;
             top: 16px;
             left: 16px;
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
+            background: #5EADB8;
+            color: #fff;
             padding: 8px 20px;
             border-radius: 50px;
             font-weight: 700;
@@ -1174,14 +1573,14 @@
 
         .property-name {
             font-size: 1.35rem;
-            color: #1a3a5c;
+            color: #2A4A55;
             margin-bottom: 18px;
             font-weight: 900;
             line-height: 1.5;
         }
 
         .property-specs {
-            color: #666;
+            color: #6A8A95;
             font-size: 0.95rem;
             line-height: 1.85;
             margin-bottom: 22px;
@@ -1191,10 +1590,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #1a3a5c 0%, #2e5a7c 100%);
+            background: #5EADB8;
             color: white;
             padding: 13px 28px;
-            border-radius: 50px;
+            border-radius: 2px;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.95rem;
@@ -1202,14 +1601,14 @@
         }
 
         .property-link:hover {
-            background: linear-gradient(135deg, #0f2d4a 0%, #1a3a5c 100%);
+            background: #4D9BA8;
             transform: translateX(4px);
-            box-shadow: 0 6px 18px rgba(26, 58, 92, 0.3);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
 
         /* ========== お問い合わせセクション ========== */
         .contact-section {
-            background: linear-gradient(135deg, #1a3a5c 0%, #2e5a7c 100%);
+            background: #F0F7F9;
             padding: 100px 20px;
             position: relative;
         }
@@ -1224,34 +1623,34 @@
         }
 
         .contact-phone {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: #FFFFFF;
+            border: 1px solid #C8DFE5;
             border-radius: 24px;
             padding: 35px 45px;
             text-align: center;
-            color: white;
-            backdrop-filter: blur(8px);
+            color: #2A4A55;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 25px;
             flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
-        .phone-icon { font-size: 2.2rem; }
-        .phone-label { font-size: 0.88rem; margin-bottom: 4px; opacity: 0.85; }
+        .phone-icon { font-size: 2.2rem; color: #2A4A55; }
+        .phone-label { font-size: 0.88rem; margin-bottom: 4px; color: #6A8A95; }
         .phone-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0; }
 
         .phone-number {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.3rem;
             font-weight: 800;
-            color: #f0c040;
+            color: #2A4A55;
             margin: 8px 0;
             letter-spacing: 2px;
         }
 
-        .phone-hours { font-size: 0.85rem; opacity: 0.8; }
+        .phone-hours { font-size: 0.85rem; color: #8AABB5; }
 
         .contact-form-wrapper {
             background: rgba(255, 255, 255, 0.97);
@@ -1272,19 +1671,19 @@
         .form-title {
             font-size: 1.4rem;
             font-weight: 900;
-            color: #1a3a5c;
+            color: #2A4A55;
         }
 
         .form-intro {
             margin-bottom: 30px;
-            color: #555;
+            color: #5A7A85;
         }
 
         .form-intro p { line-height: 1.8; }
 
         .form-required {
             font-size: 0.88rem;
-            color: #888;
+            color: #8AABB5;
             margin-top: 10px;
         }
 
@@ -1293,7 +1692,7 @@
         .form-group label {
             display: block;
             font-weight: 700;
-            color: #333;
+            color: #3A5A65;
             margin-bottom: 8px;
             font-size: 0.95rem;
         }
@@ -1303,34 +1702,34 @@
         .form-group textarea {
             width: 100%;
             padding: 14px 16px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #C8DFE5;
             border-radius: 12px;
             font-size: 1rem;
             font-family: 'Noto Sans JP', sans-serif;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            background: #fafafa;
+            background: #F5FAFB;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #4da6c9;
-            box-shadow: 0 0 0 3px rgba(77, 166, 201, 0.12);
-            background: #fff;
+            border-color: #2A4A55;
+            box-shadow: 0 0 0 3px rgba(94, 173, 184, 0.15);
+            background: #FFFFFF;
         }
 
-        .form-group select { background: #fafafa; cursor: pointer; }
+        .form-group select { background: #F5FAFB; cursor: pointer; }
         .form-group textarea { resize: vertical; }
 
         .privacy-policy {
-            background: #f7f7f7;
+            background: #EDF5F7;
             padding: 18px;
             border-radius: 12px;
             margin: 30px 0;
             font-size: 0.83rem;
             line-height: 1.8;
-            color: #777;
+            color: #7A9AA5;
             max-height: 140px;
             overflow-y: auto;
         }
@@ -1348,125 +1747,122 @@
             width: 20px;
             height: 20px;
             cursor: pointer;
-            accent-color: #4da6c9;
+            accent-color: #2A4A55;
         }
 
         .form-checkbox label {
             font-weight: 700;
-            color: #333;
+            color: #3A5A65;
             cursor: pointer;
             font-size: 0.95rem;
         }
 
         .form-submit-button {
             width: 100%;
-            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
-            color: #1a3a5c;
-            padding: 20px;
+            background: #62CDE0;
+            color: #fff;
+            padding: 18px 18px 18px 24px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.25rem;
-            font-weight: 900;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(240, 192, 64, 0.35);
+            transition: all 0.35s ease;
+            box-shadow: 0 6px 24px rgba(98, 205, 224, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            letter-spacing: 1px;
+            gap: 10px;
+            letter-spacing: 0.5px;
         }
 
         .form-submit-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 36px rgba(240, 192, 64, 0.5);
-            background: linear-gradient(135deg, #f5d060 0%, #f0c040 100%);
+            box-shadow: 0 8px 28px rgba(30, 127, 160, 0.45);
+            background: #1E7FA0;
         }
 
-        .form-submit-button .arrow {
-            font-size: 1.4rem;
-            transition: transform 0.3s ease;
+        .form-submit-button .cta-arrow-box {
+            background: #1E7FA0;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.35s ease;
         }
 
-        .form-submit-button:hover .arrow { transform: translateX(5px); }
+        .form-submit-button:hover .cta-arrow-box {
+            background: #62CDE0;
+        }
 
         .recaptcha-notice {
             text-align: center;
             font-size: 0.78rem;
-            color: #aaa;
+            color: #9ABBC5;
             margin-top: 18px;
             line-height: 1.6;
         }
 
         .recaptcha-notice a {
-            color: #4da6c9;
+            color: #6A8A95;
             text-decoration: underline;
         }
 
         /* ========== フッター ========== */
         footer {
-            background: linear-gradient(135deg, #1a3a5c 0%, #0f2d4a 100%);
-            color: white;
-            padding: 100px 20px 40px;
+            background: none;
+            color: #2C4A55;
+            padding: 80px 20px 40px;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -80px;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            background: rgba(26, 58, 92, 0.2);
-            border-radius: 50%;
-            transform: scaleX(3);
         }
 
         .footer-content {
             position: relative;
-            z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
             margin-bottom: 30px;
-            letter-spacing: 4px;
-            line-height: 1.2;
+        }
+
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .footer-logo .footer-sub {
             display: block;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.7rem;
             font-weight: 500;
             letter-spacing: 5px;
-            margin-top: 6px;
-            color: #4da6c9;
+            margin-top: 8px;
+            color: #5A8A95;
         }
 
         /* footer-website-link removed */
 
         .footer-company-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-top: 60px;
             padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.12);
-            text-align: left;
+            border-top: 1px solid rgba(42, 74, 85, 0.15);
+            text-align: center;
         }
 
         .company-details {
-            flex: 1;
             font-size: 0.83rem;
             line-height: 1.8;
-            opacity: 0.85;
+            opacity: 0.75;
         }
 
         .company-logo {
@@ -1478,10 +1874,920 @@
         }
 
         .footer-copyright {
-            color: rgba(255,255,255,0.6);
+            color: rgba(42, 74, 85, 0.45);
             font-size: 0.78rem;
             margin-top: 40px;
             text-align: center;
+        }
+
+        /* ========== 【提案】FP性能ハイライト ========== */
+        .fp-highlight-section {
+            background: #2A5A65;
+            padding: 70px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fp-highlight-section::before {
+            content: 'RELIABILITY';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 4px;
+        }
+
+        .fp-badge-row {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .fp-badge {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fp-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        .badge-label {
+            font-size: 0.85rem;
+            color: #8AABB5;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .badge-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .badge-unit {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        .badge-note {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.6;
+        }
+
+        .fp-highlight-bottom {
+            max-width: 1100px;
+            margin: 30px auto 0;
+            text-align: center;
+        }
+
+        .fp-highlight-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+        }
+
+        /* ========== 光熱費比較セクション（インフォグラフィック風） ========== */
+        .cost-section {
+            background: linear-gradient(160deg, #0f2d4a 0%, #1a3a5c 40%, #2e5a7c 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cost-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cost-section .section-label {
+            display: inline-block;
+            background: rgba(240, 192, 64, 0.15);
+            color: #f0c040;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* 家イラスト比較エリア */
+        .cost-house-compare {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .cost-house {
+            text-align: center;
+        }
+
+        .cost-house-icon {
+            margin-bottom: 20px;
+        }
+
+        .cost-house-icon svg {
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+        }
+
+        .cost-house-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .cost-house-ua {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .cost-house.fp .cost-house-label {
+            color: #f0c040;
+        }
+
+        .cost-vs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cost-vs-badge {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        /* メトリクスグリッド */
+        .cost-metrics {
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .cost-metric-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .cost-metric-item {
+            text-align: center;
+        }
+
+        .cost-metric-item .metric-label {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .cost-metric-item .metric-icon {
+            margin-bottom: 10px;
+        }
+
+        .cost-metric-item .metric-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .cost-metric-item .metric-unit {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .cost-metric-item.fp .metric-value {
+            color: #f0c040;
+        }
+
+        .cost-metric-item.fp .metric-unit {
+            color: #f0c040;
+        }
+
+        .cost-metric-item.general .metric-value {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .cost-metric-item.general .metric-unit {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .cost-metric-card-title {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.7);
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .cost-metric-card-title svg {
+            flex-shrink: 0;
+        }
+
+        /* コスト棒グラフ */
+        .cost-bar-section {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cost-bar-title {
+            text-align: center;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .cost-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .cost-bar-label {
+            width: 140px;
+            text-align: right;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .cost-bar-track {
+            flex: 1;
+            height: 40px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cost-bar-fill {
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fff;
+            transition: width 1s ease;
+        }
+
+        .cost-bar-fill.fp {
+            background: linear-gradient(90deg, #f0c040, #e8a820);
+            color: #1a3a5c;
+            width: 40%;
+        }
+
+        .cost-bar-fill.general {
+            background: rgba(255,255,255,0.2);
+            width: 100%;
+        }
+
+        .cost-savings {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            text-align: center;
+            background: rgba(240, 192, 64, 0.1);
+            border: 1px solid rgba(240, 192, 64, 0.25);
+            border-radius: 16px;
+            padding: 25px 30px;
+        }
+
+        .cost-savings-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 8px;
+        }
+
+        .cost-savings-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f0c040;
+        }
+
+        .cost-savings-value span {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .cost-savings-sub {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 6px;
+        }
+
+        .comparison-note {
+            max-width: 900px;
+            margin: 30px auto 0;
+            text-align: center;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .fp-badge-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .badge-value {
+                font-size: 2.5rem;
+            }
+
+            .cost-house-compare {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .cost-vs { display: none; }
+            .cost-metrics {
+                grid-template-columns: 1fr;
+            }
+            .cost-bar-label {
+                width: 100px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ========== イベントセクション ========== */
+        .event-section {
+            background-image: url('https://hoshizaemonn.github.io/fb-home-model-house/img/cal-beach-ext2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 20px 80px;
+            color: #fff;
+            position: relative;
+        }
+
+        .event-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 58, 92, 0.75) 0%, rgba(77, 166, 201, 0.55) 100%);
+            z-index: 0;
+        }
+
+        .event-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .event-section .section-label {
+            color: #8AABB5;
+        }
+
+        .event-section .section-title-en {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .event-section .section-title-divider {
+            width: 40px;
+            height: 3px;
+            background: #FFFFFF;
+            margin: 20px auto;
+        }
+
+        .event-section .section-title {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .event-section .section-description {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        .event-cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .event-card {
+            background: #FFFFFF;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            text-decoration: none;
+            color: #2A4A55;
+            display: block;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+        }
+
+        .event-card-image {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .event-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .event-card:hover .event-card-image img {
+            transform: scale(1.05);
+        }
+
+        .event-card-date {
+            position: static;
+            background: none;
+            color: #1a3a5c;
+            padding: 0;
+            border-radius: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .event-card-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #f0c040 0%, #e8a820 100%);
+            color: #1a3a5c;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: none;
+        }
+
+        .event-card-content {
+            padding: 22px 20px 30px;
+            position: relative;
+        }
+
+        .event-card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #2A4A55;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .event-card-desc {
+            font-size: 0.85rem;
+            color: #7A9AA5;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .event-card-link {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #B0CDD5;
+            transition: color 0.3s ease;
+        }
+
+        .event-card:hover .event-card-link {
+            color: #1a3a5c;
+        }
+
+        .event-view-all {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            text-align: center;
+        }
+
+        .event-view-all a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #FFFFFF;
+            color: #1a3a5c;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .event-view-all a:hover {
+            background: #FFFFFF;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* ========== ラインナップセクション（ARROWS LINEUP風） ========== */
+        .lineup-section {
+            background: #FFFFFF;
+            padding: 120px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .lineup-section .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .lineup-section .section-icon {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #5EADB8;
+        }
+
+        .lineup-section .section-title-en {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            color: #2A4A55;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .lineup-section .section-title-divider {
+            width: 40px;
+            height: 3px;
+            background: #5EADB8;
+            margin: 20px auto;
+        }
+
+        .lineup-section .section-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .lineup-section .section-description {
+            text-align: center;
+        }
+
+        .lineup-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .lineup-card {
+            background: transparent;
+            border-radius: 0;
+            overflow: visible;
+            box-shadow: none;
+            transition: all 0.35s ease;
+            display: block;
+            text-align: center;
+        }
+
+        .lineup-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .lineup-card-image {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: transparent;
+        }
+
+        .lineup-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.5s ease;
+        }
+
+        .lineup-card:hover .lineup-card-image img {
+            transform: scale(1.05);
+        }
+
+        .lineup-card-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #5EADB8;
+            color: #fff;
+            padding: 7px 18px;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .lineup-card-content {
+            padding: 10px 0;
+        }
+
+        .lineup-card-subtitle {
+            font-size: 0.88rem;
+            color: #7A9AA5;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .lineup-card-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #2A4A55;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .lineup-card-name-sub {
+            font-size: 0.85rem;
+            color: #8AABB5;
+            margin-bottom: 15px;
+        }
+
+        .lineup-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+            justify-content: center;
+        }
+
+        .lineup-card-tags span {
+            display: inline-block;
+            background: #FFFFFF;
+            border: 1px solid #B8D5DD;
+            color: #5A7A85;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .lineup-card-price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2A4A55;
+            padding-top: 15px;
+            border-top: 1px solid #D5E8ED;
+        }
+
+        .lineup-card-price .price-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        /* ========== 施工事例セクション（ARROWS WORKS風） ========== */
+        .success-section {
+            background: #F0F7F9;
+            padding: 120px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .success-section .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-section .section-title-en {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            color: #2A4A55;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .success-section .section-title-divider {
+            width: 40px;
+            height: 3px;
+            background: #5EADB8;
+            margin: 20px auto;
+        }
+
+        .success-section .section-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .success-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-card {
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.35s ease;
+            display: block;
+            border: 1px solid #D5E8ED;
+        }
+
+        .success-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+        }
+
+        .success-card-image {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .success-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .success-card:hover .success-card-image img {
+            transform: scale(1.05);
+        }
+
+        .success-card-tag {
+            display: none;
+        }
+
+        .success-card-content {
+            padding: 18px 16px;
+        }
+
+        .success-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2A4A55;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .success-card-desc {
+            display: none;
+        }
+
+        .success-card-meta {
+            display: none;
+        }
+
+        .success-card-link {
+            display: none;
+        }
+
+        .success-view-all {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-view-all a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #5EADB8;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .success-view-all a:hover {
+            background: #4D9BA8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .event-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .lineup-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                max-width: 100%;
+            }
+            .success-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .lineup-card-image {
+                height: 220px;
+            }
         }
 
         /* ========== レスポンシブ ========== */
@@ -1495,7 +2801,8 @@
             .feature-image { height: 350px; }
 
             .sticky-cta { bottom: 20px; right: 20px; }
-            .sticky-button { padding: 14px 22px; font-size: 0.9rem; }
+            .sticky-button { padding: 16px 16px 16px 20px; font-size: 0.9rem; }
+            .sticky-button .arrow-box { width: 36px; height: 36px; }
 
             .features-title { font-size: 2rem; }
             .feature-content-title { font-size: 1.5rem; }
@@ -1514,6 +2821,11 @@
 
             .reliability-card:nth-child(even) { flex-direction: column; }
             .reliability-content { padding: 40px 20px; }
+
+            .consultation-steps { gap: 10px; }
+            .step-icon { width: 55px; height: 55px; }
+            .step-icon svg { width: 24px; height: 24px; }
+            .trust-cta-btn { font-size: 0.95rem; padding: 18px 35px; }
             .reliability-card { padding: 35px 25px; }
 
             .process-diagram { flex-wrap: wrap; }
@@ -1527,15 +2839,30 @@
 
             .contact-container { grid-template-columns: 1fr; }
             .contact-form-wrapper { padding: 30px 20px; }
+            .phone-number {
+                font-size: 1.6rem;
+                white-space: nowrap;
+            }
+            .contact-phone {
+                padding: 25px 20px;
+                gap: 15px;
+            }
         }
 
         @media (max-width: 768px) {
-            .hero-logo {
-                top: 25px;
-                left: 25px;
+            .site-header {
+                padding: 10px 16px;
             }
 
-            .hero-logo h1 { font-size: 1.5rem; }
+            .site-header img { height: 36px; }
+
+            .site-header::before { height: 120px; top: -20px; }
+
+            /* PC用ナビ非表示、ハンバーガー表示 */
+            .site-nav { display: none !important; }
+            .hamburger { display: block; }
+            .mobile-menu { display: flex; visibility: hidden; }
+            .mobile-menu.active { visibility: visible; }
 
             .hero-content-wrapper {
                 padding: 40px 28px 45px;
@@ -1555,135 +2882,237 @@
                 display: inline-flex;
             }
 
-            .background-grid {
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(4, 1fr);
-            }
-
             .section-title { font-size: 1.8rem; }
             .property-grid { grid-template-columns: 1fr; }
 
             .footer-company-info {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 30px;
             }
 
-            .footer-logo { font-size: 2rem; }
+            .footer-logo img { height: 72px; }
+
+            .reliability-title .sp-br {
+                display: inline !important;
+            }
+        }
+
+        /* ========== 非表示ユーティリティ ========== */
+        .hidden-for-now {
+            display: none !important;
+        }
+
+        /* ========== GARAGE STYLE タグ ========== */
+        .style-gallery-tag.garage {
+            background: #5EADB8;
+            color: white;
+        }
+
+        .style-gallery-name.garage-name {
+            color: #2A4A55;
+        }
+
+        /* ========== スマホ用 下部固定CTAバー（WITHDOM風） ========== */
+        .mobile-fixed-cta {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            /* PC版追従ボタンをスマホで非表示 */
+            .sticky-cta {
+                display: none !important;
+            }
+
+            /* スマホ用固定バー表示 */
+            .mobile-fixed-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                max-width: 100vw;
+                box-sizing: border-box;
+                z-index: 999;
+                box-shadow: 0 -2px 16px rgba(0,0,0,0.15);
+            }
+
+            .mobile-fixed-cta a {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                padding: 14px 10px;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 0.82rem;
+                letter-spacing: 0.5px;
+                transition: opacity 0.2s ease;
+            }
+
+            .mobile-fixed-cta a:active {
+                opacity: 0.85;
+            }
+
+            .mobile-fixed-cta .mobile-cta-visit {
+                background: #62CDE0;
+                color: #fff;
+                transition: background 0.3s ease;
+            }
+
+            .mobile-fixed-cta .mobile-cta-visit:active {
+                background: #1E7FA0;
+            }
+
+            .mobile-fixed-cta .mobile-cta-document {
+                background: #2A4A55;
+                color: #fff;
+                transition: background 0.3s ease;
+            }
+
+            .mobile-fixed-cta .mobile-cta-document:active {
+                background: #1A3A44;
+            }
+
+            .mobile-fixed-cta a svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            /* フッターの下余白を確保（固定バーに隠れないように） */
+            body {
+                padding-bottom: 70px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- ヒーローセクション -->
+    <!-- ヘッダーバー -->
+    <header class="site-header">
+        <img src="img/fb-home-logo-v2.png" alt="FB HOME">
+        <nav class="site-nav">
+            <a href="#event">EVENT</a>
+            <a href="#features">FEATURE</a>
+            <a href="#lineup">LINEUP</a>
+            <a href="#works">WORKS</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+        <!-- ハンバーガーメニュー（スマホ用） -->
+        <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+        <nav class="mobile-menu">
+            <button class="mobile-menu-close" onclick="toggleMenu()" aria-label="閉じる">&times;</button>
+            <a href="#event" onclick="toggleMenu()">EVENT</a>
+            <a href="#features" onclick="toggleMenu()">FEATURE</a>
+            <a href="#lineup" onclick="toggleMenu()">LINEUP</a>
+            <a href="#works" onclick="toggleMenu()">WORKS</a>
+            <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+            <a href="https://line.me/R/ti/p/@534owflo" target="_blank" rel="noopener" class="mobile-menu-line">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                LINE友だち追加
+            </a>
+        </nav>
+    </header>
+
     <section class="hero-section">
-        <!-- 背景画像グリッド（4×3） -->
-        <div class="background-grid">
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
+        <!-- 背景スライダー（3枚） -->
+        <div class="hero-slider">
+            <div class="slide active">
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/slide1-ocean.png" alt="FB HOME">
+            </div>
+            <div class="slide">
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/slide2-beach-house.png" alt="FB HOME California Style">
+            </div>
+            <div class="slide">
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/slide3-welcome.png" alt="FB HOME Design House">
+            </div>
         </div>
 
-        <!-- ロゴ -->
-        <div class="hero-logo">
-            <h1>
-                FB HOME
-                <span class="logo-sub">CALIFORNIA STYLE LIVING</span>
-            </h1>
+        <!-- スライダーインジケーター -->
+        <div class="slider-indicators">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
         </div>
 
-        <!-- メインコンテンツ -->
-        <div class="hero-content-wrapper">
-            <div class="priority-badge">先着順！</div>
-
-            <h2 class="hero-main-title">
-                完成見学会
-            </h2>
-
-            <p class="hero-subtitle">
-                来店予約特典<br>
-                Amazonギフトカードプレゼント
-            </p>
-
-        </div>
     </section>
 
     <!-- ブランド紹介セクション -->
     <section class="brand-section">
         <div class="container">
             <div class="brand-logo">
-                <h2>
-                    FB HOME
-                    <span class="brand-sub">CALIFORNIA &amp; WAON STYLE</span>
-                </h2>
+                <img src="img/fb-home-logo-v2.png" alt="FB HOME">
+                <span class="brand-sub">CALIFORNIA / GARAGE STYLE</span>
             </div>
             <p class="brand-description">
-                FB HOMEはCALIFORNIA STYLEとWAON STYLEの2つのラインナップで、光と風を感じる住まいを提案する分譲住宅ブランドです。<br><br>
-                <strong style="color:#1a3a5c;">CALIFORNIA STYLE</strong> ― アメリカ西海岸発祥のCALIFORNIA STYLEは、カバードポーチやラップサイディングが象徴的。毎日の暮らしが楽しくなるお家、ライフプランの変化にも対応できるお家です。<br><br>
-                <strong style="color:#5a3e1b;">WAON</strong> ― 家族みんなが気持ちよく過ごすこと、一人ひとりが自由に自分時間を楽しむこと。その双方を両立するために生まれた住まいです。快適な家事ラク動線と大容量収納で、フレキシブルに暮らしに応えます。<br><br>
+                FB HOMEはCALIFORNIA STYLE・GARAGE STYLEのラインナップで、光と風を感じる住まいを提案する分譲住宅ブランドです。<br><br>
+                <strong style="color:#1a1a1a;">CALIFORNIA STYLE</strong> ― アメリカ西海岸発祥のCALIFORNIA STYLEは、カバードポーチやラップサイディングが象徴的。毎日の暮らしが楽しくなるお家、ライフプランの変化にも対応できるお家です。<br><br>
+                <strong style="color:#2d5a27;">GARAGE STYLE</strong> ― 車やバイク、アウトドアギアなど趣味を存分に楽しめるビルトインガレージを備えた住まい。CALIFORNIA STYLEのデザイン性はそのままに、ガレージライフという新しい暮らし方を提案します。<br><br>
                 注文住宅で培ってきた技術やノウハウを活かした住まいづくりと、そこに住む人がいつまでも安心して快適に暮らせる街づくり。厳選した先進の機能を導入した豊かなデザイン性の高機能住宅を、コスト効率の高い戸建て分譲で福岡エリアに提供しています。
             </p>
         </div>
     </section>
 
-    <!-- SPECIAL OFFERセクション -->
-    <section class="special-offer-section">
-        <!-- 波形デザイン -->
-        <div class="wave-top">
-            <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
-                <path d="M0,80 Q300,160 600,80 T1200,80 L1200,0 L0,0 Z"></path>
-            </svg>
+    <!-- イベント・見学会セクション -->
+    <section id="event" class="event-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-en">EVENT</div>
+                <div class="section-title-divider"></div>
+                <h2 class="section-title">イベント・オープンハウス<br>見学会情報</h2>
+            </div>
         </div>
 
-        <!-- メインコンテンツ -->
-        <div class="special-offer-content">
-            <div class="special-offer-header">
-                <!-- ラベルとバッジ -->
-                <div class="special-offer-label-wrapper">
-                    <h2 class="special-offer-label">SPECIAL OFFER</h2>
-                    <div class="discount-badge">
-                        <div class="discount-icon">
-                            <div class="discount-arrow">↓</div>
-                            <div class="discount-percent">%</div>
-                        </div>
-                    </div>
+        <div class="event-cards">
+            <!-- イベント1 -->
+            <a href="#contact" class="event-card">
+                <div class="event-card-image">
+                    <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/cal-beach-ext1.jpg" alt="カリフォルニアヴィレッジ福間ビーチ 完成見学会">
+                    <div class="event-card-tag">完成見学会</div>
                 </div>
-
-                <!-- タイトル -->
-                <h3 class="special-offer-title">完成見学会</h3>
-
-                <!-- サブタイトル -->
-                <p class="special-offer-subtitle">
-                    完成した住まいを実際にご覧いただける<br>
-                    見学会を開催中！
-                </p>
-            </div>
-
-            <!-- CTAボタン -->
-            <div class="cta-container" style="position: relative;">
-                <div class="campaign-badge" style="position: absolute; top: -55px; right: 5px;">
-                    キャンペーン実施中
+                <div class="event-card-content">
+                    <div class="event-card-date">2026.3.1 〜 2026.3.2</div>
+                    <h3 class="event-card-title">新築住宅見学会のお知らせ（福津市福間 カリフォルニアヴィレッジ）</h3>
+                    <p class="event-card-desc">福津市福間</p>
+                    <div class="event-card-link">></div>
                 </div>
+            </a>
 
-                <a href="#properties" class="cta-button">
-                    <span class="icon">📢</span>
-                    物件一覧を見る
-                    <span class="arrow">→</span>
-                </a>
+            <!-- イベント2 -->
+            <a href="#contact" class="event-card">
+                <div class="event-card-image">
+                    <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/uminaka-01.jpg" alt="UMINAKAモデルハウス 見学会">
+                    <div class="event-card-tag">モデルハウス</div>
+                </div>
+                <div class="event-card-content">
+                    <div class="event-card-date">2026.3.8 〜 2026.3.9</div>
+                    <h3 class="event-card-title">UMINAKAモデルハウス 特別見学会のお知らせ</h3>
+                    <p class="event-card-desc">福岡市西区今津</p>
+                    <div class="event-card-link">></div>
+                </div>
+            </a>
 
-                <a href="#contact" class="cta-button">
-                    <span class="icon">🏠</span>
-                    今すぐ無料相談
-                    <span class="arrow">→</span>
-                </a>
-            </div>
+            <!-- イベント3 -->
+            <a href="#contact" class="event-card">
+                <div class="event-card-image">
+                    <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/cal-beach-ext5.jpg" alt="毎週末 住まいの無料相談会">
+                    <div class="event-card-tag">相談会</div>
+                </div>
+                <div class="event-card-content">
+                    <div class="event-card-date">毎週末開催</div>
+                    <h3 class="event-card-title">住まいの無料相談会 開催中</h3>
+                    <p class="event-card-desc">お電話・オンラインでもご対応</p>
+                    <div class="event-card-link">></div>
+                </div>
+            </a>
+        </div>
+
+        <div class="event-view-all">
+            <a href="#contact">イベント情報一覧</a>
         </div>
     </section>
 
@@ -1716,82 +3145,196 @@
         <!-- 写真3枚ギャラリー -->
         <div class="style-gallery-grid">
             <div class="gallery-photo">
-                <img src="img/cal-beach-ext1.jpg" alt="CALIFORNIA STYLE 外観">
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/cal-beach-ext1.jpg" alt="CALIFORNIA STYLE 外観">
             </div>
             <div class="gallery-photo">
-                <img src="img/uminaka-03.jpg" alt="CALIFORNIA STYLE リビング">
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/uminaka-03.jpg" alt="CALIFORNIA STYLE リビング">
             </div>
             <div class="gallery-photo">
-                <img src="img/cal-beach-ext5.jpg" alt="CALIFORNIA STYLE ダイニング">
+                <img src="img/IMG_0110.jpg" alt="CALIFORNIA STYLE 外観">
             </div>
         </div>
 
-        <!-- CTAボタン -->
-        <div class="gallery-cta-wrap">
-            <a href="#contact" class="gallery-cta-btn">
-                <span class="cta-icon">🏠</span>
-                今すぐお問い合わせ
-                <span class="cta-arrow">▼</span>
-            </a>
-            <a href="#" class="gallery-monthly-link">▼ 月々の支払いや入居時期を今すぐ確認！</a>
-        </div>
     </section>
 
-    <!-- ========== WAON STYLE ギャラリー ========== -->
-    <section class="style-gallery-section">
+    <!-- ========== GARAGE STYLE ギャラリー ========== -->
+    <section class="style-gallery-section" style="padding-top: 40px;">
         <hr class="gallery-divider">
         <div style="height: 50px;"></div>
 
         <div class="style-gallery-header">
-            <span class="style-gallery-tag waon">WAON STYLE</span>
-            <h2 class="style-gallery-name waon-name"><span class="name-en">WAON</span></h2>
-            <p class="style-gallery-detail">家族みんなが気持ちよく過ごせる、フレキシブルな住まい。</p>
+            <span class="style-gallery-tag garage">GARAGE STYLE</span>
+            <h2 class="style-gallery-name garage-name"><span class="name-en">GARAGE STYLE</span></h2>
+            <p class="style-gallery-detail">ガレージのある暮らし。趣味と生活が融合する住まい。</p>
         </div>
 
         <p class="style-gallery-description">
-            家族みんなが気持ちよく過ごすこと、一人ひとりが自由に自分時間を楽しむこと。その双方を両立するために生まれたのが「WAON」です。多様な生活スタイルにフレキシブルに応え、快適な動線や収納にこだわることで家事をシェアしやすくしています。家族一緒の時間を増やしてくれる家でもあり、ライフステージの変化にも柔軟に対応する、暮らしに寄り添う住まいです。
+            車やバイク、アウトドアギアなど、趣味を存分に楽しめるビルトインガレージを備えた住まい。リビングからガレージを眺められる間取りや、作業スペースとしても活用できる広々とした空間設計が特徴です。CALIFORNIA STYLEのデザイン性はそのままに、ガレージライフという新しい暮らし方を提案します。
         </p>
 
         <div class="style-gallery-tags">
-            <span class="spec-tag">家事ラク動線</span>
-            <span class="spec-tag">大容量収納</span>
-            <span class="spec-tag">ランドリールーム</span>
-            <span class="spec-tag">カップボード</span>
-            <span class="spec-tag">温水式床暖房</span>
-            <span class="spec-tag">宅配ボックス</span>
-            <span class="spec-tag">エネファーム</span>
-        </div>
-
-        <div class="style-gallery-equipment">
-            <strong>展示内容：</strong>家具・エアコン・LED照明・カーテン
+            <span class="spec-tag">ビルトインガレージ</span>
+            <span class="spec-tag">趣味スペース</span>
+            <span class="spec-tag">開放的な空間設計</span>
+            <span class="spec-tag">ZEH対応</span>
+            <span class="spec-tag">太陽光発電</span>
         </div>
 
         <!-- 写真3枚ギャラリー -->
         <div class="style-gallery-grid">
             <div class="gallery-photo">
-                <img src="img/waon-f-ext.jpg" alt="WAON STYLE 外観">
+                <img src="img/garage-style-01.jpg" alt="GARAGE STYLE 外観">
             </div>
             <div class="gallery-photo">
-                <img src="img/waon-sakedono-02.jpg" alt="WAON STYLE リビング・ダイニング">
+                <img src="img/garage-style-02.jpg" alt="GARAGE STYLE 内観">
             </div>
             <div class="gallery-photo">
-                <img src="img/waon-f-kitchen.jpg" alt="WAON STYLE キッチン">
+                <img src="img/garage-style-03.jpg" alt="GARAGE STYLE ガレージ">
             </div>
         </div>
 
+        <!-- LINE施工実例集プレゼントCTA -->
+        <div class="line-present-cta">
+            <div class="line-present-inner">
+                <div class="line-present-badge">LINE限定特典</div>
+                <h3 class="line-present-title">CALIFORNIA STYLE<br>施工実例集を<span class="highlight-text">無料プレゼント</span></h3>
+                <p class="line-present-desc">LINE公式アカウントに友だち追加いただくと、CALIFORNIA STYLEの施工実例写真集をお届けします。カリフォルニアスタイルの外観・内装など、家づくりの参考になる実例が満載です。</p>
+                <a href="https://line.me/R/ti/p/@534owflo" target="_blank" rel="noopener" class="line-present-btn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                    LINE友だち追加で実例集を受け取る
+                    <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 光熱費シミュレーションセクション（インフォグラフィック風） -->
+    <section class="cost-section">
+        <div class="section-header">
+            <div class="cost-section section-label">ENERGY SAVING</div>
+            <h2 class="section-title" style="color: #fff; font-size: 1.8rem;">光熱費シミュレーション</h2>
+            <p class="section-description" style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 15px auto 0;">FPウレタン断熱パネル（UA値0.16）が実現する、圧倒的な省エネ性能</p>
+        </div>
+
+        <!-- 家イラスト比較 -->
+        <div class="cost-house-compare">
+            <div class="cost-house fp">
+                <div class="cost-house-icon">
+                    <svg width="100" height="90" viewBox="0 0 100 90">
+                        <polygon points="50,5 95,40 85,40 85,85 15,85 15,40 5,40" fill="#1a3a5c" stroke="#f0c040" stroke-width="2.5"/>
+                        <rect x="40" y="55" width="20" height="30" fill="#f0c040" rx="2"/>
+                        <rect x="25" y="48" width="16" height="14" fill="rgba(240,192,64,0.3)" stroke="#f0c040" stroke-width="1.5" rx="2"/>
+                        <rect x="59" y="48" width="16" height="14" fill="rgba(240,192,64,0.3)" stroke="#f0c040" stroke-width="1.5" rx="2"/>
+                        <text x="50" y="78" text-anchor="middle" fill="#1a3a5c" font-size="8" font-weight="800">24℃</text>
+                        <circle cx="78" cy="15" r="10" fill="#f0c040" opacity="0.3"/><text x="78" y="19" text-anchor="middle" fill="#f0c040" font-size="9" font-weight="800">&#9728;</text>
+                    </svg>
+                </div>
+                <div class="cost-house-label">FB HOME</div>
+                <div class="cost-house-ua">UA値 0.16</div>
+            </div>
+
+            <div class="cost-vs">
+                <div class="cost-vs-badge">VS</div>
+            </div>
+
+            <div class="cost-house general">
+                <div class="cost-house-icon">
+                    <svg width="100" height="90" viewBox="0 0 100 90">
+                        <polygon points="50,5 95,40 85,40 85,85 15,85 15,40 5,40" fill="#3a4a5a" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+                        <rect x="40" y="55" width="20" height="30" fill="rgba(255,255,255,0.15)" rx="2"/>
+                        <rect x="25" y="48" width="16" height="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" rx="2"/>
+                        <rect x="59" y="48" width="16" height="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" rx="2"/>
+                        <text x="50" y="78" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-weight="800">14℃</text>
+                        <path d="M30,20 Q35,10 40,20 Q45,10 50,20" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="cost-house-label">一般的な住宅</div>
+                <div class="cost-house-ua">UA値 0.87</div>
+            </div>
+        </div>
+
+        <!-- メトリクスグリッド -->
+        <div class="cost-metrics">
+            <!-- 室温比較 -->
+            <div class="cost-metric-card">
+                <div class="cost-metric-card-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                    冬の室温比較
+                </div>
+                <div class="cost-metric-item fp">
+                    <div class="metric-label">FB HOME</div>
+                    <div class="metric-value">24</div>
+                    <div class="metric-unit">℃ 全室均一</div>
+                </div>
+                <div class="cost-metric-item general">
+                    <div class="metric-label">一般住宅</div>
+                    <div class="metric-value">14</div>
+                    <div class="metric-unit">℃ 部屋差大</div>
+                </div>
+            </div>
+
+            <!-- 暖房器具 -->
+            <div class="cost-metric-card">
+                <div class="cost-metric-card-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0c040" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    暖房器具の台数
+                </div>
+                <div class="cost-metric-item fp">
+                    <div class="metric-label">FB HOME</div>
+                    <div class="metric-value">1</div>
+                    <div class="metric-unit">台（エアコンのみ）</div>
+                </div>
+                <div class="cost-metric-item general">
+                    <div class="metric-label">一般住宅</div>
+                    <div class="metric-value">3+</div>
+                    <div class="metric-unit">台（エアコン+ストーブ等）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 年間光熱費バーグラフ -->
+        <div class="cost-bar-section">
+            <div class="cost-bar-title">年間光熱費の比較</div>
+            <div class="cost-bar-row">
+                <div class="cost-bar-label">FB HOME</div>
+                <div class="cost-bar-track">
+                    <div class="cost-bar-fill fp">約12万円</div>
+                </div>
+            </div>
+            <div class="cost-bar-row">
+                <div class="cost-bar-label">一般的な住宅</div>
+                <div class="cost-bar-track">
+                    <div class="cost-bar-fill general">約30万円</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 節約額ハイライト -->
+        <div class="cost-savings">
+            <div class="cost-savings-label">年間の節約額</div>
+            <div class="cost-savings-value">約18<span>万円</span></div>
+            <div class="cost-savings-sub">35年間で約 630万円 の差額</div>
+        </div>
+
+        <p class="comparison-note">
+            ※光熱費はモデルケース（延床面積35坪、4人家族）に基づく概算です。<br>
+            ※実際の光熱費は生活スタイル、気候条件、プランにより異なります。
+        </p>
+
         <!-- CTAボタン -->
-        <div class="gallery-cta-wrap">
+        <div style="text-align: center; margin-top: 50px;">
+            <div style="margin-bottom: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.6);">高性能住宅ならではの光熱費メリットをご確認ください</div>
             <a href="#contact" class="gallery-cta-btn">
-                <span class="cta-icon">🏠</span>
+                <span class="cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
                 今すぐお問い合わせ
-                <span class="cta-arrow">▼</span>
+                <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </a>
-            <a href="#" class="gallery-monthly-link">▼ 月々の支払いや入居時期を今すぐ確認！</a>
         </div>
     </section>
 
     <!-- FEATURESセクション -->
-    <section class="features-section">
+    <section id="features" class="features-section">
         <!-- 波形デザイン -->
         <div class="features-wave-top">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -1808,7 +3351,7 @@
         <!-- 特徴1: CALIFORNIA STYLEの魅力 -->
         <div class="feature-item">
             <div class="feature-image">
-                <img src="img/cal-beach-ext3.jpg" alt="CALIFORNIA STYLEの魅力">
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/cal-beach-ext3.jpg" alt="CALIFORNIA STYLEの魅力" loading="lazy">
             </div>
             <div class="feature-content">
                 <h3 class="feature-content-title">CALIFORNIA STYLE<br>毎日の暮らしが楽しくなる家</h3>
@@ -1818,23 +3361,10 @@
             </div>
         </div>
 
-        <!-- 特徴2: WAON STYLEの魅力 -->
+        <!-- 特徴2: デザイン・性能・メンテナンス -->
         <div class="feature-item">
             <div class="feature-image">
-                <img src="img/waon-f-kitchen.jpg" alt="WAON STYLEの魅力">
-            </div>
-            <div class="feature-content">
-                <h3 class="feature-content-title">WAON<br>家族みんなが気持ちよく過ごせる家</h3>
-                <p class="feature-content-text">
-                    家族みんなが気持ちよく過ごすこと、一人ひとりが自由に自分時間を楽しむこと。その双方を両立するために生まれたのが「WAON」です。快適な家事ラク動線や大容量収納で家事をシェアしやすく、家族一緒の時間を増やしてくれます。多様な生活スタイルにフレキシブルに応え、ライフステージの変化にも柔軟に対応する住まいです。
-                </p>
-            </div>
-        </div>
-
-        <!-- 特徴3: デザイン・性能・メンテナンス -->
-        <div class="feature-item">
-            <div class="feature-image">
-                <img src="img/cal-nogata.jpg" alt="3つのコンセプト">
+                <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/cal-nogata.jpg" alt="3つのコンセプト" loading="lazy">
             </div>
             <div class="feature-content">
                 <h3 class="feature-content-title">デザイン × 性能 ×<br>メンテナンス</h3>
@@ -1847,7 +3377,7 @@
         <!-- 特徴4: 通勤しやすく、住みやすい環境づくり（右側に写真配置） -->
         <div class="feature-item">
             <div class="feature-image">
-                <img src="img/waon-avance.jpg" alt="通勤しやすい住環境">
+                <img src="img/avance-ext-005.jpg" alt="通勤しやすい住環境" loading="lazy">
             </div>
             <div class="feature-content">
                 <h3 class="feature-content-title">通勤しやすく、<br>住みやすい環境づくり</h3>
@@ -1870,42 +3400,36 @@
         <!-- ヘッダー -->
         <div class="reliability-header">
             <div class="reliability-label">RELIABILITY</div>
-            <h2 class="reliability-title">品質と保証・サポート</h2>
+            <h2 class="reliability-title">品質と<br class="sp-br">保証・サービス</h2>
         </div>
 
         <!-- コンテンツ -->
         <div class="reliability-content">
-            <!-- イントロ -->
-            <div class="reliability-intro">
-                <div class="reliability-intro-image">
-                    <img src="img/quality-01.png" alt="全棟耐震等級3の構造">
-                </div>
-                <div class="reliability-intro-text">
-                    <h3 class="reliability-intro-title">全棟耐震等級3。見えないところまで、誠意を持って丁寧に。</h3>
-                    <p class="reliability-intro-description">
-                        パナソニックのテクノストラクチャー工法を採用。1棟ごとに388項目もの構造計算を実施し、全棟で最高等級の耐震等級3を実現しています。木と鉄の複合梁「テクノビーム」が、地震や台風などの大きな力にも高い耐力を発揮します。
-                    </p>
-
-                    <!-- プロセス図 -->
-                    <div class="process-diagram">
-                        <div class="process-step">土地選定・<br>地盤調査</div>
-                        <div class="process-step">構造計算<br>388項目</div>
-                        <div class="process-step">テクノストラクチャー<br>施工</div>
-                        <div class="process-step">10段階<br>品質監査</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- カード1: テクノストラクチャー工法 -->
+            <!-- カード一覧 -->
             <div class="reliability-cards">
+                <!-- カード0: 全棟耐震等級3（イントロ → カード形式に統一） -->
                 <div class="reliability-card">
                     <div class="reliability-card-image">
-                        <img src="img/quality-02.jpeg" alt="テクノストラクチャー工法とZEH対応">
+                        <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/quality-01.png" alt="全棟耐震等級3の構造" loading="lazy">
                     </div>
                     <div class="reliability-card-content">
-                        <h3 class="reliability-card-title">パナソニック テクノストラクチャー工法と<br>ZEH対応住宅。</h3>
+                        <h3 class="reliability-card-title">全棟耐震等級3。<br>見えないところまで、誠意を持って丁寧に。</h3>
                         <p class="reliability-card-text">
-                            テクノストラクチャー工法は、木と鉄の複合梁「テクノビーム」により、通常の木造住宅を超える強度と精度を実現。全棟で構造計算書を発行し、耐震等級3（最高等級）を標準装備しています。さらにZEH（ゼッチ＝ネット・ゼロ・エネルギー・ハウス）対応で、太陽光発電やEVコンセントなど環境性能の高い住宅を提供しています。
+                            FB HOMEは1棟ごとに388項目もの構造計算を実施し、全棟で最高等級の耐震等級3を実現しています。地震や台風などの大きな力にも高い耐力を発揮する、安心の住まいをお届けします。
+                        </p>
+                        <span class="reliability-card-label">全棟388項目の構造計算</span>
+                    </div>
+                </div>
+
+                <!-- カード1: 独自の耐震対応住宅 -->
+                <div class="reliability-card">
+                    <div class="reliability-card-image">
+                        <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/quality-02.jpeg" alt="独自の耐震対応住宅とZEH対応" loading="lazy">
+                    </div>
+                    <div class="reliability-card-content">
+                        <h3 class="reliability-card-title">独自の耐震対応住宅と<br>ZEH対応住宅。</h3>
+                        <p class="reliability-card-text">
+                            FB HOMEでは1棟ごとに388項目もの構造計算を実施し、全棟で構造計算書を発行。耐震等級3（最高等級）を標準装備しています。さらにZEH（ゼッチ＝ネット・ゼロ・エネルギー・ハウス）対応で、太陽光発電やEVコンセントなど環境性能の高い住宅を提供しています。
                         </p>
                         <span class="reliability-card-label">全棟耐震等級3 &amp; ZEH対応</span>
                     </div>
@@ -1914,7 +3438,7 @@
                 <!-- カード2: 品質監査と保証 -->
                 <div class="reliability-card">
                     <div class="reliability-card-image">
-                        <img src="img/quality-03.png" alt="品質監査と保証体制">
+                        <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/quality-03.png" alt="品質監査と保証体制" loading="lazy">
                     </div>
                     <div class="reliability-card-content">
                         <h3 class="reliability-card-title">10段階の品質監査と<br>充実の保証体制。</h3>
@@ -1925,10 +3449,46 @@
                     </div>
                 </div>
 
-                <!-- カード3: 定期アフターサポート -->
+                <!-- カード3: FPウレタンパネルの性能 -->
                 <div class="reliability-card">
                     <div class="reliability-card-image">
-                        <img src="img/quality-04.jpg" alt="定期アフターサービス">
+                        <img src="img/insulation-house-arrows.png" alt="断熱性能 - FPウレタンパネルが熱を逃がさない" loading="lazy" style="object-fit: contain; background: #fff; padding: 20px;">
+                    </div>
+                    <div class="reliability-card-content" style="padding: 30px;">
+                        <h3 class="reliability-card-title">20年経っても、<br>変わらない断熱性能。</h3>
+                        <p class="reliability-card-text">
+                            硬質ウレタンフォームを木枠に一体成型した「FPウレタンパネル」を採用しています。熱伝導率0.019 W/(m・K)は、一般的なグラスウールの約3倍の性能。独立気泡構造で水分や空気を通しにくく、築20年を過ぎても新築時とほぼ変わらない性能を維持します。工場での精密生産によって施工のバラつきをなくし、全棟で安定した高い気密・高い性能を実現しています。
+                        </p>
+                        <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+                            <span class="reliability-card-label">熱伝導率 0.019 W/(m・K)</span>
+                            <span class="reliability-card-label" style="background: #1a1a1a;">壁厚105mm標準</span>
+                            <span class="reliability-card-label" style="background: #c0392b;">等級7対応</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- カード4: 気密性能 -->
+                <div class="reliability-card">
+                    <div class="reliability-card-image">
+                        <img src="img/fbhome-temperature-comfort.png" alt="FB HOMEは温度差が少なく快適" loading="lazy" style="object-fit: contain; background: #fff;">
+                    </div>
+                    <div class="reliability-card-content" style="padding: 30px;">
+                        <h3 class="reliability-card-title">冬の朝、<br>廊下もお風呂も寒くない。</h3>
+                        <p class="reliability-card-text">
+                            FB HOMEでは全棟で気密測定を実施し、C値0.7以下を保証。業界トップクラスの気密性能により、リビングも廊下も脱衣所もほぼ同じ温度に保たれます。12年経過後もC値の変化はわずか0.2程度。長く住んでも、この快適さは変わりません。
+                        </p>
+                        <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+                            <span class="reliability-card-label">全棟気密測定実施</span>
+                            <span class="reliability-card-label" style="background: #1a1a1a;">C値0.7以下を保証</span>
+                            <span class="reliability-card-label" style="background: #27ae60;">無結露50年保証</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- カード4: 定期アフターサポート -->
+                <div class="reliability-card">
+                    <div class="reliability-card-image">
+                        <img src="https://hoshizaemonn.github.io/fb-home-model-house/img/quality-04.jpg" alt="定期アフターサービス" loading="lazy">
                     </div>
                     <div class="reliability-card-content">
                         <h3 class="reliability-card-title">お引き渡し後も安心の<br>定期アフターサービス体制</h3>
@@ -1941,110 +3501,162 @@
         </div>
     </section>
 
-    <!-- TRUST AND RELIANCEセクション -->
+    <!-- ========== ラインナップセクション（ARROWS LINEUP風） ========== -->
+    <section id="lineup" class="lineup-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">&#9733;</div>
+                <div class="section-title-en">LINEUP</div>
+                <div class="section-title-divider"></div>
+                <h2 class="section-title">『コンセプト住宅』<br>商品ラインナップ</h2>
+            </div>
+        </div>
+
+        <div class="lineup-grid">
+            <!-- CALIFORNIA STYLE -->
+            <div class="lineup-card">
+                <div class="lineup-card-image">
+                    <span class="lineup-card-badge">CALIFORNIA STYLE</span>
+                    <img src="img/lineup-california-beach.jpg" alt="CALIFORNIA STYLE" loading="lazy">
+                </div>
+                <div class="lineup-card-content">
+                    <h3 class="lineup-card-name">CALIFORNIA STYLE</h3>
+                    <div class="lineup-card-tags">
+                        <span>#カバードポーチ</span>
+                        <span>#ラップサイディング</span>
+                    </div>
+                    <div class="lineup-card-price">
+                        本体価格 <span class="price-num">2,480</span> 万円〜（税込）
+                    </div>
+                </div>
+            </div>
+
+            <!-- GARAGE STYLE -->
+            <div class="lineup-card">
+                <div class="lineup-card-image">
+                    <span class="lineup-card-badge">GARAGE STYLE</span>
+                    <img src="img/lineup-uminaka.jpg" alt="GARAGE STYLE" loading="lazy">
+                </div>
+                <div class="lineup-card-content">
+                    <h3 class="lineup-card-name">GARAGE STYLE</h3>
+                    <div class="lineup-card-tags">
+                        <span>#ビルトインガレージ</span>
+                        <span>#吹き抜けリビング</span>
+                    </div>
+                    <div class="lineup-card-price">
+                        本体価格 <span class="price-num">2,480</span> 万円〜（税込）
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 施工事例セクション（ARROWS WORKS風） ========== -->
+    <section id="works" class="success-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-en">WORKS</div>
+                <div class="section-title-divider"></div>
+                <h2 class="section-title">施工事例</h2>
+            </div>
+        </div>
+
+        <div class="success-grid">
+            <!-- 事例1 -->
+            <div class="success-card">
+                <div class="success-card-image">
+                    <img src="img/works-california-beach.jpg" alt="カリフォルニアヴィレッジ福間ビーチ" loading="lazy">
+                </div>
+                <div class="success-card-content">
+                    <h3 class="success-card-title">【CALIFORNIA】カリフォルニアヴィレッジ福間ビーチ</h3>
+                </div>
+            </div>
+
+            <!-- 事例2 -->
+            <div class="success-card">
+                <div class="success-card-image">
+                    <img src="img/works-uminaka-model.jpg" alt="UMINAKAモデルハウス" loading="lazy">
+                </div>
+                <div class="success-card-content">
+                    <h3 class="success-card-title">【CALIFORNIA】UMINAKAモデルハウス</h3>
+                </div>
+            </div>
+
+            <!-- 事例3 -->
+            <div class="success-card">
+                <div class="success-card-image">
+                    <img src="img/avance-ext-005.jpg" alt="アバンセヴィラ筑前山隈" loading="lazy">
+                </div>
+                <div class="success-card-content">
+                    <h3 class="success-card-title">【CALIFORNIA】アバンセヴィラ筑前山隈</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="success-view-all">
+            <a href="#properties">施工事例一覧</a>
+        </div>
+    </section>
+
+    <!-- お問い合わせ・ご相談セクション -->
     <section class="trust-section">
         <div class="trust-content">
             <div class="trust-text">
-                <div class="trust-label">TRUST AND RELIANCE</div>
-                <h2 class="trust-title">信用と信頼</h2>
+                <div class="trust-label">CONSULTATION</div>
+                <h2 class="trust-title">住まいのご相談</h2>
+
                 <p class="trust-description">
-                    福岡の暮らしを豊かにする<br>
-                    CALIFORNIA STYLE＆WAON STYLE。<br>
-                    全棟耐震等級3の安心構造と<br>
-                    充実のアフターサポート。
+                    お電話やオンラインでの住まいづくりのご相談を承っております。<br>
+                    性能のこと、デザインのこと、土地や費用のこと。<br>
+                    経験豊富なスタッフが、お客様のご要望に合わせてご提案いたします。<br>
+                    もちろんご相談は無料です。
                 </p>
+
+                <!-- ステップ -->
+                <div class="consultation-steps">
+                    <div class="consultation-step">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <span class="step-label">1. お問い合わせ</span>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="consultation-step">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </div>
+                        <span class="step-label">2. 日時を調整</span>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="consultation-step">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <span class="step-label">3. ご相談・見学</span>
+                    </div>
+                </div>
+
+                <!-- CTAボタン -->
+                <div style="margin-bottom: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.5);">強引な営業は一切いたしません。お気軽にどうぞ。</div>
+                <a href="#contact" class="trust-cta-btn">
+                    <span class="cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
+                    今すぐお問い合わせ
+                    <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+                </a>
+
                 <p class="trust-note">福岡ビルド株式会社 ／ https://f-build.co.jp/</p>
             </div>
         </div>
     </section>
 
-    <!-- 物件セクション -->
-    <section id="properties" class="property-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">SPECIAL OFFER</div>
-                <h2 class="section-title">完成見学会</h2>
-                <p class="section-description">
-                    完成した住まいを実際にご覧いただけます
-                </p>
-            </div>
 
-            <div class="property-grid">
-                <!-- 物件カード1: CALIFORNIA STYLE -->
-                <div class="property-card">
-                    <div class="property-image-wrapper">
-                        <img src="img/cal-beach-ext1.jpg" alt="カリフォルニアヴィレッジ福間ビーチ">
-                        <div class="property-tag">福津市 福間</div>
-                    </div>
-                    <div class="property-content">
-                        <h3 class="property-name">
-                            <span style="font-size:0.75em; color:#4da6c9; font-weight:600;">CALIFORNIA STYLE</span><br>
-                            カリフォルニアヴィレッジ福間ビーチ
-                        </h3>
-                        <p class="property-specs">
-                            <strong>モデルハウス</strong> 3LDK + カバードポーチ + WIC<br>
-                            吹き抜けリビング・ラップサイディング<br>
-                            太陽光発電・ZEH対応・EVコンセント
-                        </p>
-                        <a href="#" class="property-link">
-                            物件詳細を見る →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 物件カード2: CALIFORNIA STYLE -->
-                <div class="property-card">
-                    <div class="property-image-wrapper">
-                        <img src="img/uminaka-04.jpg" alt="UMINAKAモデルハウス">
-                        <div class="property-tag">福岡市西区 今津</div>
-                    </div>
-                    <div class="property-content">
-                        <h3 class="property-name">
-                            <span style="font-size:0.75em; color:#4da6c9; font-weight:600;">CALIFORNIA STYLE</span><br>
-                            UMINAKAモデルハウス
-                        </h3>
-                        <p class="property-specs">
-                            <strong>モデルハウス</strong> 3LDK + パントリー + WIC + SIC<br>
-                            無垢材フローリング・開放的な吹き抜け<br>
-                            太陽光発電・ZEH対応・EVコンセント
-                        </p>
-                        <a href="#" class="property-link">
-                            物件詳細を見る →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 物件カード3: WAON STYLE -->
-                <div class="property-card" style="border: 2px solid #8b6b3d;">
-                    <div class="property-image-wrapper">
-                        <img src="img/waon-f-ext.jpg" alt="WAON STYLE 酒殿駅東">
-                        <div class="property-tag" style="background: linear-gradient(135deg, #8b6b3d 0%, #6b4c2a 100%); color: white;">粕屋郡 粕屋町</div>
-                    </div>
-                    <div class="property-content">
-                        <h3 class="property-name" style="color: #5a3e1b;">
-                            <span style="font-size:0.8em; color:#8b6b3d;">WAON</span><br>
-                            酒殿駅東分譲モデルハウス
-                        </h3>
-                        <p class="property-specs">
-                            <strong>モデルハウス</strong> 4LDK + ランドリールーム + WIC + パントリー<br>
-                            家事ラク動線・大容量収納・温水式床暖房<br>
-                            カップボード・宅配ボックス標準装備
-                        </p>
-                        <a href="#" class="property-link" style="background: linear-gradient(135deg, #8b6b3d 0%, #6b4c2a 100%);">
-                            物件詳細を見る →
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- お問い合わせセクション -->
     <section id="contact" class="contact-section">
         <div class="contact-container">
             <!-- 電話案内（上部に配置） -->
             <div class="contact-phone">
-                <div class="phone-icon">📞</div>
+                <div class="phone-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                 <div class="phone-content" style="text-align: center;">
                     <div class="phone-label">お電話でのお問い合わせ</div>
                     <div class="phone-number">092-710-1180</div>
@@ -2055,7 +3667,7 @@
             <!-- メールフォーム -->
             <div class="contact-form-wrapper">
                 <div class="form-header">
-                    <div class="mail-icon">✉️</div>
+                    <div class="mail-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                     <div class="form-title">メールの場合</div>
                 </div>
 
@@ -2072,7 +3684,7 @@
                             <option value="">物件を選択してください</option>
                             <option value="カリフォルニアヴィレッジ福間ビーチ">カリフォルニアヴィレッジ福間ビーチ</option>
                             <option value="UMINAKAモデルハウス">UMINAKAモデルハウス</option>
-                            <option value="酒殿駅東分譲モデルハウス">WAON 酒殿駅東分譲モデルハウス</option>
+                            <option value="アバンセヴィラ筑前山隈">アバンセヴィラ筑前山隈</option>
                         </select>
                     </div>
 
@@ -2120,9 +3732,10 @@
 
                     <!-- 送信ボタン -->
                     <button type="submit" class="form-submit-button">
-                        内容の確認
-                        <span class="arrow">→</span>
+                        送信する
+                        <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
                     </button>
+                    <div style="text-align: center; margin-top: 8px; font-size: 0.75rem; color: #8AABB5;">※通常1営業日以内にご連絡いたします</div>
 
                     <!-- reCAPTCHA -->
                     <div class="recaptcha-notice">
@@ -2135,26 +3748,37 @@
 
     <!-- 追従ボタン（固定ボタン） -->
     <div class="sticky-cta">
-        <div class="sticky-campaign-badge">完成見学会 開催中</div>
         <div class="sticky-buttons">
-            <a href="#properties" class="sticky-button">
-                <span class="icon">📢</span>
-                物件一覧を見る
-                <span class="arrow">→</span>
+            <a href="https://line.me/R/ti/p/@534owflo" target="_blank" rel="noopener" class="sticky-button sticky-line-btn">
+                <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.508.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></span>
+                LINE友だち追加
+                <span class="arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
             </a>
             <a href="#contact" class="sticky-button">
-                <span class="icon">🏠</span>
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
                 今すぐ無料相談
-                <span class="arrow">→</span>
+                <span class="arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
             </a>
         </div>
+    </div>
+
+    <!-- スマホ用 下部固定CTAバー -->
+    <div class="mobile-fixed-cta">
+        <a href="https://line.me/R/ti/p/@534owflo" target="_blank" rel="noopener" class="mobile-cta-line">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINE友だち追加
+        </a>
+        <a href="#contact" class="mobile-cta-visit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            来場予約
+        </a>
     </div>
 
     <!-- フッター -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                FB HOME
+                <img src="img/fb-home-logo-v2.png" alt="FB HOME">
                 <span class="footer-sub">CALIFORNIA STYLE LIVING</span>
             </div>
 
@@ -2164,8 +3788,16 @@
                     <p>
                         本社／福岡県那珂川市今光1丁目56番地<br>
                         TEL: 092-710-1180 / FAX: 092-804-0140<br>
-                        建設業許可／福岡県知事許可（特-3）第73084号<br>
-                        宅地建物取引業免許／福岡県知事（3）第16710号
+                        建設業許可（特-3）第73084号<br>
+                        宅建免許（3）第16710号
+                    </p>
+                </div>
+                <div class="company-details">
+                    <div class="company-logo">株式会社福遼建設</div>
+                    <p>
+                        〒813-0062 福岡市東区松島4丁目10番26号<br>
+                        フリーダイヤル: 0120-932-130<br>
+                        営業時間: 9:00〜18:00
                     </p>
                 </div>
             </div>
@@ -2177,6 +3809,42 @@
     </footer>
 
     <script>
+        // ハンバーガーメニュー
+        function toggleMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            document.querySelector('.mobile-menu-overlay').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+        }
+
+        // ヒーロースライダー
+        (function() {
+            const slides = document.querySelectorAll('.hero-slider .slide');
+            const dots = document.querySelectorAll('.slider-indicators .dot');
+            let current = 0;
+            const total = slides.length;
+
+            function goTo(index) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = index;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            // 自動再生（5秒間隔）
+            setInterval(function() {
+                goTo((current + 1) % total);
+            }, 5000);
+
+            // ドットクリック
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    goTo(parseInt(this.dataset.index));
+                });
+            });
+        })();
+
         // スムーススクロール
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2206,7 +3874,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-item, .reliability-card, .property-card').forEach(el => {
+        document.querySelectorAll('.feature-item, .reliability-card, .property-card, .event-card, .lineup-card, .success-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
