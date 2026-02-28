@@ -159,6 +159,106 @@
             opacity: 0.7;
         }
 
+        /* ハンバーガーメニュー（PC非表示） */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 25;
+            position: relative;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #1a1a1a;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+        .mobile-menu-overlay.active { display: block; }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100vh;
+            background: #fff;
+            z-index: 999;
+            padding: 80px 30px 40px;
+            box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+            transition: right 0.35s ease;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #2C4A55;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 16px 0;
+            color: #2C4A55;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: color 0.2s ease;
+        }
+        .mobile-menu a:hover { color: #5EADB8; }
+        .mobile-menu-line {
+            display: flex !important;
+            align-items: center;
+            gap: 10px;
+            margin-top: 16px;
+            padding: 16px 20px !important;
+            background: #06C755 !important;
+            color: #fff !important;
+            border-radius: 10px;
+            border-bottom: none !important;
+            font-family: 'Noto Sans JP', sans-serif !important;
+            font-size: 0.9rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0 !important;
+            justify-content: center;
+        }
+        .mobile-menu-line:hover { background: #04a648 !important; color: #fff !important; }
+        .mobile-menu-line svg { fill: #fff; flex-shrink: 0; }
+
         /* メインコンテンツボックス */
         .hero-content-wrapper {
             position: relative;
@@ -922,6 +1022,149 @@
 
         .sticky-button:hover .arrow-box {
             background: #62CDE0;
+        }
+
+        /* LINE追従ボタン（PC） */
+        .sticky-line-btn {
+            background: #06C755 !important;
+            box-shadow: 0 4px 20px rgba(6, 199, 85, 0.35) !important;
+        }
+        .sticky-line-btn:hover {
+            background: #05a648 !important;
+            box-shadow: 0 8px 28px rgba(5, 166, 72, 0.45) !important;
+        }
+        .sticky-line-btn .arrow-box {
+            background: #049e40 !important;
+        }
+        .sticky-line-btn:hover .arrow-box {
+            background: #06C755 !important;
+        }
+
+        /* LINE施工実例集プレゼントCTA */
+        .line-present-cta {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding: 0;
+        }
+        .line-present-inner {
+            background: linear-gradient(135deg, #06C755 0%, #04a648 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .line-present-inner::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .line-present-inner::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .line-present-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .line-present-title {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 900;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .line-present-title .highlight-text {
+            background: rgba(255,255,255,0.2);
+            padding: 2px 12px;
+            border-radius: 6px;
+        }
+        .line-present-desc {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.92rem;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .line-present-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #06C755;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 1;
+        }
+        .line-present-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .line-present-btn .cta-arrow-box {
+            background: #06C755;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-left: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .line-present-inner {
+                padding: 36px 24px;
+                border-radius: 16px;
+            }
+            .line-present-title {
+                font-size: 1.3rem;
+            }
+            .line-present-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 24px;
+                font-size: 0.95rem;
+            }
+            /* スマホ用LINE固定ボタン */
+            .mobile-cta-line {
+                background: #06C755 !important;
+                color: #fff !important;
+                transition: background 0.3s ease;
+            }
+            .mobile-cta-line:active {
+                background: #04a648 !important;
+            }
         }
 
         /* ========== RELIABILITYセクション ========== */
@@ -2607,6 +2850,11 @@
 
             .site-header::before { height: 120px; top: -20px; }
 
+            /* PC用ナビ非表示、ハンバーガー表示 */
+            .site-nav { display: none !important; }
+            .hamburger { display: block; }
+            .mobile-menu { display: flex; }
+
             .hero-content-wrapper {
                 padding: 40px 28px 45px;
                 margin: 20px;
@@ -2735,6 +2983,23 @@
             <a href="#lineup">LINEUP</a>
             <a href="#works">WORKS</a>
             <a href="#contact">CONTACT</a>
+        </nav>
+        <!-- ハンバーガーメニュー（スマホ用） -->
+        <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-menu-overlay" onclick="toggleMenu()"></div>
+        <nav class="mobile-menu">
+            <button class="mobile-menu-close" onclick="toggleMenu()" aria-label="閉じる">&times;</button>
+            <a href="#event" onclick="toggleMenu()">EVENT</a>
+            <a href="#features" onclick="toggleMenu()">FEATURE</a>
+            <a href="#lineup" onclick="toggleMenu()">LINEUP</a>
+            <a href="#works" onclick="toggleMenu()">WORKS</a>
+            <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+            <a href="https://line.me/R/ti/p/@534owflo" target="_blank" rel="noopener" class="mobile-menu-line">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                LINE友だち追加
+            </a>
         </nav>
     </header>
 
@@ -2875,14 +3140,6 @@
             </div>
         </div>
 
-        <!-- CTAボタン -->
-        <div class="gallery-cta-wrap">
-            <a href="#contact" class="gallery-cta-btn">
-                <span class="cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
-                今すぐお問い合わせ
-                <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-            </a>
-        </div>
     </section>
 
     <!-- ========== GARAGE STYLE ギャラリー ========== -->
@@ -2921,13 +3178,18 @@
             </div>
         </div>
 
-        <!-- CTAボタン -->
-        <div class="gallery-cta-wrap">
-            <a href="#contact" class="gallery-cta-btn">
-                <span class="cta-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
-                今すぐお問い合わせ
-                <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-            </a>
+        <!-- LINE施工実例集プレゼントCTA -->
+        <div class="line-present-cta">
+            <div class="line-present-inner">
+                <div class="line-present-badge">LINE限定特典</div>
+                <h3 class="line-present-title">GARAGE STYLE<br>施工実例集を<span class="highlight-text">無料プレゼント</span></h3>
+                <p class="line-present-desc">LINE公式アカウントに友だち追加いただくと、GARAGE STYLEの施工実例写真集をお届けします。ガレージ・外観・内装など、家づくりの参考になる実例が満載です。</p>
+                <a href="https://line.me/R/ti/p/@534owflo" target="_blank" rel="noopener" class="line-present-btn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                    LINE友だち追加で実例集を受け取る
+                    <span class="cta-arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -3472,9 +3734,9 @@
     <!-- 追従ボタン（固定ボタン） -->
     <div class="sticky-cta">
         <div class="sticky-buttons">
-            <a href="#contact" class="sticky-button">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16z"/></svg></span>
-                物件チラシを見る
+            <a href="https://line.me/R/ti/p/@534owflo" target="_blank" rel="noopener" class="sticky-button sticky-line-btn">
+                <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.508.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></span>
+                LINE友だち追加
                 <span class="arrow-box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
             </a>
             <a href="#contact" class="sticky-button">
@@ -3485,15 +3747,15 @@
         </div>
     </div>
 
-    <!-- スマホ用 下部固定CTAバー（WITHDOM風） -->
+    <!-- スマホ用 下部固定CTAバー -->
     <div class="mobile-fixed-cta">
+        <a href="https://line.me/R/ti/p/@534owflo" target="_blank" rel="noopener" class="mobile-cta-line">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINE友だち追加
+        </a>
         <a href="#contact" class="mobile-cta-visit">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             来場予約
-        </a>
-        <a href="#contact" class="mobile-cta-document">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            資料請求
         </a>
     </div>
 
@@ -3532,6 +3794,14 @@
     </footer>
 
     <script>
+        // ハンバーガーメニュー
+        function toggleMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            document.querySelector('.mobile-menu-overlay').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+        }
+
         // ヒーロースライダー
         (function() {
             const slides = document.querySelectorAll('.hero-slider .slide');
