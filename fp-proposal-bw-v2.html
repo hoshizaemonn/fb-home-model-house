@@ -1064,8 +1064,8 @@
             position: absolute;
             top: -50px;
             right: -50px;
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             background: rgba(255,255,255,0.08);
             border-radius: 50%;
         }
@@ -1074,8 +1074,8 @@
             position: absolute;
             bottom: -30px;
             left: -30px;
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             background: rgba(255,255,255,0.06);
             border-radius: 50%;
         }
@@ -1170,6 +1170,16 @@
             .mobile-cta-line:active {
                 background: #04a648 !important;
             }
+            .features-wave-top,
+            .reliability-wave-top {
+                display: none;
+            }
+            .reliability-title {
+                font-size: 1.8rem;
+            }
+            .reliability-title .sp-br {
+                display: inline;
+            }
         }
 
         /* ========== RELIABILITYセクション ========== */
@@ -1217,6 +1227,9 @@
             font-weight: 900;
             color: #2A4A55;
             line-height: 1.4;
+        }
+        .reliability-title .sp-br {
+            display: none;
         }
 
         .reliability-content {
@@ -3390,7 +3403,7 @@
         <!-- ヘッダー -->
         <div class="reliability-header">
             <div class="reliability-label">RELIABILITY</div>
-            <h2 class="reliability-title">品質と保証・サポート</h2>
+            <h2 class="reliability-title">品質と<br class="sp-br">保証とサポート</h2>
         </div>
 
         <!-- コンテンツ -->
