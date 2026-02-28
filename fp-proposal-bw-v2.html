@@ -132,6 +132,8 @@
                 radial-gradient(ellipse 90% 40% at 30% 50%, rgba(255,255,255,0.35) 0%, transparent 60%),
                 radial-gradient(ellipse 50% 45% at 70% 55%, rgba(255,255,255,0.3) 0%, transparent 65%);
             filter: blur(8px);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
             z-index: -1;
             pointer-events: none;
         }
@@ -2857,7 +2859,21 @@
 
             .site-header img { height: 36px; }
 
-            .site-header::before { height: 120px; top: -20px; }
+            .site-header::before {
+                height: 120px;
+                top: -20px;
+                /* モバイルGPU描画を最適化: radial-gradient+blurの粗いレンダリングを防止 */
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                will-change: transform;
+            }
+
+            /* iOS: background-attachment:fixed 非対応のため scroll に切り替え */
+            .event-section,
+            .trust-section,
+            .special-offer-section {
+                background-attachment: scroll;
+            }
 
             /* PC用ナビ非表示、ハンバーガー表示 */
             .site-nav { display: none !important; }
