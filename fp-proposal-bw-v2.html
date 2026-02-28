@@ -1059,6 +1059,26 @@
             position: relative;
             overflow: hidden;
         }
+        .line-present-inner::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .line-present-inner::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
         .line-present-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
